@@ -1,0 +1,7 @@
+#summary One-sentence summary of this page.
+
+= Welcome to our project! =
+
+This project will consist of the work from the Content Creation unit and the Programming For Interactive Media.
+
+The team members are William Nelms, Russ Assante and Nikolay Dimitrov.
