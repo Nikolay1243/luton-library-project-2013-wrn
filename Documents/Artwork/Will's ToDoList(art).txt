@@ -3,9 +3,9 @@ carts
 different colours for carts
 
 
-animation for wheels
-
 
 Menu
 Background Art
 Buttons for Menu
+
+Placeholders will be ready by Friday 8th
