@@ -1,5 +1,8 @@
-Russel works on mechanics
+=Work Coordination:=
+----
+*Russel-Game Mechanics
 
-Nikolay works on menu and layout
+*Nikolay-Menu and layout
 
-Will works on assets
+*Will-Assets
+----
