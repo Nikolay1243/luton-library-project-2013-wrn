@@ -1,6 +1,7 @@
 #summary Work Coordination
 #sidebar SideBar
 
+----
 =Work Coordination=
 ----
   * Russel - Game Mechanics
