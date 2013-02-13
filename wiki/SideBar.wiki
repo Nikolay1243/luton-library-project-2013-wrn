@@ -1,4 +1,5 @@
 #labels Featured
  * [WelcomePage Welcome ]
   * [WorkCoordination Work Coordination]
- * [Art The Artwork!]
+ * [Art The Artwork]
+ * [CodePage Code]
