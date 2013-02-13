@@ -1,9 +1,9 @@
 #summary How the work is split between the team members
 =Work Coordination:=
 ----
-  * Russel-Game Mechanics
+  * Russel - Game Mechanics
 
-  * Nikolay-Menu and layout
+  * Nikolay - Menu and layout
 
-  * Will-Assets
+  * Will - Assets
 ----
