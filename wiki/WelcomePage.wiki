@@ -1,5 +1,5 @@
 #summary Home page
-WorkCoordination 
+
 =Welcome!=
 ----
 
@@ -9,5 +9,6 @@ WorkCoordination
 
 The team members in the group are William Nelms, Russ Assante and Nikolay Dimitrov 
 
+Click [WorkCoordination here] to go to the Work Coordination page
 
 ----
