@@ -1,2 +1,2 @@
- * [HomePage Home ]
+ * [WelcomePage Welcome ]
   * [WorkCoordination Work Coordination]
