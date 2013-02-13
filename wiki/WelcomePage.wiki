@@ -1,4 +1,5 @@
 #summary Home page
+#sidebar SideBar
 
 =Welcome!=
 ----
