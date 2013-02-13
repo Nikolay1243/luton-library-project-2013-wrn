@@ -1,8 +1,0 @@
-#summary One-sentence summary of this page.
-
-= Welcome! =
-
-===You are at the homepage for the Luton Library Project 2013 WRN project.===
-
-The team members in the group are William Nelms, Russ Assante and Nikolay Dimitrov 
-
