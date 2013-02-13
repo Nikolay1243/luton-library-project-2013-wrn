@@ -9,8 +9,6 @@ http://luton-library-project-2013-wrn.googlecode.com/svn/Assets/Artwork/FG2_tree
 http://luton-library-project-2013-wrn.googlecode.com/svn/Assets/Artwork/bg_tree.png                                        
 
 http://luton-library-project-2013-wrn.googlecode.com/svn/Assets/Artwork/quadbike.png
-
 http://luton-library-project-2013-wrn.googlecode.com/svn/Assets/Artwork/quadbike_placeholder.png
-
 http://luton-library-project-2013-wrn.googlecode.com/svn/Assets/Artwork/quadbike_wheel.png
 ----
