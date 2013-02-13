@@ -1,5 +1,7 @@
-#summary How the work is split between the team members
-=Work Coordination:=
+#summary Work Coordination
+#sidebar SideBar
+
+=Work Coordination=
 ----
   * Russel - Game Mechanics
 
