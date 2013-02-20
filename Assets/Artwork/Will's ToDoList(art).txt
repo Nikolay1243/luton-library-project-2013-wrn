@@ -11,7 +11,7 @@ Buttons for Menu
 Placeholders will be ready by Friday 8th
 
 More things to add:
-More fleshed out Grace (100%) less creepy)
+More drawn out Grace (100%) less creepy)
 A background image to each level to create an illusion of depth (I can do some very nice things with this.
 A Collision object of which the Kart will hit and end the level.
 More Levels.
