@@ -6,7 +6,7 @@
 ----
   * Russel - Game Mechanics
 
-  * Nikolay - Menu and layout
+  * Nikolay - Menu, layout, wiki, documentation
 
   * Will - Assets
 ----
