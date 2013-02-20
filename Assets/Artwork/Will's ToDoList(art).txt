@@ -17,3 +17,7 @@ A Collision object of which the Kart will hit and end the level.
 More Levels.
 More Carts. MOAR
 
+Place Holder of Drag-n-Drop element of the game.:
+-Background
+-Buttons
+-User Interface
