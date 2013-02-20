@@ -1,6 +1,6 @@
 #labels Featured
  * [WelcomePage Welcome ]
-  * [WorkCoordination Work Coordination]
+ * [WorkCoordination Work Coordination]
  * [Art The Artwork]
  * [CodePage Code]
  * [TestPage Wiki Testing]
