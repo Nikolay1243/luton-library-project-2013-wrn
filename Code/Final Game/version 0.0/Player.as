@@ -84,7 +84,7 @@
 		
 		public function mouseDownEvent(e:MouseEvent)
 		{
-			vx += 10;
+			vx += 5;
 		}
 		
 		public function updateStage(e:Event)
