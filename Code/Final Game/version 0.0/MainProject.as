@@ -14,8 +14,37 @@
 		private var level:Level_1;
 		private var player:Player;
 		private var kart:Karts;
+		
+		private var startButton=new StartButton
+		
+		
 
 		public function MainProject()
+		{
+			MenuScreen()
+			StartButton.SetUpLevel1=SetUpLevel1;
+			
+			
+			
+		}
+		
+		public function MenuScreen()
+		{
+			
+			
+			addChild(startButton)
+			startButton.x=350
+			startButton.y=200
+			startButton.width=200
+			startButton.height=100
+			
+			
+			
+			
+		}
+		
+		
+		public function SetUpLevel1()
 		{
 			// constructor code
 			background3 = new Background3();
