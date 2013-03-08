@@ -2,5 +2,8 @@
  * [WelcomePage Welcome ]
  * [WorkCoordination Work Coordination]
  * [Art The Artwork]
+  * [Levels Levels]
+  * [Grace Grace]
+  * [Karts/Bikes Karts/Bikes]
  * [CodePage Code]
  * [TestPage Wiki Testing]
