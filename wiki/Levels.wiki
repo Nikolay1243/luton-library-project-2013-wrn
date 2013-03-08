@@ -1,7 +1,7 @@
 #sidebar SideBar
 
 ----
-=The Level Artwork=
+=The Levels=
 ----
 http://luton-library-project-2013-wrn.googlecode.com/svn/Assets/Artwork/FG1_tree.png 
 
