@@ -2,15 +2,7 @@
 ----
 =The Artwork=
 ----
-http://luton-library-project-2013-wrn.googlecode.com/svn/Assets/Artwork/FG1_tree.png 
 
-http://luton-library-project-2013-wrn.googlecode.com/svn/Assets/Artwork/FG2_tree.png
-
-http://luton-library-project-2013-wrn.googlecode.com/svn/Assets/Artwork/bg_tree.png                                        
-
-
-
-http://luton-library-project-2013-wrn.googlecode.com/svn/Assets/Artwork/grace.png
 
 http://luton-library-project-2013-wrn.googlecode.com/svn/Assets/Artwork/LMP_Level1.png	
 
