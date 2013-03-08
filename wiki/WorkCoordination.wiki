@@ -4,7 +4,7 @@
 ----
 =Work Coordination=
 ----
-  * Russel - Game Mechanics
+  * Russ - Game Mechanics
 
   * Nikolay - Menu, layout, wiki, documentation
 
