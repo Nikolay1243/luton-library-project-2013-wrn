@@ -4,6 +4,6 @@
  * [Art The Artwork]
   * [Levels Levels]
   * [Grace Grace]
-  * [Karts/Bikes Karts/Bikes]
+  * [KartsAndBikes Karts/Bikes]
  * [CodePage Code]
  * [TestPage Wiki Testing]
