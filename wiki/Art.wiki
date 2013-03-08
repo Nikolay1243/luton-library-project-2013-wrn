@@ -4,16 +4,6 @@
 ----
 
 
-http://luton-library-project-2013-wrn.googlecode.com/svn/Assets/Artwork/LMP_Level1.png	
 
-http://luton-library-project-2013-wrn.googlecode.com/svn/Assets/Artwork/LMP_Level2.png
-
-http://luton-library-project-2013-wrn.googlecode.com/svn/Assets/Artwork/LMP_Level3.png
-
-http://luton-library-project-2013-wrn.googlecode.com/svn/Assets/Artwork/LMP_Level4.png
-
-http://luton-library-project-2013-wrn.googlecode.com/svn/Assets/Artwork/ALT_grace.png
-
-http://luton-library-project-2013-wrn.googlecode.com/svn/Assets/Artwork/LMP_Tut_BGL2.png
 
 ----
