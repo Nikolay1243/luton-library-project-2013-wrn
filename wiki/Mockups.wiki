@@ -1,3 +1,3 @@
 #sidebar SideBar
 
-MockupOfUpgrades.png	
+http://luton-library-project-2013-wrn.googlecode.com/svn/Documents/MockupOfUpgrades.png	
