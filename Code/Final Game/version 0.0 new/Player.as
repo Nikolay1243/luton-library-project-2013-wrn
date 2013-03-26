@@ -26,11 +26,16 @@
 		public const MASS:Number = IMMOVABLE * 2;
 
 		//Movieclips of the level
-		public static var level:MovieClip = new MovieClip(); 
+		public static var level:MovieClip = new MovieClip();
 		public static var level_Visible:MovieClip = new MovieClip();
 		public static var background1:MovieClip = new MovieClip();
 		public static var background2:MovieClip = new MovieClip();
 		public static var background3:MovieClip = new MovieClip();
+		
+		//Movieclips for the kart
+		// It is just a emply container for the MovieClip 'kart'
+		public static var container:MovieClip = new MovieClip();
+		public static var kart:MovieClip = new MovieClip();
 
 		//Create our collision list, which is going to have player and the level(collision object)
 		public var collisionList:CollisionList;
@@ -100,6 +105,33 @@
 			}
 		}
 		
+		public function moveKart()
+		{
+			var speed:Number = this.vx;
+			
+			container.rotation = this.rotation;
+			container.x = this.x;
+			container.y = this.y;
+			
+			kart.wheel1.rotation += speed;
+			kart.wheel2.rotation += speed;
+			
+			if(speed > 1)
+			{
+				if(kart.x > 0)
+				{
+					kart.x--;
+				}
+			}
+			else if(speed < -1)
+			{
+				if(kart.x < 50)
+				{
+					kart.x++;
+				}
+			}
+		}
+		
 		public function mouseDownEvent(e:MouseEvent)
 		{
 			vx += 5;
@@ -107,6 +139,9 @@
 		
 		public function updateStage(e:Event)
 		{
+			
+			moveKart();
+			
 			var collisions:Array = collisionList.checkCollisions();
 
 			if (collisions.length > 0)

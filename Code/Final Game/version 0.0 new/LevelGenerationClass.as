@@ -13,8 +13,10 @@
 		
 		private var level:Level_1;
 		private var level_Visible:Level1_Visible;
-		static var player:Player;
+		private var player:Player;
 		private var kart:Karts;
+		public var container:MovieClip = new MovieClip();
+		
 		
 		public function LevelGenerationClass() 
 		{
@@ -55,7 +57,14 @@
 			background1.x = level.x / 2;
 			background2.x = level.x / 4;
 			background3.x = level.x / 8;
+			
+			addChild(container);
+			
+			kart = new Karts();
+			container.addChild(kart);
 
+			Player.kart = kart;
+			Player.container = container;
 			Player.level = level;
 			Player.level_Visible = level_Visible;
 			Player.background1 = background1;
@@ -69,8 +78,6 @@
 			player.scaleY = 0.5;
 			player.alpha=0.01
 			
-			kart = new Karts();
-			addChild(kart);
 			kart.x = player.x;
 			kart.y = player.y;
 			kart.scaleX = 0.7;
@@ -86,14 +93,14 @@
 		
 		public function moveKart(e:Event)
 		{
-			kart.rotation = player.rotation;
+			/*kart.rotation = player.rotation;
 			kart.x = player.x;
 			kart.y = player.y - 35;
 			
 			var speed:Number = player.vx;
 			
 			kart.wheel1.rotation += speed;
-			kart.wheel2.rotation += speed;
+			kart.wheel2.rotation += speed;*/
 		}// level 1
 
 	}
