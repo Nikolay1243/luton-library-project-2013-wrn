@@ -14,7 +14,6 @@
 		{
 			addChild(menuScreen)
 			
-			
 			//SetUpLevel1()
 		}
 		

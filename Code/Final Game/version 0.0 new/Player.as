@@ -74,7 +74,7 @@
 			switch (e.keyCode)
 			{
 				case Keyboard.LEFT :
-					speed = -.05;
+					speed = -0.05;
 					break;
 
 				case Keyboard.RIGHT :
@@ -125,7 +125,7 @@
 			}
 			else if(speed < -1)
 			{
-				if(kart.x < 50)
+				if(kart.x < kart.width / 2)
 				{
 					kart.x++;
 				}
@@ -181,33 +181,38 @@
 				vy *=  friction;
 				vx *=  friction;
 			}
-
+			
 			//Apply gravity and friction to vy and ax
 			ax *=  FRICTION_SPEED;
 			vy +=  GRAVITY;
-			this.y +=  vy;
 			
-			var levelSize:int = (-level.x+stage.stageWidth) * 100 / level.width;
+			//Reduce the speed of the kart by 20%
+			var vxPlayer:Number = vx * 0.8;
+			var vyPlayer:Number = vy * 0.8;
 			
-			if(this.x < 395 && vx < 0 && level.x < 0)
+			this.y +=  vyPlayer;
+	
+			var levelSize:int = (-level.x + stage.stageWidth) * 100 / level.width;
+			
+			if(this.x < ((stage.stageWidth / 2) - 10) && vx < 0 && level.x < 0)
 			{
-				level.x -= vx;
-				level_Visible.x -= vx;
-				background1.x -= vx / 2;
-				background2.x -= vx / 4;
-				background3.x -= vx / 8;
+				level.x -= vxPlayer;
+				level_Visible.x -= vxPlayer;
+				background1.x -= vxPlayer / 2;
+				background2.x -= vxPlayer / 4;
+				background3.x -= vxPlayer / 8;
 			}
-			else if(this.x > 405 && vx > 0 && levelSize < 99)
+			else if(this.x > ((stage.stageWidth / 2) + 10) && vx > 0 && levelSize < 99)
 			{
-				level.x -= vx;
-				level_Visible.x -= vx;
-				background1.x -= vx / 2;
-				background2.x -= vx / 4;
-				background3.x -= vx / 8;
+				level.x -= vxPlayer;
+				level_Visible.x -= vxPlayer;
+				background1.x -= vxPlayer / 2;
+				background2.x -= vxPlayer / 4;
+				background3.x -= vxPlayer / 8;
 			}
 			else
 			{
-				this.x +=  vx;
+				this.x +=  vxPlayer;
 			}
 		}
 		
