@@ -29,28 +29,39 @@
 			
 			background3 = new Background3();
 			addChild(background3);
-			background3.y = 500;
-			background3.scaleY = 0.7;
+			background3.y = 400;
+			background3.scaleX = 0.5;
+			background3.scaleY = 0.5;
 			
 			background2 = new Background2();
 			addChild(background2);
-			background2.y = 550;
-			background2.scaleY = 0.7;
+			background2.y = 580;
+			background2.scaleX = 0.5;
+			background3.scaleY = 0.5;
+			
 			
 			background1 = new Background1();
 			addChild(background1);
-			background1.y = 550;
-			background1.scaleY = 0.7;
+			background1.y = 350;
+			background1.scaleX = 0.5;
+			background1.scaleY = 0.5;
+			
+			
 			
 			level = new Level_1();
 			addChild(level);
-			level.y = -10;
-			level.scaleX = 2;
+			level.y = 50;
+			level.scaleX = 0.8;
+			level.scaleY = 0.5;
+			
+			
 			
 			level_Visible = new Level1_Visible();
 			addChild(level_Visible);
-			level_Visible.y = -10;
-			level_Visible.scaleX = 2;
+			level_Visible.y = 50;
+			level_Visible.scaleX = 0.8;
+			level_Visible.scaleY = 0.5;
+			
 
 			level.x = (stage.stageWidth - level.width);
 			level_Visible.x = level.x;
@@ -76,12 +87,12 @@
 			player.x = 40;
 			player.scaleX = 0.5;
 			player.scaleY = 0.5;
-			player.alpha=0.01
+			player.alpha=1
 			
 			kart.x = player.x;
 			kart.y = player.y;
-			kart.scaleX = 0.7;
-			kart.scaleY = 0.7;
+			kart.scaleX = 0.5;
+			kart.scaleY = 0.5;
 			
 			//Start all the event
 			stage.addEventListener(KeyboardEvent.KEY_DOWN, player.keyboardDown);
