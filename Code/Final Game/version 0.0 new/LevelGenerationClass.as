@@ -22,7 +22,8 @@
 		
 		public function LevelGenerationClass() 
 		{
-			// constructor code
+			trace("LevelGenerationClass constructor")
+			//SetUpLevel1()
 		}
 		
 		public  function SetUpLevel1()
@@ -94,6 +95,14 @@
 			stage.addEventListener(KeyboardEvent.KEY_DOWN, player.keyboardDown);
 			stage.addEventListener(KeyboardEvent.KEY_UP, player.keyboardUp);
 			stage.addEventListener(MouseEvent.MOUSE_DOWN, player.mouseDownEvent);
+			
+			
+			
+			
+		}
+		public function MoveToNextLevel()
+		{
+			trace("Next Level function")
 		}
 
 	}

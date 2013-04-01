@@ -19,7 +19,7 @@
 		
 		public const GRAVITY:Number = 0.75;
 		public const FRICTION_SPEED:Number = 0.92;
-		public const ROTATION_SPEED:Number = 1.4;
+		public const ROTATION_SPEED:Number = 1;
 
 		//set the mass of the object
 		public const IMMOVABLE:Number = 10000;
@@ -140,6 +140,7 @@
 		public function updateStage(e:Event)
 		{
 			
+			
 			moveKart();
 			
 			var collisions:Array = collisionList.checkCollisions();
@@ -159,10 +160,10 @@
 				
 				angle = (angle * 180 / Math.PI) - 90;
 
-				if(angle > 30)
+				if(angle > this.rotation)
 				{
 					this.rotation += ROTATION_SPEED;
-				}else if(angle < 30)
+				}else if(angle <this.rotation)
 				{
 					this.rotation -= ROTATION_SPEED;
 				}
