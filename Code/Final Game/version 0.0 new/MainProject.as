@@ -12,7 +12,8 @@
 		
 		public function MainProject()
 		{
-			addChild(menuScreen)
+			trace("MainProject Constructor")
+			//addChild(menuScreen)
 			
 			//SetUpLevel1()
 		}
