@@ -15,7 +15,9 @@
 		private var level_Visible:Level1_Visible;
 		private var player:Player;
 		private var kart:Karts;
-		public var container:MovieClip = new MovieClip();
+		
+		public var container:Container = new Container();
+		//public var container:MovieClip = new MovieClip();
 		
 		
 		public function LevelGenerationClass() 
