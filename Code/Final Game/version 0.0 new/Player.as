@@ -159,10 +159,10 @@
 				
 				angle = (angle * 180 / Math.PI) - 90;
 
-				if(angle > this.rotation)
+				if(angle > 30)
 				{
 					this.rotation += ROTATION_SPEED;
-				}else if(angle < this.rotation)
+				}else if(angle < 30)
 				{
 					this.rotation -= ROTATION_SPEED;
 				}
