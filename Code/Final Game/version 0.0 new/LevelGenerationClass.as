@@ -10,6 +10,7 @@
 		private var background1:Background1;
 		private var background2:Background2;
 		private var background3:Background3;
+		private var endOfLevel=new EndOfLevel()
 		
 		private var level:Level_1;
 		private var level_Visible:Level1_Visible;
@@ -66,6 +67,12 @@
 			background2.x = level.x / 4;
 			background3.x = level.x / 8;
 			
+			
+			
+			addChild(endOfLevel)
+			endOfLevel.x=200
+			endOfLevel.y=200
+			
 			addChild(container);
 			
 			kart = new Karts();
@@ -95,7 +102,6 @@
 			stage.addEventListener(KeyboardEvent.KEY_DOWN, player.keyboardDown);
 			stage.addEventListener(KeyboardEvent.KEY_UP, player.keyboardUp);
 			stage.addEventListener(MouseEvent.MOUSE_DOWN, player.mouseDownEvent);
-			
 			
 			
 			
