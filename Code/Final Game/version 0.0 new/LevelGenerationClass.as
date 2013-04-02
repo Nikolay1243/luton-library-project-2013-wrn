@@ -71,6 +71,9 @@
 			
 			kart = new Karts();
 			container.addChild(kart);
+			kart.scaleX = 0.5;
+			kart.scaleY = 0.5;
+			kart.alpha = 0;
 
 			Player.kart = kart;
 			Player.container = container;
@@ -80,27 +83,41 @@
 			Player.background2 = background2;
 			Player.background3 = background3;
 			
-			player = new Player();
-			addChild(player);
-			player.x = 30;
-			player.y=1
-			player.scaleX = 0.5;
-			player.scaleY = 0.5;
-			player.alpha=0.5
-			
-			kart.x = player.x;
-			kart.y = player.y
-			kart.scaleX = 0.5;
-			kart.scaleY = 0.5;
-			
 			//Start all the event
-			stage.addEventListener(KeyboardEvent.KEY_DOWN, player.keyboardDown);
-			stage.addEventListener(KeyboardEvent.KEY_UP, player.keyboardUp);
+			addEventListener(Event.ENTER_FRAME, panorama);
 			
 		}
 		public function MoveToNextLevel()
 		{
 			trace("Next Level function")
+		}
+		
+		public function panorama(e:Event)
+		{
+			var levelSize:int = (-level.x) * 100 / level.width;
+			
+			if(levelSize == 0)
+			{
+				player = new Player();
+				addChild(player)
+				player.x = 30;
+				player.y = 1;
+				player.scaleX = 0.5;
+				player.scaleY = 0.5;
+				player.alpha=0.5
+				kart.alpha = 1;
+				
+				stage.addEventListener(KeyboardEvent.KEY_DOWN, player.keyboardDown);
+				stage.addEventListener(KeyboardEvent.KEY_UP, player.keyboardUp);
+				
+				this.removeEventListener(Event.ENTER_FRAME, panorama);
+			}
+			
+			level.x += 10;
+			level_Visible.x += 10;
+			background1.x += 10 / 2;
+			background2.x += 10 / 4;
+			background3.x += 10 / 8;
 		}
 
 	}

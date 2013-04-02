@@ -48,28 +48,7 @@
 			collisionList.addItem(this);
 			
 			//Start all the events
-			addEventListener(Event.ENTER_FRAME, panorama);
-		}
-		
-		public function panorama(e:Event)
-		{
-			var levelSize:int = (-level.x) * 100 / level.width;
-			
-			kart.alpha =0.01
-			
-			if(levelSize == 0)
-			{
-				kart.alpha =1
-				addEventListener(Event.ENTER_FRAME, updateStage);
-				this.removeEventListener(Event.ENTER_FRAME, panorama);
-				
-			}
-			
-			level.x += 10;
-			level_Visible.x += 10;
-			background1.x += 10 / 2;
-			background2.x += 10 / 4;
-			background3.x += 10 / 8;
+			addEventListener(Event.ENTER_FRAME, updateStage);
 		}
 
 		public function keyboardDown(e:KeyboardEvent)
@@ -122,16 +101,15 @@
 			//move kart backwards if right arrow button is pressed
 			if(speed > 1 && kart.x > 0)
 			{
-					kart.x-=2;
+				kart.x-=2;
 			}
 			
 			//move kart forwards if left arrow button is pressed
-			else if(speed < -1  &&(kart.x < kart.width / 2))
+			else if(speed < -1  &&(kart.x < 30))
 			{
-					kart.x+=0.45;
+				kart.x+=0.45;
 			}
 		}
-		
 		
 		
 		public function updateStage(e:Event)
@@ -188,7 +166,7 @@
 			
 			this.y +=  vyPlayer;
 	
-			var levelSize:int = (-level.x + stage.stageWidth) * 100 / level.width;
+			var levelSize:int = (-level.x) * 100 / (level.width - stage.stageWidth);
 			
 			if((this.x < ((stage.stageWidth / 2) - 10) && vx < 0 && level.x < 0)||(this.x > ((stage.stageWidth / 2) + 10) && vx > 0 && levelSize < 99))
 			{
