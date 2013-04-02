@@ -17,8 +17,8 @@
 		private var player:Player;
 		private var kart:Karts;
 		
-		public var container:Container = new Container();
-		//public var container:MovieClip = new MovieClip();
+		//public var container:Container = new Container();
+		public var container:MovieClip = new MovieClip();
 		
 		public function LevelGenerationClass() 
 		{
@@ -67,10 +67,10 @@
 			//endOfLevel.x=200
 			//endOfLevel.y=200
 			
-			addChild(container);
+			
 			
 			kart = new Karts();
-			container.addChild(kart);
+			
 			kart.scaleX = 0.5;
 			kart.scaleY = 0.5;
 			kart.alpha = 0;
@@ -99,13 +99,29 @@
 			if(levelSize == 0)
 			{
 				player = new Player();
+				
 				addChild(player)
-				player.x = 30;
-				player.y = 1;
+				addChild(container);
+				container.addChild(kart);
+				//container.addChild(player);
+				
+				
+				container.x=30
+				container.y=120
+				
+				kart.y=3
+				
+				player.x=30
+				player.y=120
+				
+				
 				player.scaleX = 0.5;
 				player.scaleY = 0.5;
 				player.alpha=0.5
 				kart.alpha = 1;
+				
+				
+				
 				
 				stage.addEventListener(KeyboardEvent.KEY_DOWN, player.keyboardDown);
 				stage.addEventListener(KeyboardEvent.KEY_UP, player.keyboardUp);
