@@ -52,8 +52,8 @@
 			
 			
 			
-			startButton.addEventListener(MouseEvent.CLICK,ClickStartGame);
-			mainMenuButton.addEventListener(MouseEvent.CLICK,ClickMainMenu);
+			startButton.addEventListener(MouseEvent.MOUSE_DOWN,ClickStartGame);
+			mainMenuButton.addEventListener(MouseEvent.MOUSE_DOWN,ClickMainMenu);
 			
 			
 		}
@@ -68,6 +68,8 @@
 		
 		public function ClickMainMenu(e:Event)
 		{
+			
+			
 			
 		}
 		
