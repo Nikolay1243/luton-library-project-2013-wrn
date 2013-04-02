@@ -83,12 +83,13 @@
 			player = new Player();
 			addChild(player);
 			player.x = 30;
+			player.y=1
 			player.scaleX = 0.5;
 			player.scaleY = 0.5;
 			player.alpha=0.5
 			
 			kart.x = player.x;
-			kart.y = player.y;
+			kart.y = player.y
 			kart.scaleX = 0.5;
 			kart.scaleY = 0.5;
 			
