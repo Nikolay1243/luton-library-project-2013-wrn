@@ -5,8 +5,8 @@
 	import flash.display.MovieClip;
 	import flash.events.Event;
 	 
-	public class LevelGenerationClass extends MovieClip{
-		
+	public class LevelGenerationClass extends MovieClip
+	{
 		private var background1:Background1;
 		private var background2:Background2;
 		private var background3:Background3;
@@ -20,17 +20,13 @@
 		public var container:Container = new Container();
 		//public var container:MovieClip = new MovieClip();
 		
-		
 		public function LevelGenerationClass() 
 		{
 			trace("LevelGenerationClass constructor")
-			//SetUpLevel1()
 		}
 		
 		public  function SetUpLevel1()
 		{
-			// constructor code
-			
 			background3 = new Background3();
 			addChild(background3);
 			background3.y = 400;
@@ -67,11 +63,9 @@
 			background2.x = level.x / 4;
 			background3.x = level.x / 8;
 			
-			
-			
-			addChild(endOfLevel)
-			endOfLevel.x=200
-			endOfLevel.y=200
+			//addChild(endOfLevel)
+			//endOfLevel.x=200
+			//endOfLevel.y=200
 			
 			addChild(container);
 			
@@ -88,10 +82,10 @@
 			
 			player = new Player();
 			addChild(player);
-			player.x = 40;
+			player.x = 30;
 			player.scaleX = 0.5;
 			player.scaleY = 0.5;
-			player.alpha=1
+			player.alpha=0.5
 			
 			kart.x = player.x;
 			kart.y = player.y;
@@ -101,9 +95,6 @@
 			//Start all the event
 			stage.addEventListener(KeyboardEvent.KEY_DOWN, player.keyboardDown);
 			stage.addEventListener(KeyboardEvent.KEY_UP, player.keyboardUp);
-			stage.addEventListener(MouseEvent.MOUSE_DOWN, player.mouseDownEvent);
-			
-			
 			
 		}
 		public function MoveToNextLevel()
