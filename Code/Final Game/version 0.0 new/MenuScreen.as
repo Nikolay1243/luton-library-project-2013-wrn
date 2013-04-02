@@ -69,8 +69,6 @@
 		public function ClickMainMenu(e:Event)
 		{
 			
-			
-			
 		}
 		
 		
