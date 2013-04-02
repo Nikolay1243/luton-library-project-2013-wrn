@@ -56,7 +56,13 @@
 			switch (e.keyCode)
 			{
 				case Keyboard.LEFT :
-					speed = -0.05;
+				
+					if (this.x>100)
+					{
+						speed = -0.05;
+					}
+					
+					
 					break;
 
 				case Keyboard.RIGHT :
@@ -107,7 +113,7 @@
 			//move kart forwards if left arrow button is pressed
 			else if(speed < -1  &&(kart.x < 30))
 			{
-				kart.x+=0.45;
+				kart.x+=0.40;
 			}
 		}
 		
@@ -168,7 +174,7 @@
 	
 			var levelSize:int = (-level.x) * 100 / (level.width - stage.stageWidth);
 			
-			if((this.x < ((stage.stageWidth / 2) - 10) && vx < 0 && level.x < 0)||(this.x > ((stage.stageWidth / 2) + 10) && vx > 0 && levelSize < 99))
+			if((this.x < ((stage.stageWidth / 2) - 10) && vx < 0 && level.x < 0 )||(this.x > ((stage.stageWidth / 2) + 10) && vx > 0 && levelSize < 99 ))
 			{
 				level.x -= vxPlayer;
 				level_Visible.x -= vxPlayer;
