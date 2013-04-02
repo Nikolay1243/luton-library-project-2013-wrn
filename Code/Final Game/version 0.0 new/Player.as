@@ -19,7 +19,7 @@
 		
 		public const GRAVITY:Number = 0.75;
 		public const FRICTION_SPEED:Number = 0.92;
-		public const ROTATION_SPEED:Number = 1;
+		public const ROTATION_SPEED:Number = 1.5;
 
 		//set the mass of the object
 		public const IMMOVABLE:Number = 10000;
@@ -42,8 +42,7 @@
 
 		public function Player()
 		{
-			// constructor code
-			
+		
 			//Add level and this(player) to the collision list
 			collisionList = new CollisionList(level);
 			collisionList.addItem(this);
@@ -116,30 +115,23 @@
 			kart.wheel1.rotation += speed;
 			kart.wheel2.rotation += speed;
 			
-			if(speed > 1)
+			//move kart backwards if right arrow button is pressed
+			if(speed > 1 && kart.x > 0)
 			{
-				if(kart.x > 0)
-				{
-					kart.x--;
-				}
+					kart.x-=2;
 			}
-			else if(speed < -1)
+			
+			//move kart forwards if left arrow button is pressed
+			else if(speed < -1  &&(kart.x < kart.width / 2))
 			{
-				if(kart.x < kart.width / 2)
-				{
-					kart.x++;
-				}
+					kart.x+=0.45;
 			}
 		}
 		
-		public function mouseDownEvent(e:MouseEvent)
-		{
-			vx += 5;
-		}
+		
 		
 		public function updateStage(e:Event)
 		{
-			
 			
 			moveKart();
 			
@@ -175,8 +167,7 @@
 
 				vx -=  cos * overlap / 10;
 				vy -=  sin * overlap / 25;
-				
-
+			
 				ax +=  speed;
 				vx +=  ax;
 				vy *=  friction;
@@ -195,7 +186,7 @@
 	
 			var levelSize:int = (-level.x + stage.stageWidth) * 100 / level.width;
 			
-			if(this.x < ((stage.stageWidth / 2) - 10) && vx < 0 && level.x < 0)
+			if((this.x < ((stage.stageWidth / 2) - 10) && vx < 0 && level.x < 0)||(this.x > ((stage.stageWidth / 2) + 10) && vx > 0 && levelSize < 99))
 			{
 				level.x -= vxPlayer;
 				level_Visible.x -= vxPlayer;
@@ -203,20 +194,11 @@
 				background2.x -= vxPlayer / 4;
 				background3.x -= vxPlayer / 8;
 			}
-			else if(this.x > ((stage.stageWidth / 2) + 10) && vx > 0 && levelSize < 99)
-			{
-				level.x -= vxPlayer;
-				level_Visible.x -= vxPlayer;
-				background1.x -= vxPlayer / 2;
-				background2.x -= vxPlayer / 4;
-				background3.x -= vxPlayer / 8;
-			}
+			
 			else
 			{
 				this.x +=  vxPlayer;
 			}
 		}
-		
 	}
-
 }
