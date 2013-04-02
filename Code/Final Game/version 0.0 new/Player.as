@@ -47,7 +47,7 @@
 			collisionList = new CollisionList(level);
 			collisionList.addItem(this);
 			
-			//Start all the event
+			//Start all the events
 			addEventListener(Event.ENTER_FRAME, panorama);
 		}
 		
@@ -55,10 +55,14 @@
 		{
 			var levelSize:int = (-level.x) * 100 / level.width;
 			
+			kart.alpha =0.01
+			
 			if(levelSize == 0)
 			{
+				kart.alpha =1
 				addEventListener(Event.ENTER_FRAME, updateStage);
 				this.removeEventListener(Event.ENTER_FRAME, panorama);
+				
 			}
 			
 			level.x += 10;
