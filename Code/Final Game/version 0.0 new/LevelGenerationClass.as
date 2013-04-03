@@ -25,7 +25,7 @@
 			trace("LevelGenerationClass constructor")
 		}
 		
-		public  function SetUpLevel1()
+		public  function SetUpLevel()
 		{
 			background3 = new Background3();
 			addChild(background3);
