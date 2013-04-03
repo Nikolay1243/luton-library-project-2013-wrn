@@ -1,6 +1,7 @@
 ﻿package 
 {
-	import flash.display.MovieClip;
+	import flash.display.*
+	
 	
 
 	public class MainProject extends MovieClip{
