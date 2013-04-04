@@ -10,7 +10,8 @@
 		private var background1:Background1;
 		private var background2:Background2;
 		private var background3:Background3;
-		private var endOfLevel=new EndOfLevel()
+		private var endOfLevel=new EndOfLevel();
+		private var gameTimer:GameTimer = new GameTimer();
 		
 		private var level:Level_1;
 		private var level_Visible:Level1_Visible;
@@ -103,8 +104,6 @@
 				addChild(player)
 				addChild(container);
 				container.addChild(kart);
-				//container.addChild(player);
-				
 				
 				container.x=30
 				container.y=120
@@ -120,7 +119,7 @@
 				player.alpha=0.5
 				kart.alpha = 1;
 				
-				
+				addChild(gameTimer);
 				
 				
 				stage.addEventListener(KeyboardEvent.KEY_DOWN, player.keyboardDown);
