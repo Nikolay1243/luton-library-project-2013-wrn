@@ -174,7 +174,8 @@
 	
 			var levelSize:int = (-level.x) * 100 / (level.width - stage.stageWidth);
 			
-			if((this.x < ((stage.stageWidth / 2) - 10) && vx < 0 && level.x < 0 )||(this.x > ((stage.stageWidth / 2) + 10) && vx > 0 && levelSize < 99 ))
+			if((this.x < ((stage.stageWidth / 2) - 10) && vx < 0 && level.x < 0 )||
+			   (this.x > ((stage.stageWidth / 2) + 10) && vx > 0 && levelSize < 99 ))
 			{
 				level.x -= vxPlayer;
 				level_Visible.x -= vxPlayer;
@@ -186,6 +187,10 @@
 			else
 			{
 				this.x +=  vxPlayer;
+				
+				
+				
+				
 			}
 		}
 	}
