@@ -21,7 +21,7 @@
 		private var whichLevel:int=1
 		
 		//public var container:Container = new Container();
-		public var container:MovieClip = new MovieClip();
+		public var container:MovieClip;
 		
 		public function LevelGenerationClass() 
 		{
@@ -49,7 +49,7 @@
 			background1.scaleY = 0.5;
 			
 			level = new Level;
-			level..gotoAndStop(whichLevel)
+			level.gotoAndStop(whichLevel)
 			addChild(level);
 			level.y = 50;
 			level.scaleX = 0.8;
@@ -72,8 +72,7 @@
 			//endOfLevel.x=200
 			//endOfLevel.y=200
 			
-			
-			
+			container = new MovieClip();
 			kart = new Karts();
 			
 			kart.scaleX = 0.5;
@@ -100,29 +99,21 @@
 				
 			if (player.x>400)
 			{
-					
-
+				player.removeEventListener(Event.ENTER_FRAME, player.updateStage);
+				
 				while (numChildren > 0) 
 				{
-       					 removeChildAt(0);
-						 
-						
+					removeChildAt(0);
 				}
-				while (numChildren==0)
-				 {
-							removeEventListener(Event.ENTER_FRAME ,MoveToNextLevel)
-							stage.removeEventListener(KeyboardEvent.KEY_DOWN, player.keyboardDown);
-							stage.removeEventListener(KeyboardEvent.KEY_UP, player.keyboardUp);
-							stage.removeEventListener(Event.ENTER_FRAME, player.updateStage)
-							this.SetUpLevel(2) 
-						 }
 				
-				
-					
-				
-					
-						//level.SetUpLevel(2)
-					
+				if (numChildren==0)
+				{
+					removeEventListener(Event.ENTER_FRAME ,MoveToNextLevel)
+					stage.removeEventListener(KeyboardEvent.KEY_DOWN, player.keyboardDown);
+					stage.removeEventListener(KeyboardEvent.KEY_UP, player.keyboardUp);
+					stage.removeEventListener(Event.ENTER_FRAME, player.updateStage)
+					this.SetUpLevel(2) 
+				}//level.SetUpLevel(2)
 			}
 				
 				
@@ -141,8 +132,8 @@
 			if(levelSize == 0)
 			{
 				player = new Player();
-				
 				addChild(player)
+				
 				addChild(container);
 				container.addChild(kart);
 				
