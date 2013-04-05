@@ -11,7 +11,7 @@
 		private var background2:Background2;
 		private var background3:Background3;
 		private var endOfLevel=new EndOfLevel();
-		private var gameTimer:GameTimer = new GameTimer();
+		private var gameTimer:GameTimer;
 		
 		private var level:Level;
 		private var level_Visible:Level_Visible;
@@ -151,6 +151,7 @@
 				player.alpha=0.5
 				kart.alpha = 1;
 				
+				gameTimer = new GameTimer();
 				addChild(gameTimer)
 				gameTimer.x=20;
 				
