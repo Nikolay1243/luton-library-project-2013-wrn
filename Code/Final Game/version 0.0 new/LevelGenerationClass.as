@@ -10,7 +10,6 @@
 		private var background1:Background1;
 		private var background2:Background2;
 		private var background3:Background3;
-		private var endOfLevel=new EndOfLevel();
 		private var gameTimer:GameTimer;
 		
 		private var level:Level;
@@ -112,7 +111,7 @@
 					stage.removeEventListener(KeyboardEvent.KEY_DOWN, player.keyboardDown);
 					stage.removeEventListener(KeyboardEvent.KEY_UP, player.keyboardUp);
 					stage.removeEventListener(Event.ENTER_FRAME, player.updateStage)
-					this.SetUpLevel(2) 
+					this.SetUpLevel(level.currentFrame+1) 
 				}//level.SetUpLevel(2)
 			}
 				
