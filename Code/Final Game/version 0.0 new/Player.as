@@ -169,8 +169,6 @@
 			//Reduce the speed of the kart by 20%
 			var vxPlayer:Number = vx * 0.8;
 			var vyPlayer:Number = vy * 0.8;
-			
-			this.y +=  vyPlayer;
 	
 			var levelSize:int = (-level.x) * 100 / (level.width - stage.stageWidth);
 			
@@ -183,14 +181,31 @@
 				background2.x -= vxPlayer / 4;
 				background3.x -= vxPlayer / 8;
 			}
-			
 			else
 			{
 				this.x +=  vxPlayer;
-				
-				
-				
-				
+			}
+			
+			if(this.y > ((stage.stageHeight / 2) + 100) && vy > 0)
+			{
+				level.y -= vyPlayer;
+				level_Visible.y -= vyPlayer;
+				background1.y -= vyPlayer / 2;
+				background2.y -= vyPlayer / 4;
+				background3.y -= vyPlayer / 8;
+			
+			}
+			else if(this.y < ((stage.stageHeight / 2) - 100) && vy < 0)
+			{
+				level.y -= vyPlayer;
+				level_Visible.y -= vyPlayer;
+				background1.y -= vyPlayer / 2;
+				background2.y -= vyPlayer / 4;
+				background3.y -= vyPlayer / 8;
+			}
+			else
+			{
+				this.y +=  vyPlayer;
 			}
 		}
 	}
