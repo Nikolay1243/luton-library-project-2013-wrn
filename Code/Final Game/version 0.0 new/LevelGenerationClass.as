@@ -13,10 +13,12 @@
 		private var endOfLevel=new EndOfLevel();
 		private var gameTimer:GameTimer = new GameTimer();
 		
-		private var level:Level_1;
-		private var level_Visible:Level1_Visible;
+		private var level:Level;
+		private var level_Visible:Level_Visible;
 		private var player:Player;
 		private var kart:Karts;
+		
+		private var whichLevel:int=1
 		
 		//public var container:Container = new Container();
 		public var container:MovieClip = new MovieClip();
@@ -26,7 +28,7 @@
 			trace("LevelGenerationClass constructor")
 		}
 		
-		public  function SetUpLevel()
+		public  function SetUpLevel(whichLevel)
 		{
 			background3 = new Background3();
 			addChild(background3);
@@ -46,13 +48,15 @@
 			background1.scaleX = 0.5;
 			background1.scaleY = 0.5;
 			
-			level = new Level_1();
+			level = new Level;
+			level..gotoAndStop(whichLevel)
 			addChild(level);
 			level.y = 50;
 			level.scaleX = 0.8;
 			level.scaleY = 0.5;
 			
-			level_Visible = new Level1_Visible();
+			level_Visible = new Level_Visible;
+			level_Visible.gotoAndStop(whichLevel)
 			addChild(level_Visible);
 			level_Visible.y = 50;
 			level_Visible.scaleX = 0.8;
@@ -88,9 +92,46 @@
 			addEventListener(Event.ENTER_FRAME, panorama);
 			
 		}
-		public function MoveToNextLevel()
+		public function MoveToNextLevel(e:Event)
 		{
-			trace("Next Level function")
+			
+			//trace("Level " +whichLevel)
+			
+				
+			if (player.x>400)
+			{
+					
+
+				while (numChildren > 0) 
+				{
+       					 removeChildAt(0);
+						 
+						
+				}
+				while (numChildren==0)
+				 {
+							removeEventListener(Event.ENTER_FRAME ,MoveToNextLevel)
+							stage.removeEventListener(KeyboardEvent.KEY_DOWN, player.keyboardDown);
+							stage.removeEventListener(KeyboardEvent.KEY_UP, player.keyboardUp);
+							stage.removeEventListener(Event.ENTER_FRAME, player.updateStage)
+							this.SetUpLevel(2) 
+						 }
+				
+				
+					
+				
+					
+						//level.SetUpLevel(2)
+					
+			}
+				
+				
+				
+				
+				
+				
+			
+			
 		}
 		
 		public function panorama(e:Event)
@@ -119,11 +160,13 @@
 				player.alpha=0.5
 				kart.alpha = 1;
 				
-				addChild(gameTimer);
+				addChild(gameTimer)
+				gameTimer.x=20;
 				
 				
 				stage.addEventListener(KeyboardEvent.KEY_DOWN, player.keyboardDown);
 				stage.addEventListener(KeyboardEvent.KEY_UP, player.keyboardUp);
+				addEventListener(Event.ENTER_FRAME ,MoveToNextLevel)
 				
 				this.removeEventListener(Event.ENTER_FRAME, panorama);
 			}
