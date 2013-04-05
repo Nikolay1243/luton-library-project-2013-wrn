@@ -19,7 +19,7 @@
 		
 		public const GRAVITY:Number = 0.75;
 		public const FRICTION_SPEED:Number = 0.92;
-		public const ROTATION_SPEED:Number = 1.5;
+		public const ROTATION_SPEED:Number = 2.5;
 
 		//set the mass of the object
 		public const IMMOVABLE:Number = 10000;
