@@ -16,11 +16,13 @@
 		
 		public function GameTimer(){
 			// constructor code
+			
 			time = new Date(0,0,0,0,-1,59,0);
 			timer = new Timer(100);
 			
 			textTime = new TextField();
 			addChild(textTime);
+			textTime.selectable = false;
 			
 			var project_Font:Font=new Project_Font();
 			var textFormat:TextFormat = new TextFormat();
