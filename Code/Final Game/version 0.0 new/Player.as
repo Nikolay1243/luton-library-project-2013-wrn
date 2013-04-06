@@ -186,16 +186,7 @@
 				this.x +=  vxPlayer;
 			}
 			
-			if(this.y > ((stage.stageHeight / 2) + 100) && vy > 0)
-			{
-				level.y -= vyPlayer;
-				level_Visible.y -= vyPlayer;
-				background1.y -= vyPlayer / 2;
-				background2.y -= vyPlayer / 4;
-				background3.y -= vyPlayer / 8;
-			
-			}
-			else if(this.y < ((stage.stageHeight / 2) - 100) && vy < 0)
+			if((this.y > ((stage.stageHeight / 2) + 100) && vy > 1 && (level.height + level.y) > (stage.stageHeight + 10))||(this.y < ((stage.stageHeight / 2)) && vy < -1))
 			{
 				level.y -= vyPlayer;
 				level_Visible.y -= vyPlayer;
