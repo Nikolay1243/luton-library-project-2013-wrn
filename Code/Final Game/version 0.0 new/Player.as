@@ -19,7 +19,7 @@
 		
 		public const GRAVITY:Number = 0.75;
 		public const FRICTION_SPEED:Number = 0.92;
-		public const ROTATION_SPEED:Number = 0.5;
+		public const ROTATION_SPEED:Number = 1.8;
 
 		//set the mass of the object
 		public const IMMOVABLE:Number = 10000;
@@ -161,12 +161,9 @@
 				vx +=  ax;
 				vy *=  friction;
 				vx *=  friction;
-			}
+			}else kart.gotoAndStop(2)
 			
-			if (collisions.length == 0)
-			{
-				kart.gotoAndStop(2)
-			}
+			
 			
 			
 			//Apply gravity and friction to vy and ax
