@@ -201,6 +201,8 @@
 			else
 			{
 				this.y +=  vyPlayer;
+				//background1.y=this.y
+				//background2.y=this.y+200
 			}
 		}
 	}
