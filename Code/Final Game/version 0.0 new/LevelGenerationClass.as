@@ -3,7 +3,9 @@
 	import flash.events.KeyboardEvent;
 	import flash.events.MouseEvent;
 	import flash.display.MovieClip;
+	import flash.display .Stage ;
 	import flash.events.Event;
+	
 	 
 	public class LevelGenerationClass extends MovieClip
 	{
@@ -98,7 +100,7 @@
 				
 			if (player.x>400)
 			{
-				player.removeEventListener(Event.ENTER_FRAME, player.updateStage);
+				
 				
 				while (numChildren > 0) 
 				{
@@ -107,11 +109,14 @@
 				
 				if (numChildren==0)
 				{
+					player.removeEventListener(Event.ENTER_FRAME, player.updateStage);
 					removeEventListener(Event.ENTER_FRAME ,MoveToNextLevel)
 					stage.removeEventListener(KeyboardEvent.KEY_DOWN, player.keyboardDown);
 					stage.removeEventListener(KeyboardEvent.KEY_UP, player.keyboardUp);
 					stage.removeEventListener(Event.ENTER_FRAME, player.updateStage)
-					this.SetUpLevel(level.currentFrame+1) 
+					MovieClip(root).gotoAndStop(4)
+					//this.SetUpLevel(level.currentFrame+1) 
+					
 				}//level.SetUpLevel(2)
 			}
 				
