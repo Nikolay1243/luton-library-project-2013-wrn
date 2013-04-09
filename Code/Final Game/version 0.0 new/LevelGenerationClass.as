@@ -3,23 +3,23 @@
 	import flash.events.KeyboardEvent;
 	import flash.events.MouseEvent;
 	import flash.display.MovieClip;
-	import flash.display .Stage ;
 	import flash.events.Event;
+	import fl.transitions.Tween;
+	import fl.transitions.easing.*
+	import MessageBox
 	
-	 
 	public class LevelGenerationClass extends MovieClip
 	{
 		private var background1:Background1;
 		private var background2:Background2;
 		private var background3:Background3;
+		
 		private var gameTimer:GameTimer;
 		
 		private var level:Level;
 		private var level_Visible:Level_Visible;
 		private var player:Player;
 		private var kart:Karts;
-		
-		private var whichLevel:int=1
 		
 		//public var container:Container = new Container();
 		public var container:MovieClip;
@@ -29,7 +29,7 @@
 			trace("LevelGenerationClass constructor")
 		}
 		
-		public  function SetUpLevel(whichLevel)
+		public function SetUpLevel(whichLevel)
 		{
 			background3 = new Background3();
 			addChild(background3);
@@ -69,10 +69,6 @@
 			background2.x = level.x / 4;
 			background3.x = level.x / 8;
 			
-			//addChild(endOfLevel)
-			//endOfLevel.x=200
-			//endOfLevel.y=200
-			
 			container = new MovieClip();
 			kart = new Karts();
 			
@@ -87,45 +83,8 @@
 			Player.background1 = background1;
 			Player.background2 = background2;
 			Player.background3 = background3;
-			
-			//Start all the event
+
 			addEventListener(Event.ENTER_FRAME, panorama);
-			
-		}
-		public function MoveToNextLevel(e:Event)
-		{
-			
-			//trace("Level " +whichLevel)
-			
-				
-			if (player.x>400)
-			{
-				
-				
-				while (numChildren > 0) 
-				{
-					removeChildAt(0);
-				}
-				
-				if (numChildren==0)
-				{
-					player.removeEventListener(Event.ENTER_FRAME, player.updateStage);
-					removeEventListener(Event.ENTER_FRAME ,MoveToNextLevel)
-					stage.removeEventListener(KeyboardEvent.KEY_DOWN, player.keyboardDown);
-					stage.removeEventListener(KeyboardEvent.KEY_UP, player.keyboardUp);
-					stage.removeEventListener(Event.ENTER_FRAME, player.updateStage)
-					MovieClip(root).gotoAndStop(4)
-					//this.SetUpLevel(level.currentFrame+1) 
-					
-				}//level.SetUpLevel(2)
-			}
-				
-				
-				
-				
-				
-				
-			
 			
 		}
 		
@@ -149,7 +108,6 @@
 				player.x=30
 				player.y=120
 				
-				
 				player.scaleX = 0.5;
 				player.scaleY = 0.5;
 				player.alpha=0.5
@@ -158,8 +116,7 @@
 				gameTimer = new GameTimer();
 				addChild(gameTimer)
 				gameTimer.x=20;
-				
-				
+			
 				stage.addEventListener(KeyboardEvent.KEY_DOWN, player.keyboardDown);
 				stage.addEventListener(KeyboardEvent.KEY_UP, player.keyboardUp);
 				addEventListener(Event.ENTER_FRAME ,MoveToNextLevel)
@@ -173,7 +130,27 @@
 			background2.x += 10 / 4;
 			background3.x += 10 / 8;
 		}
-
+		
+		public function MoveToNextLevel(e:Event)
+		{
+			
+			if (player.x>400)
+			{
+				while (numChildren > 0) {removeChildAt(0)}
+				
+				if (numChildren==0)
+				{
+					
+					
+					player.removeEventListener(Event.ENTER_FRAME, player.updateStage);
+					removeEventListener(Event.ENTER_FRAME ,MoveToNextLevel)
+					stage.removeEventListener(KeyboardEvent.KEY_DOWN, player.keyboardDown);
+					stage.removeEventListener(KeyboardEvent.KEY_UP, player.keyboardUp);
+					stage.removeEventListener(Event.ENTER_FRAME, player.updateStage)
+					MovieClip(root).gotoAndStop(4)
+					//this.SetUpLevel(level.currentFrame+1) 
+				}
+			}
+		}
 	}
-	
 }
