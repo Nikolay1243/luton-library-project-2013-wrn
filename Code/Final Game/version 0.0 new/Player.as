@@ -42,7 +42,6 @@
 
 		public function Player()
 		{
-		
 			//Add level and this(player) to the collision list
 			collisionList = new CollisionList(level);
 			collisionList.addItem(this);
@@ -61,8 +60,6 @@
 					{
 						speed = -0.05;
 					}
-					
-					
 					break;
 
 				case Keyboard.RIGHT :
@@ -117,14 +114,12 @@
 			}
 		}
 		
-		
 		public function updateStage(e:Event)
 		{
+			var collisions:Array = collisionList.checkCollisions();
 			
 			moveKart();
 			
-			var collisions:Array = collisionList.checkCollisions();
-
 			if (collisions.length > 0)
 			{
 				kart.gotoAndStop(1)
@@ -162,9 +157,6 @@
 				vy *=  friction;
 				vx *=  friction;
 			}else kart.gotoAndStop(2)
-			
-			
-			
 			
 			//Apply gravity and friction to vy and ax
 			ax *=  FRICTION_SPEED;
