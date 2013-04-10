@@ -17,6 +17,7 @@
 	import fl.controls.Button;
 	import mx.core.ButtonAsset;
 	
+	import LevelGenerationClass
 	
 	public class GarageClass extends MovieClip {
 		
@@ -34,12 +35,20 @@
 		private var myTextFormat=new TextFormat()
 		private var project_Font:Font=new Project_Font()
 		
+		private var currentLevel1:int
+		private var myGrace=new MyGrace
+		private var l=new Loader
+		private var panoramaWait
 		
 		
 		
-		public function GarageClass() 
+		
+		public function GarageClass(currentLevel) 
 		{
 			trace("GarageClass Constructor")
+			currentLevel1=currentLevel
+			trace(currentLevel1)
+			
 			
 			CreateToolTip()
 			MakeButtons()
@@ -61,7 +70,7 @@
 			
 			upgradeButton.move(469.20,255)
 			upgradeButton.setSize(153,51)
-			
+		
 			upgradeButton.label="Upgrade"
 			upgradeButton.setStyle("embedFonts", true);
 			upgradeButton.setStyle("textFormat", myTextFormat)
@@ -75,18 +84,21 @@
 			
 			leftArrow.x=28
 			leftArrow.y=343.2
-			
-			//leftArrow.width=30
-			//leftArrow.height=29
 			leftArrow.rotation=-90
 			
 			rightArrow.x=428
 			rightArrow.y=343.2
-			//rightArrow.width=30
-			//rightArrow.height=20
 			rightArrow.rotation=90
 			
-			var buttonArray:Array=[goButton,upgradeButton,leftArrow,rightArrow]
+			myGrace.x=545
+			myGrace.y=20
+			myGrace.scaleX=0.6
+			myGrace.scaleY=0.6
+			myGrace.scaleX *= -1;
+			
+			
+			
+			var buttonArray:Array=[goButton,upgradeButton,leftArrow,rightArrow,myGrace]
 						
 			for (var i:int=0 ;i<(buttonArray.length);i++)
 			{
@@ -128,6 +140,10 @@
 			{
 				_reusableTip.show( rightArrow, "Right Arrow!","");
 			}
+			if (event.target==myGrace)
+			{
+				_reusableTip.show( myGrace, "Click Grace!","To preview the next level");
+			}
 			
 		}
 		
@@ -135,10 +151,64 @@
 		{
 			if (event.target==goButton)
 			{	
-				trace("Move to next level")
 				MovieClip(root).gotoAndStop(3)
 			}
+			
+			if (event.target==myGrace)
+			{	
+				trace("Play Preview")
+				
+				if (currentLevel1==0)
+				{
+					l.load(new URLRequest("Panoramas/TweenCamera_Lv1.swf"));
+					addChild(l)
+					panoramaWait=setInterval(showMessage,3000);
+					
+				}
+				
+				if (currentLevel1==1)
+				{
+					l.load(new URLRequest("Panoramas/TweenCamera_Lv2.swf"));
+					addChild(l)
+					panoramaWait=setInterval(showMessage,3000);
+					
+				}
+				
+				if (currentLevel1==2)
+				{
+					//l.load(new URLRequest("Panoramas/TweenCamera_Lv3.swf"));
+//					addChild(l)
+//					panoramaWait=setInterval(showMessage,3000);
+					
+				}
+				
+				if (currentLevel1==3)
+				{
+					//l.load(new URLRequest("Panoramas/TweenCamera_Lv4.swf"));
+//					addChild(l)
+//					panoramaWait=setInterval(showMessage,3000);
+				}
+				
+				
+				
+				
+			}
+			
+			
+			
+			
+			
 		}
+		
+		
+
+		public function showMessage()
+		{
+			trace("hello");
+			removeChild(l)
+			clearInterval(panoramaWait)
+		}
+		
 		
 		public function CreateToolTip()
 		{
