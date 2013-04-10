@@ -190,6 +190,7 @@
 				background2.y -= vyPlayer / 4;
 				background3.y -= vyPlayer / 8;
 			}
+			
 			else
 			{
 				this.y +=  vyPlayer;

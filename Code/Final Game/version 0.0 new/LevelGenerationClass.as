@@ -6,7 +6,7 @@
 	import flash.events.Event;
 	import fl.transitions.Tween;
 	import fl.transitions.easing.*
-	import MessageBox
+	
 	
 	public class LevelGenerationClass extends MovieClip
 	{
