@@ -4,8 +4,11 @@
 	import flash.events.MouseEvent;
 	import flash.display.MovieClip;
 	import flash.events.Event;
-	import fl.transitions.Tween;
-	import fl.transitions.easing.*
+	import flash.display.Loader;
+	import flash.net.URLLoader;
+    import flash.net.URLRequest;
+	import flash.utils.clearInterval;
+	import flash.utils.setInterval;
 	
 	
 	public class LevelGenerationClass extends MovieClip
@@ -23,6 +26,10 @@
 		
 		//public var container:Container = new Container();
 		public var container:MovieClip;
+		
+		
+		private var l:Loader = new Loader()
+		private var panoramaWait;
 		
 		public function LevelGenerationClass() 
 		{
@@ -63,12 +70,6 @@
 			level_Visible.scaleX = 0.8;
 			level_Visible.scaleY = 0.5;
 			
-			level.x = (stage.stageWidth - level.width);
-			level_Visible.x = level.x;
-			background1.x = level.x / 2;
-			background2.x = level.x / 4;
-			background3.x = level.x / 8;
-			
 			container = new MovieClip();
 			kart = new Karts();
 			
@@ -84,51 +85,70 @@
 			Player.background2 = background2;
 			Player.background3 = background3;
 
-			addEventListener(Event.ENTER_FRAME, panorama);
+			panorama(whichLevel);
 			
 		}
 		
-		public function panorama(e:Event)
+		public function startTheGame()
 		{
-			var levelSize:int = (-level.x) * 100 / level.width;
+			removeChild(l)
+			clearInterval(panoramaWait)
+
+			player = new Player();
+			addChild(player)
+				
+			addChild(container);
+			container.addChild(kart);
+				
+			container.x=30
+			container.y=120
+				
+			kart.y=3
+				
+			player.x=30
+			player.y=120
+				
+			player.scaleX = 0.5;
+			player.scaleY = 0.5;
+			player.alpha=0.5
+			kart.alpha = 1;
+
+			gameTimer = new GameTimer();
+			addChild(gameTimer)
+			gameTimer.x=20;
 			
-			if(levelSize == 0)
+			stage.addEventListener(KeyboardEvent.KEY_DOWN, player.keyboardDown);
+			stage.addEventListener(KeyboardEvent.KEY_UP, player.keyboardUp);
+			addEventListener(Event.ENTER_FRAME ,MoveToNextLevel);
+		}
+		
+		public function panorama(whichLevel)
+		{
+			
+			if (whichLevel==1)
 			{
-				player = new Player();
-				addChild(player)
-				
-				addChild(container);
-				container.addChild(kart);
-				
-				container.x=30
-				container.y=120
-				
-				kart.y=3
-				
-				player.x=30
-				player.y=120
-				
-				player.scaleX = 0.5;
-				player.scaleY = 0.5;
-				player.alpha=0.5
-				kart.alpha = 1;
-				
-				gameTimer = new GameTimer();
-				addChild(gameTimer)
-				gameTimer.x=20;
-			
-				stage.addEventListener(KeyboardEvent.KEY_DOWN, player.keyboardDown);
-				stage.addEventListener(KeyboardEvent.KEY_UP, player.keyboardUp);
-				addEventListener(Event.ENTER_FRAME ,MoveToNextLevel)
-				
-				this.removeEventListener(Event.ENTER_FRAME, panorama);
+				l.load(new URLRequest("Panoramas/TweenCamera_Lv1.swf"));
+				addChild(l)
+				panoramaWait=setInterval(startTheGame,3000);
 			}
-			
-			level.x += 10;
-			level_Visible.x += 10;
-			background1.x += 10 / 2;
-			background2.x += 10 / 4;
-			background3.x += 10 / 8;
+			if (whichLevel==2)
+			{
+				l.load(new URLRequest("Panoramas/TweenCamera_Lv2.swf"));
+				addChild(l)
+				panoramaWait=setInterval(startTheGame,3000);
+			}
+			if (whichLevel==3)
+			{
+				l.load(new URLRequest("Panoramas/TweenCamera_Lv3.swf"));
+				addChild(l)
+				panoramaWait=setInterval(startTheGame,3000);
+			}
+			if (whichLevel==4)
+			{
+				l.load(new URLRequest("Panoramas/TweenCamera_Lv4.swf"));
+				addChild(l)
+				panoramaWait=setInterval(startTheGame,3000);
+			}
 		}
 		
 		public function MoveToNextLevel(e:Event)
