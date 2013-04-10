@@ -73,16 +73,17 @@
 			goButton.setStyle("embedFonts", true);
 			goButton.setStyle("textFormat", myTextFormat)
 			
-			leftArrow.x=32
-			leftArrow.y=359
-			leftArrow.width=30
-			leftArrow.height=20
+			leftArrow.x=28
+			leftArrow.y=343.2
+			
+			//leftArrow.width=30
+			//leftArrow.height=29
 			leftArrow.rotation=-90
 			
-			rightArrow.x=423
-			rightArrow.y=330
-			rightArrow.width=30
-			rightArrow.height=20
+			rightArrow.x=428
+			rightArrow.y=343.2
+			//rightArrow.width=30
+			//rightArrow.height=20
 			rightArrow.rotation=90
 			
 			var buttonArray:Array=[goButton,upgradeButton,leftArrow,rightArrow]
@@ -147,11 +148,17 @@
 			tf.size = 30;
 			tf.color = 0x000000;
 			
+			var tf1:TextFormat = new TextFormat();
+			
+			tf1.font =project_Font.fontName 
+			tf1.size = 20;
+			tf1.color = 0x000000;
+			
 			_reusableTip = new ToolTip();
 			_reusableTip.titleEmbed = true;
 			_reusableTip.contentEmbed = true;
 			_reusableTip.titleFormat =tf
-			_reusableTip.contentFormat = tf
+			_reusableTip.contentFormat = tf1
 			
 			_reusableTip.hook = true;
 			_reusableTip.cornerRadius = 0;
