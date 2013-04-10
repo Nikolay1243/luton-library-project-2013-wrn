@@ -129,25 +129,25 @@
 			{
 				l.load(new URLRequest("Panoramas/TweenCamera_Lv1.swf"));
 				addChild(l)
-				panoramaWait=setInterval(startTheGame,3000);
+				panoramaWait=setInterval(startTheGame,2500);
 			}
 			if (whichLevel==2)
 			{
 				l.load(new URLRequest("Panoramas/TweenCamera_Lv2.swf"));
 				addChild(l)
-				panoramaWait=setInterval(startTheGame,3000);
+				panoramaWait=setInterval(startTheGame,2500);
 			}
 			if (whichLevel==3)
 			{
 				l.load(new URLRequest("Panoramas/TweenCamera_Lv3.swf"));
 				addChild(l)
-				panoramaWait=setInterval(startTheGame,3000);
+				panoramaWait=setInterval(startTheGame,2500);
 			}
 			if (whichLevel==4)
 			{
 				l.load(new URLRequest("Panoramas/TweenCamera_Lv4.swf"));
 				addChild(l)
-				panoramaWait=setInterval(startTheGame,3000);
+				panoramaWait=setInterval(startTheGame,2500);
 			}
 		}
 		
