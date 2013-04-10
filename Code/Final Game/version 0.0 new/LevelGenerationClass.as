@@ -154,7 +154,7 @@
 		public function MoveToNextLevel(e:Event)
 		{
 			
-			if (player.x>400)
+			if (player.hitTestObject(level_Visible.endLevel))
 			{
 				while (numChildren > 0) {removeChildAt(0)}
 				
