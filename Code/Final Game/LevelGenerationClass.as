@@ -62,31 +62,28 @@
 			
 			//background2.y = 500;
 			background2.scaleX = 0.5;
-			background3.scaleY = 0.5;
+			background2.scaleY = 0.5;
 			
-
-			background1 = new Background1();
-			addChild(background1);
-			background1.y = 350;
 
 			background1.scaleX = 0.5;
 			background1.scaleY = 0.5;
 			
 			if (whichLevel==1)
 			{
-				background2.y=level_Visible.y+430
+				background2.y=level_Visible.y+250
 				background1.y = level_Visible.y+180;
 			}
 			
 			if (whichLevel==2)
 			{
-				background2.y=level_Visible.y+430
+				background2.y=level_Visible.y+330
 				background1.y = level_Visible.y+270;
 			}
 			
 			if (whichLevel==3)
 			{
-				background1.y = level_Visible.y+330;
+				background2.y=level_Visible.y+360
+				background1.y = level_Visible.y+300;
 			}
 			
 			
