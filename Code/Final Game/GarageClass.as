@@ -121,14 +121,18 @@
 		
 		public function CustomizeToolTip(event:MouseEvent )
 		{
+			
+			
 			if (event.target==goButton)
 			{
 				_reusableTip.show( goButton, "Go!","");
 			}
 			
 			if (event.target==upgradeButton)
-			{
-				_reusableTip.show( upgradeButton, "UpgradeButton!","This button is used to get upgrades for your bike!");
+			{	
+				
+				_reusableTip.tipWidth =250
+				_reusableTip.show( upgradeButton, "UpgradeButton!","This button is used to, get upgrades for your bike!");
 			}
 			
 			if (event.target==leftArrow)
@@ -215,14 +219,15 @@
 			var tf:TextFormat = new TextFormat();
 			
 			tf.font =project_Font.fontName 
-			tf.size = 30;
+			tf.size = 25;
 			tf.color = 0x000000;
 			
 			var tf1:TextFormat = new TextFormat();
 			
 			tf1.font =project_Font.fontName 
-			tf1.size = 20;
+			tf1.size = 15;
 			tf1.color = 0x000000;
+			tf1.bold =false
 			
 			_reusableTip = new ToolTip();
 			_reusableTip.titleEmbed = true;
@@ -230,9 +235,11 @@
 			_reusableTip.titleFormat =tf
 			_reusableTip.contentFormat = tf1
 			
+			
 			_reusableTip.hook = true;
 			_reusableTip.cornerRadius = 0;
-			_reusableTip.autoSize = true;
+			_reusableTip.tipWidth=200
+			_reusableTip.autoSize = false;
 			_reusableTip.align = "center";
 			
 			_reusableTip.border = 0x000000;

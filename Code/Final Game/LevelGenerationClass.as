@@ -40,32 +40,63 @@
 		{
 			background3 = new Background3();
 			addChild(background3);
-			background3.y = 400;
-			background3.scaleX = 0.5;
-			background3.scaleY = 0.5;
 			
 			background2 = new Background2();
 			addChild(background2);
-			background2.y = 500;
-			background2.scaleX = 0.5;
-			background3.scaleY = 0.5;
 			
 			background1 = new Background1();
 			addChild(background1);
-			background1.y = 350;
-			background1.scaleX = 0.5;
-			background1.scaleY = 0.5;
 			
 			level = new Level;
 			level.gotoAndStop(whichLevel)
 			addChild(level);
-			level.y = 50;
-			level.scaleX = 0.8;
-			level.scaleY = 0.5;
 			
 			level_Visible = new Level_Visible;
 			level_Visible.gotoAndStop(whichLevel)
 			addChild(level_Visible);
+			
+			background3.y = 400;
+			background3.scaleX = 0.5;
+			background3.scaleY = 0.5;
+			
+			
+			//background2.y = 500;
+			background2.scaleX = 0.5;
+			background3.scaleY = 0.5;
+			
+
+			background1 = new Background1();
+			addChild(background1);
+			background1.y = 350;
+
+			background1.scaleX = 0.5;
+			background1.scaleY = 0.5;
+			
+			if (whichLevel==1)
+			{
+				background2.y=level_Visible.y+430
+				background1.y = level_Visible.y+180;
+			}
+			
+			if (whichLevel==2)
+			{
+				background2.y=level_Visible.y+430
+				background1.y = level_Visible.y+270;
+			}
+			
+			if (whichLevel==3)
+			{
+				background1.y = level_Visible.y+330;
+			}
+			
+			
+			
+			
+			level.y = 50;
+			level.scaleX = 0.8;
+			level.scaleY = 0.5;
+			
+			
 			level_Visible.y = 50;
 			level_Visible.scaleX = 0.8;
 			level_Visible.scaleY = 0.5;

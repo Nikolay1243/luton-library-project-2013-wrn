@@ -46,6 +46,7 @@
 			collisionList = new CollisionList(level);
 			collisionList.addItem(this);
 			
+			
 			//Start all the events
 			addEventListener(Event.ENTER_FRAME, updateStage);
 		}
