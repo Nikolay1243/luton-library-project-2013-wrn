@@ -158,6 +158,12 @@
 				MovieClip(root).gotoAndStop(3)
 			}
 			
+			if (event.target==upgradeButton)
+			{	
+				MovieClip(root).gotoAndStop(8)
+			}
+			
+			
 			if (event.target==myGrace)
 			{	
 				trace("Play Preview")
