@@ -52,7 +52,7 @@
 			
 			background1 = new Background1();
 			addChild(background1);
-			background1.y = 300;
+			background1.y = 350;
 			background1.scaleX = 0.5;
 			background1.scaleY = 0.5;
 			
