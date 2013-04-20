@@ -40,8 +40,8 @@
 		private var l=new Loader
 		private var panoramaWait
 		
-		//private var displayKart=LevelGenerationClass.kart
-		private var displayKart=new Karts()
+		//private var displayKart=
+		//private var displayKart=new Karts()
 		
 		private var myItems:Array
 		
@@ -154,7 +154,9 @@
 		{
 			if (event.target==goButton)
 			{	
-				MovieClip(root).gotoAndStop(3)
+				addChild(MovieClip(root).gameStart)
+				MovieClip(root).gameStart.SetUpLevel(currentLevel1)
+				//MovieClip(root).gotoAndStop(3)
 			}
 			
 			if (event.target==upgradeButton)
@@ -165,7 +167,12 @@
 			if (event.target ==myItems[0])
 			{
 				trace("Clicked wheel1")
-				displayKart.wheel1.gotoAndStop(2)
+				LevelGenerationClass.kart.wheel1.gotoAndStop(2)
+				LevelGenerationClass.kart.wheel2.gotoAndStop(2)
+				
+				
+				
+				
 			}
 			
 			
@@ -246,17 +253,25 @@
 		public function SetupKart()
 		{
 			
-			addChild(displayKart)
-			displayKart.scaleX=1.5
-			displayKart.scaleY=1.5
-			displayKart.x=230
-			displayKart.y=230
+			//addChild(displayKart)
+//			displayKart.scaleX=1.5
+//			displayKart.scaleY=1.5
+//			displayKart.x=230
+//			displayKart.y=230
+			
+			addChild(LevelGenerationClass.kart)
+			LevelGenerationClass.kart.scaleX=1.5
+			LevelGenerationClass.kart.scaleY=1.5
+			LevelGenerationClass.kart.x=230
+			LevelGenerationClass.kart.y=230
+			
+			
 			//displayKart.Grace.visible=false
 		}//setup kart
 		
 		public function SetupItems()
 		{
-			myItems=[displayKart.wheel1]
+			myItems=[new KartWheel()]
 			
 			myItems[0].x=200
 			myItems[0].y=300
