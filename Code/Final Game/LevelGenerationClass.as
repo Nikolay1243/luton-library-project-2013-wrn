@@ -100,7 +100,7 @@
 			
 			container = new MovieClip();
 			
-			//if(whichLevel == 1)
+			if(whichLevel == 1)
 			{
 				kart = new Karts();
 			}
