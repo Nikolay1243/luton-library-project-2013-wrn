@@ -40,7 +40,7 @@
 		private var l=new Loader
 		private var panoramaWait
 		
-		//private var displayKart=
+		private var displayKart=LevelGenerationClass.kart
 		//private var displayKart=new Karts()
 		
 		private var myItems:Array
@@ -126,7 +126,7 @@
 			
 			if (event.target==upgradeButton)
 			{	
-				_reusableTip.show( upgradeButton, "UpgradeButton!","This button is used to, get upgrades for your bike!");
+				_reusableTip.show( upgradeButton, "UpgradeButton!","This button is used to get upgrades for your bike!");
 			}
 			
 			if (event.target==leftArrow)
@@ -154,9 +154,10 @@
 		{
 			if (event.target==goButton)
 			{	
-				addChild(MovieClip(root).gameStart)
-				MovieClip(root).gameStart.SetUpLevel(currentLevel1)
-				//MovieClip(root).gotoAndStop(3)
+				LevelGenerationClass.kart=displayKart
+				//addChild(MovieClip(root).gameStart)
+				//MovieClip(root).gameStart.SetUpLevel(currentLevel1)
+				MovieClip(root).gotoAndStop(3)
 			}
 			
 			if (event.target==upgradeButton)
@@ -253,20 +254,22 @@
 		public function SetupKart()
 		{
 			
-			//addChild(displayKart)
-//			displayKart.scaleX=1.5
-//			displayKart.scaleY=1.5
-//			displayKart.x=230
-//			displayKart.y=230
-			
-			addChild(LevelGenerationClass.kart)
-			LevelGenerationClass.kart.scaleX=1.5
-			LevelGenerationClass.kart.scaleY=1.5
-			LevelGenerationClass.kart.x=230
-			LevelGenerationClass.kart.y=230
+			addChild(displayKart)
+			displayKart.scaleX=1.5
+			displayKart.scaleY=1.5
+			displayKart.x=230
+			displayKart.y=230
 			
 			
-			//displayKart.Grace.visible=false
+			//addChild(LevelGenerationClass.kart)
+//			LevelGenerationClass.kart.scaleX=1.5
+//			LevelGenerationClass.kart.scaleY=1.5
+//			LevelGenerationClass.kart.x=230
+//			LevelGenerationClass.kart.y=230
+			
+			
+			displayKart.Grace.visible=false
+			
 		}//setup kart
 		
 		public function SetupItems()

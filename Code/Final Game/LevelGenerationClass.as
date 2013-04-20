@@ -103,7 +103,7 @@
 			
 			kart.scaleX = 0.5;
 			kart.scaleY = 0.5;
-			kart.alpha = 0;
+			kart.alpha = 1;
 
 			Player.kart = kart;
 			Player.container = container;
