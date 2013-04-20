@@ -40,8 +40,10 @@
 		private var l=new Loader
 		private var panoramaWait
 		
+		//private var displayKart=LevelGenerationClass.kart
+		private var displayKart=new Karts()
 		
-		
+		private var myItems:Array
 		
 		public function GarageClass(currentLevel) 
 		{
@@ -52,6 +54,10 @@
 			
 			CreateToolTip()
 			MakeButtons()
+			
+			SetupKart()
+			SetupItems()
+			
 			//addEventListener(Event.ENTER_FRAME,getMouseCo)
 		}
 		
@@ -59,7 +65,7 @@
 		{
 			trace (stage.mouseX)
 			trace (stage.mouseY)
-		}
+		}//get mouse coord
 		
 		public function MakeButtons()
 		{
@@ -106,22 +112,12 @@
 				buttonArray[i].buttonMode = true;
 				buttonArray[i].addEventListener(MouseEvent.MOUSE_OVER, this.CustomizeToolTip );
 				buttonArray[i].addEventListener(MouseEvent.MOUSE_DOWN, this.ClickItem) 
+				
 			}
-		}
-		
-		public function SetupGarage()
-		{
-			trace("SetUpGarage")
-		}
-		
-		public function NextInList(e:Event,WhichList)
-		{
-			trace("NextInList")
-		}
+		}//make buttons
 		
 		public function CustomizeToolTip(event:MouseEvent )
 		{
-			
 			
 			if (event.target==goButton)
 			{
@@ -130,8 +126,6 @@
 			
 			if (event.target==upgradeButton)
 			{	
-				
-				_reusableTip.tipWidth =250
 				_reusableTip.show( upgradeButton, "UpgradeButton!","This button is used to, get upgrades for your bike!");
 			}
 			
@@ -149,7 +143,12 @@
 				_reusableTip.show( myGrace, "Click Grace!","To preview the next level");
 			}
 			
-		}
+			if (event.target ==myItems[0])
+			{
+				_reusableTip.show(myItems[0], "Click me to to to frame 2");
+			}
+			
+		}//customize tooltip
 		
 		public function ClickItem(event:MouseEvent)
 		{
@@ -163,6 +162,12 @@
 				MovieClip(root).gotoAndStop(8)
 			}
 			
+			if (event.target ==myItems[0])
+			{
+				trace("Clicked wheel1")
+				displayKart.wheel1.gotoAndStop(2)
+			}
+			
 			
 			if (event.target==myGrace)
 			{	
@@ -173,7 +178,6 @@
 					l.load(new URLRequest("Panoramas/TweenCamera_Lv1.swf"));
 					addChild(l)
 					panoramaWait=setInterval(showMessage,3000);
-					
 				}
 				
 				if (currentLevel1==1)
@@ -181,44 +185,31 @@
 					l.load(new URLRequest("Panoramas/TweenCamera_Lv2.swf"));
 					addChild(l)
 					panoramaWait=setInterval(showMessage,3000);
-					
 				}
 				
 				if (currentLevel1==2)
 				{
 					//l.load(new URLRequest("Panoramas/TweenCamera_Lv3.swf"));
-//					addChild(l)
-//					panoramaWait=setInterval(showMessage,3000);
-					
+  					//addChild(l)
+  					//panoramaWait=setInterval(showMessage,3000);
 				}
 				
 				if (currentLevel1==3)
 				{
 					//l.load(new URLRequest("Panoramas/TweenCamera_Lv4.swf"));
-//					addChild(l)
-//					panoramaWait=setInterval(showMessage,3000);
+					//addChild(l)
+					//panoramaWait=setInterval(showMessage,3000);
 				}
 				
-				
-				
-				
-			}
-			
-			
-			
-			
-			
-		}
+			}//end of show preview
+		}//click item event
 		
-		
-
 		public function showMessage()
 		{
 			trace("hello");
 			removeChild(l)
 			clearInterval(panoramaWait)
-		}
-		
+		}//end of panorama
 		
 		public function CreateToolTip()
 		{
@@ -250,12 +241,46 @@
 			
 			_reusableTip.border = 0x000000;
 			_reusableTip.borderSize = 2;
-		}
+		}//setup tooltip
 		
-		public function NextLevel(e:Event)
+		public function SetupKart()
 		{
-			trace("NextLevel")
-		}
+			
+			addChild(displayKart)
+			displayKart.scaleX=1.5
+			displayKart.scaleY=1.5
+			displayKart.x=230
+			displayKart.y=230
+			//displayKart.Grace.visible=false
+		}//setup kart
+		
+		public function SetupItems()
+		{
+			myItems=[displayKart.wheel1]
+			
+			myItems[0].x=200
+			myItems[0].y=300
+			
+			
+			
+			
+			
+						
+			for (var i:int=0 ;i<(myItems.length);i++)
+			{
+				addChild(myItems[i])
+				myItems[i].buttonMode = true;
+				myItems[i].addEventListener(MouseEvent.MOUSE_OVER, this.CustomizeToolTip );
+				myItems[i].addEventListener(MouseEvent.MOUSE_DOWN, this.ClickItem)
+				
+				
+				
+			}
+			
+			
+			
+		}//setup items
+		
 		
 	}
 	

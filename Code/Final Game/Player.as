@@ -123,7 +123,7 @@
 			
 			if (collisions.length > 0)
 			{
-				kart.gotoAndStop(1)
+				kart.Grace.gotoAndStop(1)
 				var collision:Object = collisions[0];
 				var angle:Number = collision.angle;
 				var overlap:int = collision.overlapping.length;
@@ -157,7 +157,8 @@
 				vx +=  ax;
 				vy *=  friction;
 				vx *=  friction;
-			}else kart.gotoAndStop(2)
+			}
+			else kart.Grace.gotoAndStop(2)
 			
 			//Apply gravity and friction to vy and ax
 			ax *=  FRICTION_SPEED;
