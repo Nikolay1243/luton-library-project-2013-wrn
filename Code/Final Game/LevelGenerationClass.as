@@ -22,7 +22,7 @@
 		private var level:Level;
 		private var level_Visible:Level_Visible;
 		private var player:Player;
-		private var kart:Karts;
+		static var kart:Karts;
 		
 		//public var container:Container = new Container();
 		public var container:MovieClip;
