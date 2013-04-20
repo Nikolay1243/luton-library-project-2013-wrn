@@ -169,8 +169,8 @@
 			{
 				trace("Clicked wheel1")
 				
-				LevelGenerationClass.kart.wheel1.alpha = 0;
-				LevelGenerationClass.kart.wheel2.alpha = 0;
+				LevelGenerationClass.kart.wheel1.gotoAndStop(2)
+				LevelGenerationClass.kart.wheel2.gotoAndStop(2)
 				
 				//LevelGenerationClass.kart.wheel1.gotoAndStop(2);
 				//LevelGenerationClass.kart.wheel2.gotoAndStop(2);
