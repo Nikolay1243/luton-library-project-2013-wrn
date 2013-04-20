@@ -99,7 +99,11 @@
 			level_Visible.scaleY = 0.5;
 			
 			container = new MovieClip();
-			kart = new Karts();
+			
+			if(whichLevel == 1)
+			{
+				kart = new Karts();
+			}
 			
 			kart.scaleX = 0.5;
 			kart.scaleY = 0.5;
