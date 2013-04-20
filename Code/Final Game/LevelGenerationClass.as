@@ -139,6 +139,7 @@
 				
 			player.x=30
 			player.y=120
+			kart.x=player.x
 				
 			player.scaleX = 0.5;
 			player.scaleY = 0.5;
