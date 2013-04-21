@@ -198,13 +198,16 @@
 		{
 			if (event.target==goButton)
 			{	
+				displayKart.Grace.visible=true
 				LevelGenerationClass.kart=displayKart
 				MovieClip(root).gotoAndStop(3)
 			}
 			
 			if (event.target==upgradeButton)
 			{	
+				
 				MovieClip(root).gotoAndStop(8)
+				
 			}
 			
 			if (event.target==leftArrow)
