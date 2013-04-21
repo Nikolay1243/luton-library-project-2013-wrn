@@ -100,10 +100,8 @@
 			myGrace.y=20
 			myGrace.scaleX=0.6
 			myGrace.scaleY=0.6
-			myGrace.scaleX *= -1;
-			
-			
-			
+			myGrace.scaleX *= -1;//rotates grace horizontally
+	
 			var buttonArray:Array=[goButton,upgradeButton,leftArrow,rightArrow,myGrace]
 						
 			for (var i:int=0 ;i<(buttonArray.length);i++)
@@ -114,49 +112,93 @@
 				buttonArray[i].addEventListener(MouseEvent.MOUSE_DOWN, this.ClickItem) 
 				
 			}
-		}//make buttons
+		}//end of make buttons
+		
+		public function CreateToolTip()
+		{
+			var tf:TextFormat = new TextFormat();
+			
+			tf.font =project_Font.fontName 
+			tf.size = 25;
+			tf.color = 0x000000;
+			
+			var tf1:TextFormat = new TextFormat();
+			
+			tf1.font =project_Font.fontName 
+			tf1.size = 15;
+			tf1.color = 0x000000;
+			tf1.bold =false
+			
+			_reusableTip = new ToolTip();
+			_reusableTip.titleEmbed = true;
+			_reusableTip.contentEmbed = true;
+			_reusableTip.titleFormat =tf
+			_reusableTip.contentFormat = tf1
+			
+			
+			_reusableTip.hook = true;
+			_reusableTip.cornerRadius = 0;
+			
+			_reusableTip.autoSize = true;
+			_reusableTip.align = "left";
+			
+			_reusableTip.border = 0x000000;
+			_reusableTip.borderSize = 2;
+		}//end of setup tooltip
 		
 		public function CustomizeToolTip(event:MouseEvent )
 		{
+			//Button tooltips
 			
-			if (event.target==goButton)
-			{
-				_reusableTip.show( goButton, "Go!","");
-			}
+			_reusableTip.align = "left";
 			
+			if (event.target==goButton){_reusableTip.show( goButton, "Go!","");}
 			if (event.target==upgradeButton)
-			{	
-				_reusableTip.show( upgradeButton, "UpgradeButton!","This button is used to get upgrades for your bike!");
-			}
-			
+				{
+					
+					_reusableTip.show( upgradeButton, "UpgradeButton!","This button is used to get upgrades for your bike!")
+				}
+				
 			if (event.target==leftArrow)
-			{
-				_reusableTip.show( leftArrow, "Left Arrow!","");
-			}
+				{	
+					_reusableTip.align = "right";
+					_reusableTip.show( leftArrow, "Left Arrow!","")
+					
+				}
+			if (event.target==rightArrow){_reusableTip.show( rightArrow, "Right Arrow!","")}
+			if (event.target==myGrace){_reusableTip.show( myGrace, "Click Grace!","To preview the next level")}
 			
-			if (event.target==rightArrow)
-			{
-				_reusableTip.show( rightArrow, "Right Arrow!","");
-			}
-			if (event.target==myGrace)
-			{
-				_reusableTip.show( myGrace, "Click Grace!","To preview the next level");
-			}
 			
+			
+			//item tooltips
 			if (event.target ==myItems[0])
 			{
-				_reusableTip.show(myItems[0], "Click me to to to frame 2");
+				if (myItems[0].currentFrame==1){_reusableTip.show(myItems[0], "wheel 1","")}
+				if (myItems[0].currentFrame==2){_reusableTip.show(myItems[0], "wheel 2","")}
+				if (myItems[0].currentFrame==3){_reusableTip.show(myItems[0], "wheel 3","")}
 			}
 			
-		}//customize tooltip
+			if (event.target ==myItems[1])
+			{
+				if (myItems[1].currentFrame==2){_reusableTip.show(myItems[1], "wheel 2","")}
+				if (myItems[1].currentFrame==3){_reusableTip.show(myItems[1], "wheel 3","")}
+				if (myItems[1].currentFrame==4){_reusableTip.show(myItems[1], "wheel 4","")}
+			}
+			if (event.target ==myItems[2])
+			{
+				if (myItems[2].currentFrame==3){_reusableTip.show(myItems[2], "wheel 3","")}
+				if (myItems[2].currentFrame==4){_reusableTip.show(myItems[2], "wheel 4","")}
+				if (myItems[2].currentFrame==5){_reusableTip.show(myItems[2], "wheel 5","")}
+			}
+			
+			
+		}//end of customize tooltip
 		
 		public function ClickItem(event:MouseEvent)
 		{
 			if (event.target==goButton)
 			{	
 				LevelGenerationClass.kart=displayKart
-				//addChild(MovieClip(root).gameStart)
-				//MovieClip(root).gameStart.SetUpLevel(currentLevel1)
 				MovieClip(root).gotoAndStop(3)
 			}
 			
@@ -165,20 +207,96 @@
 				MovieClip(root).gotoAndStop(8)
 			}
 			
+			if (event.target==leftArrow)
+			{
+				if (myItems[0].currentFrame>1){myItems[0].gotoAndStop(myItems[0].currentFrame-1)}
+				if (myItems[1].currentFrame>2){myItems[1].gotoAndStop(myItems[1].currentFrame-1)}
+				if (myItems[2].currentFrame>3){myItems[2].gotoAndStop(myItems[2].currentFrame-1)}
+			}
+			
+			if (event.target==rightArrow)
+			{
+				if (myItems[0].currentFrame<3){myItems[0].gotoAndStop(myItems[0].currentFrame+1)} 
+				if (myItems[1].currentFrame<4){myItems[1].gotoAndStop(myItems[1].currentFrame+1)}
+				if (myItems[2].currentFrame<5){myItems[2].gotoAndStop(myItems[2].currentFrame+1)}
+			}
+			
 			if (event.target ==myItems[0])
 			{
-				trace("Clicked wheel1")
+				if (myItems[0].currentFrame==1)
+				{
+					trace("Clicked wheel 1")
+					displayKart.wheel1.gotoAndStop(1)
+					displayKart.wheel2.gotoAndStop(1)
+				}
 				
-				LevelGenerationClass.kart.wheel1.gotoAndStop(2)
-				LevelGenerationClass.kart.wheel2.gotoAndStop(2)
+				if (myItems[0].currentFrame==2)
+				{
+					trace("Clicked wheel 2")
+					displayKart.wheel1.gotoAndStop(2)
+					displayKart.wheel2.gotoAndStop(2)
+				}
 				
-				//LevelGenerationClass.kart.wheel1.gotoAndStop(2);
-				//LevelGenerationClass.kart.wheel2.gotoAndStop(2);
+				if (myItems[0].currentFrame==3)
+				{
+					trace("Clicked wheel 3")
+					displayKart.wheel1.gotoAndStop(3)
+					displayKart.wheel2.gotoAndStop(3)
+				}
 				
+			}//end of if target is item [0]
+			
+			if (event.target ==myItems[1])
+			{
+				if (myItems[1].currentFrame==2)
+				{
+					trace("Clicked wheel 2")
+					displayKart.wheel1.gotoAndStop(2)
+					displayKart.wheel2.gotoAndStop(2)
+				}
 				
+				if (myItems[1].currentFrame==3)
+				{
+					trace("Clicked wheel 3")
+					displayKart.wheel1.gotoAndStop(3)
+					displayKart.wheel2.gotoAndStop(3)
+				}
 				
+				if (myItems[1].currentFrame==4)
+				{
+					trace("Clicked wheel 4")
+					displayKart.wheel1.gotoAndStop(4)
+					displayKart.wheel2.gotoAndStop(4)
+				}
 				
-			}
+			}//end of if target is item [1]
+			
+			if (event.target ==myItems[2])
+			{
+				if (myItems[2].currentFrame==3)
+				{
+					trace("Clicked wheel 3")
+					displayKart.wheel1.gotoAndStop(3)
+					displayKart.wheel2.gotoAndStop(3)
+				}
+				
+				if (myItems[2].currentFrame==4)
+				{
+					trace("Clicked wheel 4")
+					displayKart.wheel1.gotoAndStop(4)
+					displayKart.wheel2.gotoAndStop(4)
+				}
+				
+				if (myItems[2].currentFrame==5)
+				{
+					trace("Clicked wheel 5")
+					displayKart.wheel1.gotoAndStop(5)
+					displayKart.wheel2.gotoAndStop(5)
+				}
+				
+			}//end of if target is item [2]
+			
+			
 			
 			
 			if (event.target==myGrace)
@@ -214,6 +332,7 @@
 				}
 				
 			}//end of show preview
+			
 		}//click item event
 		
 		public function showMessage()
@@ -221,39 +340,9 @@
 			trace("hello");
 			removeChild(l)
 			clearInterval(panoramaWait)
-		}//end of panorama
+		}//end of panorama showmessage
 		
-		public function CreateToolTip()
-		{
-			var tf:TextFormat = new TextFormat();
-			
-			tf.font =project_Font.fontName 
-			tf.size = 25;
-			tf.color = 0x000000;
-			
-			var tf1:TextFormat = new TextFormat();
-			
-			tf1.font =project_Font.fontName 
-			tf1.size = 15;
-			tf1.color = 0x000000;
-			tf1.bold =false
-			
-			_reusableTip = new ToolTip();
-			_reusableTip.titleEmbed = true;
-			_reusableTip.contentEmbed = true;
-			_reusableTip.titleFormat =tf
-			_reusableTip.contentFormat = tf1
-			
-			
-			_reusableTip.hook = true;
-			_reusableTip.cornerRadius = 0;
-			_reusableTip.tipWidth=200
-			_reusableTip.autoSize = false;
-			_reusableTip.align = "center";
-			
-			_reusableTip.border = 0x000000;
-			_reusableTip.borderSize = 2;
-		}//setup tooltip
+		
 		
 		public function SetupKart()
 		{
@@ -261,48 +350,36 @@
 			addChild(displayKart)
 			displayKart.scaleX=1.5
 			displayKart.scaleY=1.5
-			displayKart.x=230
+			displayKart.x=215
 			displayKart.y=230
-			
-			
-			//addChild(LevelGenerationClass.kart)
-//			LevelGenerationClass.kart.scaleX=1.5
-//			LevelGenerationClass.kart.scaleY=1.5
-//			LevelGenerationClass.kart.x=230
-//			LevelGenerationClass.kart.y=230
-			
-			
+		
 			displayKart.Grace.visible=false
 			
-		}//setup kart
+		}//end of setup kart
 		
 		public function SetupItems()
 		{
-			myItems=[new KartWheel()]
 			
-			myItems[0].x=200
-			myItems[0].y=300
-			
-			
-			
-			
-			
+			myItems=[new KartWheel(),new KartWheel(),new KartWheel()]
+
+			//trace("Items",myItems.length)
 						
 			for (var i:int=0 ;i<(myItems.length);i++)
 			{
+				trace("i is ",i)
 				addChild(myItems[i])
+				myItems[(i)].gotoAndStop(i+1)
+				
+				myItems[i].x=(i+1)*110
+				myItems[i].y=340
+				
 				myItems[i].buttonMode = true;
 				myItems[i].addEventListener(MouseEvent.MOUSE_OVER, this.CustomizeToolTip );
 				myItems[i].addEventListener(MouseEvent.MOUSE_DOWN, this.ClickItem)
 				
-				
-				
-			}
+			}//end of for loop to add items to stage
 			
-			
-			
-		}//setup items
-		
+		}//end of setup items
 		
 	}
 	
