@@ -18,6 +18,7 @@
 		private var background3:Background3;
 		
 		private var gameTimer:GameTimer;
+		private var progressLevel:ProgressLevel;
 		
 		private var level:Level;
 		private var level_Visible:Level_Visible;
@@ -150,6 +151,13 @@
 			addChild(gameTimer)
 			gameTimer.x=20;
 			
+			ProgressLevel.level = level_Visible;
+			ProgressLevel.player = player;
+			progressLevel = new ProgressLevel();
+			addChild(progressLevel)
+			progressLevel.x = 120;
+			progressLevel.y = 18;
+			
 			stage.addEventListener(KeyboardEvent.KEY_DOWN, player.keyboardDown);
 			stage.addEventListener(KeyboardEvent.KEY_UP, player.keyboardUp);
 			addEventListener(Event.ENTER_FRAME ,MoveToNextLevel);
@@ -194,8 +202,9 @@
 				if (numChildren==0)
 				{
 					
-					
+					progressLevel.removeEventListener(Event.ENTER_FRAME, progressLevel.statePlayer)
 					player.removeEventListener(Event.ENTER_FRAME, player.updateStage);
+					
 					removeEventListener(Event.ENTER_FRAME ,MoveToNextLevel)
 					stage.removeEventListener(KeyboardEvent.KEY_DOWN, player.keyboardDown);
 					stage.removeEventListener(KeyboardEvent.KEY_UP, player.keyboardUp);
