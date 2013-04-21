@@ -80,7 +80,7 @@
 				background1.y = level_Visible.y+270;
 			}
 			
-			if (whichLevel==3)
+			if (whichLevel>=3)
 			{
 				background2.y=level_Visible.y+360
 				background1.y = level_Visible.y+300;
