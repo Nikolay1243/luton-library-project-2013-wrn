@@ -439,29 +439,55 @@
 			if (itemType=="Wheels")
 			{
 				myItems=[new KartWheel(),new KartWheel(),new KartWheel()]
+				
+				
+				for (var i:int=0 ;i<(myItems.length);i++)
+				{
+				
+					addChild(myItems[i])
+					
+					
+					myItems[i].x=(i+1)*110
+					myItems[i].y=340
+					
+					
+				}//end of for loop to add items to stage
+				
+				
 			}
 			if (itemType=="Bodies")
 			{
 				myItems=[new KartBody(),new KartBody()]
+				
+				for (var j:int=0 ;j<(myItems.length);j++)
+				{
+				
+					addChild(myItems[j])
+						
+						
+						myItems[j].x=(j+1)*110
+						myItems[j].y=365
+						myItems[j].scaleX=0.5
+						myItems[j].scaleY=0.5
+				}
+				
 			}
+			
+			for (var k:int=0 ;k<(myItems.length);k++)
+			{
+				
+				myItems[k].gotoAndStop(k+1)
+				trace("item is ", myItems[k]) 
+				myItems[k].buttonMode = true;
+				myItems[k].addEventListener(MouseEvent.MOUSE_OVER, this.CustomizeToolTip );
+				myItems[k].addEventListener(MouseEvent.MOUSE_DOWN, this.ClickItem)
+				
+			}//end of for loop to add items to stage
 			
 
 			//trace("Items",myItems.length)
 						
-			for (var i:int=0 ;i<(myItems.length);i++)
-			{
-				
-				addChild(myItems[i])
-				myItems[i].gotoAndStop(i+1)
-				
-				myItems[i].x=(i+1)*110
-				myItems[i].y=340
-				trace("item is ", myItems[i]) 
-				myItems[i].buttonMode = true;
-				myItems[i].addEventListener(MouseEvent.MOUSE_OVER, this.CustomizeToolTip );
-				myItems[i].addEventListener(MouseEvent.MOUSE_DOWN, this.ClickItem)
-				
-			}//end of for loop to add items to stage
+			
 		}//end of setup items
 		
 		public function SetupSelectors()
