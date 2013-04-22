@@ -27,6 +27,7 @@
 
 		//Movieclips of the level
 		public static var level:MovieClip = new MovieClip();
+		public static var garage:MovieClip = new MovieClip();
 		public static var level_Visible:MovieClip = new MovieClip();
 		public static var background1:MovieClip = new MovieClip();
 		public static var background2:MovieClip = new MovieClip();
@@ -174,6 +175,7 @@
 			   (this.x > ((stage.stageWidth / 2) + 10) && vx > 0 && levelSize < 99 ))
 			{
 				level.x -= vxPlayer;
+				garage.x -= vxPlayer;
 				level_Visible.x -= vxPlayer;
 				background1.x -= vxPlayer / 2;
 				background2.x -= vxPlayer / 4;
@@ -187,6 +189,7 @@
 			if((this.y > ((stage.stageHeight / 2) + 100) && vy > 1 && (level.height + level.y) > (stage.stageHeight + 10))||(this.y < ((stage.stageHeight / 2)) && vy < -1))
 			{
 				level.y -= vyPlayer;
+				garage.y -= vyPlayer;
 				level_Visible.y -= vyPlayer;
 				background1.y -= vyPlayer / 2;
 				background2.y -= vyPlayer / 4;
@@ -196,8 +199,6 @@
 			else
 			{
 				this.y +=  vyPlayer;
-				//background1.y=this.y
-				//background2.y=this.y+200
 			}
 		}
 	}
