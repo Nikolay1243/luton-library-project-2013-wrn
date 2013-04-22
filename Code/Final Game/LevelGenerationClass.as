@@ -139,6 +139,7 @@
 			addChild(garage)
 			garage.scaleX *= 0.8;
 			garage.scaleY *= 0.5;
+			level_Visible.garage.alpha=-0.5
 			garage.x = level_Visible.garage.x * 0.8 + level_Visible.x;
 			garage.y = level_Visible.garage.y * 0.5 + level_Visible.y;
 			
