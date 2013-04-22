@@ -40,10 +40,11 @@
 		private var l=new Loader
 		private var panoramaWait
 		
-		private var displayKart=LevelGenerationClass.kart
-		//private var displayKart=new Karts()
+		//private var displayKart=LevelGenerationClass.kart
+		private var displayKart=new Karts()
 		
 		private var myItems:Array
+		private var mySelectors:Array
 		
 		public function GarageClass(currentLevel) 
 		{
@@ -56,7 +57,8 @@
 			MakeButtons()
 			
 			SetupKart()
-			SetupItems()
+			SetupItems("Wheels")
+			SetupSelectors()
 			
 			//addEventListener(Event.ENTER_FRAME,getMouseCo)
 		}
@@ -191,11 +193,27 @@
 				if (myItems[2].currentFrame==5){_reusableTip.show(myItems[2], "wheel 5","")}
 			}
 			
+			//selector tooltips
+			if (event.target==mySelectors[0])
+			{
+				_reusableTip.align = "right";
+				_reusableTip.show(mySelectors[0], "Kart Wheels","")
+			}
+			
+			if (event.target==mySelectors[1])
+			{
+				_reusableTip.align = "right";
+				_reusableTip.show(mySelectors[1], "Kart Bodies","")
+			}
+			
+			
+			
 			
 		}//end of customize tooltip
 		
 		public function ClickItem(event:MouseEvent)
 		{
+			trace (event.target)
 			if (event.target==goButton)
 			{	
 				displayKart.Grace.visible=true
@@ -225,80 +243,134 @@
 				if (myItems[2].currentFrame<5){myItems[2].gotoAndStop(myItems[2].currentFrame+1)}
 			}
 			
-			if (event.target ==myItems[0])
+			//if Kartwheel
+			if (myItems[0] is KartWheel)
 			{
-				if (myItems[0].currentFrame==1)
+				if (event.target ==myItems[0])
 				{
-					trace("Clicked wheel 1")
-					displayKart.wheel1.gotoAndStop(1)
-					displayKart.wheel2.gotoAndStop(1)
-				}
+					if (myItems[0].currentFrame==1)
+					{
+						trace("Clicked wheel 1")
+						displayKart.wheel1.gotoAndStop(1)
+						displayKart.wheel2.gotoAndStop(1)
+					}
+					
+					if (myItems[0].currentFrame==2)
+					{
+						trace("Clicked wheel 2")
+						displayKart.wheel1.gotoAndStop(2)
+						displayKart.wheel2.gotoAndStop(2)
+					}
+					
+					if (myItems[0].currentFrame==3)
+					{
+						trace("Clicked wheel 3")
+						displayKart.wheel1.gotoAndStop(3)
+						displayKart.wheel2.gotoAndStop(3)
+					}
+					
+				}//end of if target is item [0]
 				
-				if (myItems[0].currentFrame==2)
+				if (event.target ==myItems[1])
 				{
-					trace("Clicked wheel 2")
-					displayKart.wheel1.gotoAndStop(2)
-					displayKart.wheel2.gotoAndStop(2)
-				}
+					if (myItems[1].currentFrame==2)
+					{
+						trace("Clicked wheel 2")
+						displayKart.wheel1.gotoAndStop(2)
+						displayKart.wheel2.gotoAndStop(2)
+					}
+					
+					if (myItems[1].currentFrame==3)
+					{
+						trace("Clicked wheel 3")
+						displayKart.wheel1.gotoAndStop(3)
+						displayKart.wheel2.gotoAndStop(3)
+					}
+					
+					if (myItems[1].currentFrame==4)
+					{
+						trace("Clicked wheel 4")
+						displayKart.wheel1.gotoAndStop(4)
+						displayKart.wheel2.gotoAndStop(4)
+					}
+					
+				}//end of if target is item [1]
 				
-				if (myItems[0].currentFrame==3)
+				if (event.target ==myItems[2])
 				{
-					trace("Clicked wheel 3")
-					displayKart.wheel1.gotoAndStop(3)
-					displayKart.wheel2.gotoAndStop(3)
-				}
-				
-			}//end of if target is item [0]
+					if (myItems[2].currentFrame==3)
+					{
+						trace("Clicked wheel 3")
+						displayKart.wheel1.gotoAndStop(3)
+						displayKart.wheel2.gotoAndStop(3)
+					}
+					
+					if (myItems[2].currentFrame==4)
+					{
+						trace("Clicked wheel 4")
+						displayKart.wheel1.gotoAndStop(4)
+						displayKart.wheel2.gotoAndStop(4)
+					}
+					
+					if (myItems[2].currentFrame==5)
+					{
+						trace("Clicked wheel 5")
+						displayKart.wheel1.gotoAndStop(5)
+						displayKart.wheel2.gotoAndStop(5)
+					}
+					
+				}//end of if target is item [2] 
+			}//end if target is KartWheel
 			
-			if (event.target ==myItems[1])
-			{
-				if (myItems[1].currentFrame==2)
-				{
-					trace("Clicked wheel 2")
-					displayKart.wheel1.gotoAndStop(2)
-					displayKart.wheel2.gotoAndStop(2)
-				}
-				
-				if (myItems[1].currentFrame==3)
-				{
-					trace("Clicked wheel 3")
-					displayKart.wheel1.gotoAndStop(3)
-					displayKart.wheel2.gotoAndStop(3)
-				}
-				
-				if (myItems[1].currentFrame==4)
-				{
-					trace("Clicked wheel 4")
-					displayKart.wheel1.gotoAndStop(4)
-					displayKart.wheel2.gotoAndStop(4)
-				}
-				
-			}//end of if target is item [1]
+			////if kart body
+//			if (myItems[0] is KartBody)
+//			{
+//				if (event.target ==myItems[2])
+//				{
+//					if (myItems[1].currentFrame==1)
+//						{
+//							
+//						}
+//				}
+//			}//end of if kartbody
 			
-			if (event.target ==myItems[2])
+			
+			if (event.target==mySelectors[0])
 			{
-				if (myItems[2].currentFrame==3)
-				{
-					trace("Clicked wheel 3")
-					displayKart.wheel1.gotoAndStop(3)
-					displayKart.wheel2.gotoAndStop(3)
-				}
 				
-				if (myItems[2].currentFrame==4)
+				try
 				{
-					trace("Clicked wheel 4")
-					displayKart.wheel1.gotoAndStop(4)
-					displayKart.wheel2.gotoAndStop(4)
-				}
+					for (var i:int=0 ;i<(myItems.length);i++)
+						{
+							myItems[i].removeEventListener(MouseEvent.MOUSE_OVER, this.CustomizeToolTip );
+							myItems[i].removeEventListener(MouseEvent.MOUSE_DOWN, this.ClickItem)
+							removeChild(myItems[i])
+						}
+					myItems.length=0
+					SetupItems("Wheels")
+				}catch (error:Error){trace("Whoops")}
+						
 				
-				if (myItems[2].currentFrame==5)
+			}//end of if selectors[0]
+			
+			if (event.target==mySelectors[1])
+			{
+				
+				try
 				{
-					trace("Clicked wheel 5")
-					displayKart.wheel1.gotoAndStop(5)
-					displayKart.wheel2.gotoAndStop(5)
-				}
+					for (var j:int=0 ;j<(myItems.length);j++)
+						{
+							myItems[j].removeEventListener(MouseEvent.MOUSE_OVER, this.CustomizeToolTip );
+							myItems[j].removeEventListener(MouseEvent.MOUSE_DOWN, this.ClickItem)
+							removeChild(myItems[j])
+						}
+					myItems.length=0
+					SetupItems("Bodies")
+				}catch (error:Error){trace("Whoops")}
+						
 				
-			}//end of if target is item [2]
+			}//end of if selectors[1]
+			
 			
 			
 			
@@ -361,29 +433,61 @@
 			
 		}//end of setup kart
 		
-		public function SetupItems()
+		public function SetupItems(itemType)
 		{
 			
-			myItems=[new KartWheel(),new KartWheel(),new KartWheel()]
+			if (itemType=="Wheels")
+			{
+				myItems=[new KartWheel(),new KartWheel(),new KartWheel()]
+			}
+			if (itemType=="Bodies")
+			{
+				myItems=[new KartBody(),new KartBody()]
+			}
+			
 
 			//trace("Items",myItems.length)
 						
 			for (var i:int=0 ;i<(myItems.length);i++)
 			{
-				trace("i is ",i)
+				
 				addChild(myItems[i])
-				myItems[(i)].gotoAndStop(i+1)
+				myItems[i].gotoAndStop(i+1)
 				
 				myItems[i].x=(i+1)*110
 				myItems[i].y=340
-				
+				trace("item is ", myItems[i]) 
 				myItems[i].buttonMode = true;
 				myItems[i].addEventListener(MouseEvent.MOUSE_OVER, this.CustomizeToolTip );
 				myItems[i].addEventListener(MouseEvent.MOUSE_DOWN, this.ClickItem)
 				
 			}//end of for loop to add items to stage
-			
 		}//end of setup items
+		
+		public function SetupSelectors()
+		{	
+			mySelectors=[new partSelector,new partSelector]
+			
+			for (var j:int=0 ;j<(mySelectors.length);j++)
+			{
+				
+				addChild(mySelectors[j])
+				mySelectors[j].gotoAndStop(j+1)
+				
+				
+				mySelectors[j].y=282.05
+				
+				
+				mySelectors[j].buttonMode = true;
+				mySelectors[j].addEventListener(MouseEvent.MOUSE_OVER, this.CustomizeToolTip );
+				mySelectors[j].addEventListener(MouseEvent.MOUSE_DOWN, this.ClickItem)
+				
+			}//end of for loop to add items to stage
+			mySelectors[0].x=13
+			mySelectors[1].x=13+36
+			
+			
+		}//end of setup selectors
 		
 	}
 	
