@@ -25,6 +25,8 @@
 		private var player:Player;
 		static var kart:Karts;
 		
+		private var myGuiBar:guiBar
+		
 		public var whichLevel:int
 		
 		//public var container:Container = new Container();
@@ -158,17 +160,25 @@
 			player.scaleY = 0.5;
 			player.alpha=0.5
 			kart.alpha = 1;
-
+			
+			myGuiBar=new guiBar()
+			addChild(myGuiBar)
+			myGuiBar.x=0
+			myGuiBar.y=0
+			myGuiBar.scaleX=1.5
+			myGuiBar.scaleY=0.8
+			
 			gameTimer = new GameTimer();
 			addChild(gameTimer)
-			gameTimer.x=20;
+			gameTimer.x=15;
+			gameTimer.y=10
 			
 			ProgressLevel.level = level_Visible;
 			ProgressLevel.player = player;
 			progressLevel = new ProgressLevel();
 			addChild(progressLevel)
 			progressLevel.x = 120;
-			progressLevel.y = 18;
+			progressLevel.y = 25;
 			
 			stage.addEventListener(KeyboardEvent.KEY_DOWN, player.keyboardDown);
 			stage.addEventListener(KeyboardEvent.KEY_UP, player.keyboardUp);
