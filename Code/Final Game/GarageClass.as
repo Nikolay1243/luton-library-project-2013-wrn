@@ -40,8 +40,8 @@
 		private var l=new Loader
 		private var panoramaWait
 		
-		//private var displayKart=LevelGenerationClass.kart
-		private var displayKart=new Karts()
+		private var displayKart=LevelGenerationClass.kart
+		//private var displayKart=new Karts()
 		
 		private var myItems:Array
 		private var mySelectors:Array
@@ -322,20 +322,26 @@
 				}//end of if target is item [2] 
 			}//end if target is KartWheel
 			
-			////if kart body
-//			if (myItems[0] is KartBody)
-//			{
-//				if (event.target ==myItems[2])
-//				{
-//					if (myItems[1].currentFrame==1)
-//						{
-//							
-//						}
-//				}
-//			}//end of if kartbody
+			//if kart body
+			if (myItems[0] is KartBody)
+			{
+				if (event.target ==myItems[0])
+				{
+					displayKart.Body.gotoAndStop(1)
+					
+				}
+				if (event.target ==myItems[1])
+				{
+					displayKart.Body.gotoAndStop(2)
+					
+				}
+				
+				
+				
+			}//end of if kartbody
 			
 			
-			if (event.target==mySelectors[0])
+			if (event.target==mySelectors[0]||event.target==mySelectors[1])
 			{
 				
 				try
@@ -347,32 +353,19 @@
 							removeChild(myItems[i])
 						}
 					myItems.length=0
-					SetupItems("Wheels")
+					
 				}catch (error:Error){trace("Whoops")}
-						
-				
-			}//end of if selectors[0]
-			
-			if (event.target==mySelectors[1])
-			{
-				
-				try
+				if (event.target==mySelectors[0])
 				{
-					for (var j:int=0 ;j<(myItems.length);j++)
-						{
-							myItems[j].removeEventListener(MouseEvent.MOUSE_OVER, this.CustomizeToolTip );
-							myItems[j].removeEventListener(MouseEvent.MOUSE_DOWN, this.ClickItem)
-							removeChild(myItems[j])
-						}
-					myItems.length=0
+					SetupItems("Wheels")
+				}
+				if (event.target==mySelectors[1])
+				{
 					SetupItems("Bodies")
-				}catch (error:Error){trace("Whoops")}
-						
+				}
 				
-			}//end of if selectors[1]
-			
-			
-			
+				
+			}//end of if selectors[0]||[1]
 			
 			
 			if (event.target==myGrace)
