@@ -175,22 +175,50 @@
 			//item tooltips
 			if (event.target ==myItems[0])
 			{
+				if (myItems[0] is KartWheel)
+				{
 				if (myItems[0].currentFrame==1){_reusableTip.show(myItems[0], "wheel 1","")}
 				if (myItems[0].currentFrame==2){_reusableTip.show(myItems[0], "wheel 2","")}
 				if (myItems[0].currentFrame==3){_reusableTip.show(myItems[0], "wheel 3","")}
+				}
+				
+				if (myItems[0] is KartBody)
+				{
+				if (myItems[0].currentFrame==1){_reusableTip.show(myItems[0], "body 1","")}
+				if (myItems[0].currentFrame==2){_reusableTip.show(myItems[0], "body 2","")}
+				if (myItems[0].currentFrame==3){_reusableTip.show(myItems[0], "body 3","")}
+				}
 			}
 			
 			if (event.target ==myItems[1])
 			{
+				if (myItems[0] is KartWheel)
+				{
 				if (myItems[1].currentFrame==2){_reusableTip.show(myItems[1], "wheel 2","")}
 				if (myItems[1].currentFrame==3){_reusableTip.show(myItems[1], "wheel 3","")}
 				if (myItems[1].currentFrame==4){_reusableTip.show(myItems[1], "wheel 4","")}
+				}
+				if (myItems[0] is KartBody)
+				{
+				if (myItems[1].currentFrame==2){_reusableTip.show(myItems[1], "body 2","")}
+				if (myItems[1].currentFrame==3){_reusableTip.show(myItems[1], "body 3","")}
+				if (myItems[1].currentFrame==4){_reusableTip.show(myItems[1], "body 4","")}
+				}
 			}
 			if (event.target ==myItems[2])
 			{
+				if (myItems[0] is KartWheel)
+				{
 				if (myItems[2].currentFrame==3){_reusableTip.show(myItems[2], "wheel 3","")}
 				if (myItems[2].currentFrame==4){_reusableTip.show(myItems[2], "wheel 4","")}
 				if (myItems[2].currentFrame==5){_reusableTip.show(myItems[2], "wheel 5","")}
+				}
+				if (myItems[0] is KartBody)
+				{
+				if (myItems[2].currentFrame==3){_reusableTip.show(myItems[2], "body 3","")}
+				if (myItems[2].currentFrame==4){_reusableTip.show(myItems[2], "body 4","")}
+				if (myItems[2].currentFrame==5){_reusableTip.show(myItems[2], "body 5","")}
+				}
 			}
 			
 			//selector tooltips
@@ -231,16 +259,42 @@
 			
 			if (event.target==leftArrow)
 			{
-				if (myItems[0].currentFrame>1){myItems[0].gotoAndStop(myItems[0].currentFrame-1)}
-				if (myItems[1].currentFrame>2){myItems[1].gotoAndStop(myItems[1].currentFrame-1)}
-				if (myItems[2].currentFrame>3){myItems[2].gotoAndStop(myItems[2].currentFrame-1)}
+				if (myItems[0] is KartWheel&& myItems.length>2)
+				{
+					if (myItems[0].currentFrame>1){myItems[0].gotoAndStop(myItems[0].currentFrame-1)}
+					if (myItems[1].currentFrame>2){myItems[1].gotoAndStop(myItems[1].currentFrame-1)}
+					if (myItems[2].currentFrame>3){myItems[2].gotoAndStop(myItems[2].currentFrame-1)}
+				}
+				if (myItems[0] is KartBody && myItems.length>2)
+				{
+					
+					if (myItems[0].currentFrame>1){myItems[0].gotoAndStop(myItems[0].currentFrame-1)}
+					if (myItems[1].currentFrame>2){myItems[1].gotoAndStop(myItems[1].currentFrame-1)}
+					if (myItems[2].currentFrame>3){myItems[2].gotoAndStop(myItems[2].currentFrame-1)}
+					
+				}
+				
+				
 			}
 			
 			if (event.target==rightArrow)
 			{
-				if (myItems[0].currentFrame<3){myItems[0].gotoAndStop(myItems[0].currentFrame+1)} 
-				if (myItems[1].currentFrame<4){myItems[1].gotoAndStop(myItems[1].currentFrame+1)}
-				if (myItems[2].currentFrame<5){myItems[2].gotoAndStop(myItems[2].currentFrame+1)}
+				if (myItems[0] is KartWheel && myItems.length>2)
+				{
+					if (myItems[0].currentFrame<3){myItems[0].gotoAndStop(myItems[0].currentFrame+1)} 
+					if (myItems[1].currentFrame<4){myItems[1].gotoAndStop(myItems[1].currentFrame+1)}
+					if (myItems[2].currentFrame<5){myItems[2].gotoAndStop(myItems[2].currentFrame+1)}
+				}
+				
+				
+				if (myItems[0] is KartBody && myItems.length>2)
+				{
+					
+					if (myItems[0].currentFrame<2){myItems[0].gotoAndStop(myItems[0].currentFrame+1)} 
+					if (myItems[1].currentFrame<3){myItems[1].gotoAndStop(myItems[1].currentFrame+1)}
+					if (myItems[2].currentFrame<4){myItems[2].gotoAndStop(myItems[2].currentFrame+1)}
+				}
+				
 			}
 			
 			//if Kartwheel
@@ -327,14 +381,77 @@
 			{
 				if (event.target ==myItems[0])
 				{
-					displayKart.Body.gotoAndStop(1)
+					if (myItems[0].currentFrame==1)
+					{
+						trace("Clicked body 1")
+						displayKart.Body.gotoAndStop(1)
+						
+					}
 					
-				}
+					if (myItems[0].currentFrame==2)
+					{
+						trace("Clicked body 2")
+						displayKart.Body.gotoAndStop(2)
+						
+					}
+					
+					if (myItems[0].currentFrame==3)
+					{
+						trace("Clicked body 3")
+						displayKart.Body.gotoAndStop(3)
+						
+					}
+					
+				}//end of if target is item [0] 
 				if (event.target ==myItems[1])
 				{
-					displayKart.Body.gotoAndStop(2)
+					if (myItems[1].currentFrame==2)
+					{
+						trace("Clicked body 2")
+						displayKart.Body.gotoAndStop(2)
+						
+					}
 					
-				}
+					if (myItems[1].currentFrame==3)
+					{
+						trace("Clicked body 3")
+						displayKart.Body.gotoAndStop(3)
+						
+					}
+					
+					if (myItems[1].currentFrame==4)
+					{
+						trace("Clicked body 4")
+						displayKart.Body.gotoAndStop(4)
+						
+					}
+					
+				}//end of if target is item [1] 
+				
+				if (event.target ==myItems[2])
+				{
+					if (myItems[2].currentFrame==3)
+					{
+						trace("Clicked body 3")
+						displayKart.Body.gotoAndStop(3)
+						
+					}
+					
+					if (myItems[2].currentFrame==4)
+					{
+						trace("Clicked body 4")
+						displayKart.Body.gotoAndStop(4)
+						
+					}
+					
+					if (myItems[2].currentFrame==5)
+					{
+						trace("Clicked body 5")
+						displayKart.Body.gotoAndStop(5)
+						
+					}
+					
+				}//end of if target is item [2] 
 				
 				
 				
@@ -450,7 +567,7 @@
 			}
 			if (itemType=="Bodies")
 			{
-				myItems=[new KartBody(),new KartBody()]
+				myItems=[new KartBody(),new KartBody(),new KartBody()]
 				
 				for (var j:int=0 ;j<(myItems.length);j++)
 				{
