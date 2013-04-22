@@ -18,7 +18,7 @@
 		
 		public function statePlayer(e:Event)
 		{
-			var levelSize:int = (-level.x + player.x) * 100 / (level.width);
+			var levelSize:Number = (-level.x + player.x) * 100 / (level.width);
 			this.progressState.x = ((levelSize / 100) * this.width);
 		}
 	}

@@ -29,7 +29,7 @@
 		
 		//public var container:Container = new Container();
 		public var container:MovieClip;
-		
+		public var garage:GarageMovieclip = new GarageMovieclip();
 		
 		private var l:Loader = new Loader()
 		private var panoramaWait;
@@ -115,6 +115,7 @@
 			Player.kart = kart;
 			Player.container = container;
 			Player.level = level;
+			Player.garage = garage;
 			Player.level_Visible = level_Visible;
 			Player.background1 = background1;
 			Player.background2 = background2;
@@ -134,6 +135,14 @@
 				
 			addChild(container);
 			container.addChild(kart);
+			
+			addChild(garage)
+			garage.scaleX *= 0.8;
+			garage.scaleY *= 0.5;
+			garage.x = level_Visible.garage.x * 0.8 + level_Visible.x;
+			garage.y = level_Visible.garage.y * 0.5 + level_Visible.y;
+			
+			trace(garage.x, garage.y, level_Visible.width, level_Visible.x)
 				
 			container.x=30
 			container.y=120
