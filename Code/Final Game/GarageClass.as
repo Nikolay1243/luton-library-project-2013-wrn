@@ -205,8 +205,9 @@
 			
 			if (event.target==upgradeButton)
 			{	
+				while (numChildren > 0) {removeChildAt(0)}
 				
-				MovieClip(root).gotoAndStop(8)
+				if (numChildren==0){MovieClip(root).gotoAndStop(8)}
 				
 			}
 			

@@ -25,6 +25,8 @@
 		private var player:Player;
 		static var kart:Karts;
 		
+		public var whichLevel:int
+		
 		//public var container:Container = new Container();
 		public var container:MovieClip;
 		
@@ -205,14 +207,28 @@
 					progressLevel.removeEventListener(Event.ENTER_FRAME, progressLevel.statePlayer)
 					player.removeEventListener(Event.ENTER_FRAME, player.updateStage);
 					
+					trace(MovieClip(root).currentLevel)
+					
+					
+					
 					removeEventListener(Event.ENTER_FRAME ,MoveToNextLevel)
 					stage.removeEventListener(KeyboardEvent.KEY_DOWN, player.keyboardDown);
 					stage.removeEventListener(KeyboardEvent.KEY_UP, player.keyboardUp);
 					stage.removeEventListener(Event.ENTER_FRAME, player.updateStage)
-					MovieClip(root).gotoAndStop(4)
+					
+					
+					if (MovieClip(root).currentLevel>0 && MovieClip(root).currentLevel<3)
+						{
+							trace(MovieClip(root).currentLevel)
+							MovieClip(root).gotoAndStop(4)
+						}else MovieClip(root).gotoAndStop(7)
+						
 					//this.SetUpLevel(level.currentFrame+1) 
 				}
-			}
-		}
-	}
-}
+			}//end of if player hits endlevel object
+			
+			
+			
+		}//end of move to next level function
+	}//end of class
+}//end of package
