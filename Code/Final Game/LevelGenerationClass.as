@@ -18,6 +18,7 @@
 		private var background3:Background3;
 		
 		private var gameTimer:GameTimer;
+		private var myTotalTime:String
 		private var progressLevel:ProgressLevel;
 		
 		private var level:Level;
@@ -108,7 +109,10 @@
 			if(whichLevel == 1)
 			{
 				kart = new Karts();
+				
 			}
+			
+			
 			
 			kart.scaleX = 0.5;
 			kart.scaleY = 0.5;
@@ -219,6 +223,7 @@
 			
 			if (player.hitTestObject(level_Visible.endLevel))
 			{
+				
 				while (numChildren > 0) {removeChildAt(0)}
 				
 				if (numChildren==0)
@@ -230,6 +235,10 @@
 					trace(MovieClip(root).currentLevel)
 					
 					
+					//trace(myTotalTime)
+//					myTotalTime=gameTimer.textTime.text
+//					trace(myTotalTime)
+//					
 					
 					removeEventListener(Event.ENTER_FRAME ,MoveToNextLevel)
 					stage.removeEventListener(KeyboardEvent.KEY_DOWN, player.keyboardDown);
