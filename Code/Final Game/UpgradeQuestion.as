@@ -26,8 +26,9 @@
 		public function UpgradeQuestion() {
 			trace("UpgradeQuestion constructor")
 			
+			var n:int = Math.round( Math.random() * 3 );
 			SetupQuestions()
-			SetupAnswers(1)
+			SetupAnswers(n)
 			SetupAnswerButtons()
 			
 			//currentQuestion=0
@@ -148,6 +149,7 @@
 			
 			if (CurrentQuestion==1)
 			{
+				this.QuestionBox.text=questionsArray[1]
 				answersArray=["Q2 A",
 							  "Q2 B",
 							  "Q2 C",
@@ -157,7 +159,7 @@
 			
 			if (CurrentQuestion==2)
 			{
-				
+				this.QuestionBox.text=questionsArray[2]
 				answersArray=["Q3 A",
 							  "Q3 B",
 							  "Q3 C",
