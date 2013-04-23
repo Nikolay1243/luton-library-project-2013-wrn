@@ -26,7 +26,7 @@
 		private var _reusableTip:ToolTip;
 			
 			
-		private var goButton=new Button()
+		private var playButton=new Button()
 		private var upgradeButton=new Button()
 		
 		private var leftArrow=new MyArrow()
@@ -40,8 +40,8 @@
 		private var l=new Loader
 		private var panoramaWait
 		
-		private var displayKart=LevelGenerationClass.kart
-		//private var displayKart=new Karts()
+		//private var displayKart=LevelGenerationClass.kart
+		private var displayKart=new Karts()
 		
 		private var myItems:Array
 		private var mySelectors:Array
@@ -83,12 +83,12 @@
 			upgradeButton.setStyle("embedFonts", true);
 			upgradeButton.setStyle("textFormat", myTextFormat)
 			
-			goButton.move(454.30,324.05)
-			goButton.setSize(184,63)
+			playButton.move(454.30,324.05)
+			playButton.setSize(184,63)
 			
-			goButton.label="GO!"
-			goButton.setStyle("embedFonts", true);
-			goButton.setStyle("textFormat", myTextFormat)
+			playButton.label="Play!"
+			playButton.setStyle("embedFonts", true);
+			playButton.setStyle("textFormat", myTextFormat)
 			
 			leftArrow.x=28
 			leftArrow.y=343.2
@@ -104,7 +104,7 @@
 			myGrace.scaleY=0.6
 			myGrace.scaleX *= -1;//rotates grace horizontally
 	
-			var buttonArray:Array=[goButton,upgradeButton,leftArrow,rightArrow,myGrace]
+			var buttonArray:Array=[playButton,upgradeButton,leftArrow,rightArrow,myGrace]
 						
 			for (var i:int=0 ;i<(buttonArray.length);i++)
 			{
@@ -154,7 +154,7 @@
 			
 			_reusableTip.align = "left";
 			
-			if (event.target==goButton){_reusableTip.show( goButton, "Go!","");}
+			if (event.target==playButton){_reusableTip.show( playButton, "Play!","");}
 			if (event.target==upgradeButton)
 				{
 					
@@ -242,7 +242,7 @@
 		public function ClickItem(event:MouseEvent)
 		{
 			trace (event.target)
-			if (event.target==goButton)
+			if (event.target==playButton)
 			{	
 				displayKart.Grace.visible=true
 				LevelGenerationClass.kart=displayKart
