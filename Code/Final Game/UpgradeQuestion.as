@@ -49,7 +49,7 @@
 		public function SetupAnswerButtons()
 		{
 			trace("SetupAnswerButtons")
-			buttonArray=[new Button(),new Button(),new Button(),new Button()]
+			buttonArray=[new Button(),new Button(),new Button()]
 			
 			myTextFormat.font=project_Font.fontName 
 			myTextFormat.size=25
@@ -65,28 +65,23 @@
 				buttonArray[i].setSize(AnsA.width,AnsA.height)
 				if (i==0)
 				{
-					buttonArray[i].label=AnsA.text
+					buttonArray[i].label="A"
 					buttonArray[i].move(AnsA.x,AnsA.y)
 				}
 				
 				if (i==1)
 				{
-					buttonArray[i].label=AnsB.text
+					buttonArray[i].label="B"
 					buttonArray[i].move(AnsB.x,AnsB.y)
 				}
 				
 				if (i==2)
 				{
-					buttonArray[i].label=AnsC.text
+					buttonArray[i].label="C"
 					buttonArray[i].move(AnsC.x,AnsC.y)
 				}
 				
-				if (i==3)
-				{
-					buttonArray[i].setSize(LockIn.width,LockIn.height)
-					buttonArray[i].label=LockIn.text
-					buttonArray[i].move(LockIn.x,LockIn.y)
-				}
+				
 				
 				
 				buttonArray[i].buttonMode = true;
@@ -105,24 +100,38 @@
 				trace("Button 1")
 				if (correctAnswer==0)
 				{
+					CheckCorrect.text="yes"
 					trace ("Yay")
-				}else trace ("Boo")
+				}else {
+				CheckCorrect.text="noo"
+				trace ("Boo")
+				}
 			}
 			if (event.target==buttonArray[1])
 			{
 				trace("Button 2")
 				if (correctAnswer==1)
 				{
+					CheckCorrect.text="yes"
 					trace ("Yay")
-				}else trace ("Boo")
+				}else{ 
+				CheckCorrect.text="noo"
+				trace ("Boo")
+				}
 			}
 			if (event.target==buttonArray[2])
 			{
 				trace("Button 3")
 				if (correctAnswer==2)
 				{
+					CheckCorrect.text="yes"
 					trace ("Yay")
-				}else trace ("Boo")
+				}else {
+				CheckCorrect.text="noo"
+				trace ("Boo")
+				}
+				
+				
 			}
 		}
 		
@@ -167,9 +176,9 @@
 							  
 				correctAnswer=2
 			}
-			this.AnsA.text=answersArray[0]
-			this.AnsB.text=answersArray[1]
-			this.AnsC.text=answersArray[2]
+			this.AnsAText.text=answersArray[0]
+			this.AnsBText.text=answersArray[1]
+			this.AnsCText.text=answersArray[2]
 			
 			
 			
