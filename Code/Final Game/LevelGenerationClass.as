@@ -10,6 +10,9 @@
 	import flash.utils.clearInterval;
 	import flash.utils.setInterval;
 	
+	import fl.transitions.Tween;
+	import fl.transitions.easing.*
+	
 	
 	public class LevelGenerationClass extends MovieClip
 	{
@@ -164,6 +167,10 @@
 			player.scaleY = 0.5;
 			player.alpha=0.5
 			kart.alpha = 1;
+			
+			
+
+			
 			
 			myGuiBar=new guiBar()
 			addChild(myGuiBar)
