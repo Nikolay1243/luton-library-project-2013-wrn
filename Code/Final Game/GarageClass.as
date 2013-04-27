@@ -46,6 +46,8 @@
 		private var myItems:Array
 		private var mySelectors:Array
 		
+		
+		
 		public function GarageClass(currentLevel) 
 		{
 			trace("GarageClass Constructor")
@@ -242,6 +244,7 @@
 		public function ClickItem(event:MouseEvent)
 		{
 			trace (event.target)
+			MovieClip(root).clickSound.play()
 			if (event.target==playButton)
 			{	
 				displayKart.Grace.visible=true
