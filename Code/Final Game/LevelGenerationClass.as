@@ -152,7 +152,7 @@
 			garage.x = level_Visible.garage.x * 0.8 + level_Visible.x;
 			garage.y = level_Visible.garage.y * 0.5 + level_Visible.y;
 			
-			trace(garage.x, garage.y, level_Visible.width, level_Visible.x)
+			//trace("Garage x ",garage.x,"Garage y ", garage.y,"level vis width ", level_Visible.width,"level vis x " level_Visible.x)
 				
 			container.x=30
 			container.y=120
@@ -239,13 +239,13 @@
 					progressLevel.removeEventListener(Event.ENTER_FRAME, progressLevel.statePlayer)
 					player.removeEventListener(Event.ENTER_FRAME, player.updateStage);
 					
-					trace(MovieClip(root).currentLevel)
+					//trace("currentLevel: "MovieClip(root).currentLevel)
 					
 					
 					//trace(myTotalTime)
-//					myTotalTime=gameTimer.textTime.text
-//					trace(myTotalTime)
-//					
+					//myTotalTime=gameTimer.textTime.text
+      				//trace(myTotalTime)
+					
 					
 					removeEventListener(Event.ENTER_FRAME ,MoveToNextLevel)
 					stage.removeEventListener(KeyboardEvent.KEY_DOWN, player.keyboardDown);
@@ -255,7 +255,7 @@
 					
 					if (MovieClip(root).currentLevel>0 && MovieClip(root).currentLevel<3)
 						{
-							trace(MovieClip(root).currentLevel)
+							//trace("curentLevel: "MovieClip(root).currentLevel)
 							MovieClip(root).gotoAndStop(4)
 						}else MovieClip(root).gotoAndStop(7)
 						

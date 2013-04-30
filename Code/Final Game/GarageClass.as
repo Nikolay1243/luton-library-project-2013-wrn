@@ -52,7 +52,7 @@
 		{
 			trace("GarageClass Constructor")
 			currentLevel1=currentLevel
-			trace(currentLevel1)
+			
 			
 			
 			CreateToolTip()
@@ -243,7 +243,7 @@
 		
 		public function ClickItem(event:MouseEvent)
 		{
-			trace (event.target)
+			//trace (event.target)
 			MovieClip(root).clickSound.play()
 			if (event.target==playButton)
 			{	
@@ -307,21 +307,21 @@
 				{
 					if (myItems[0].currentFrame==1)
 					{
-						trace("Clicked wheel 1")
+						//trace("Clicked wheel 1")
 						displayKart.wheel1.gotoAndStop(1)
 						displayKart.wheel2.gotoAndStop(1)
 					}
 					
 					if (myItems[0].currentFrame==2)
 					{
-						trace("Clicked wheel 2")
+						//trace("Clicked wheel 2")
 						displayKart.wheel1.gotoAndStop(2)
 						displayKart.wheel2.gotoAndStop(2)
 					}
 					
 					if (myItems[0].currentFrame==3)
 					{
-						trace("Clicked wheel 3")
+						//trace("Clicked wheel 3")
 						displayKart.wheel1.gotoAndStop(3)
 						displayKart.wheel2.gotoAndStop(3)
 					}
@@ -332,21 +332,21 @@
 				{
 					if (myItems[1].currentFrame==2)
 					{
-						trace("Clicked wheel 2")
+						//trace("Clicked wheel 2")
 						displayKart.wheel1.gotoAndStop(2)
 						displayKart.wheel2.gotoAndStop(2)
 					}
 					
 					if (myItems[1].currentFrame==3)
 					{
-						trace("Clicked wheel 3")
+						//trace("Clicked wheel 3")
 						displayKart.wheel1.gotoAndStop(3)
 						displayKart.wheel2.gotoAndStop(3)
 					}
 					
 					if (myItems[1].currentFrame==4)
 					{
-						trace("Clicked wheel 4")
+						//trace("Clicked wheel 4")
 						displayKart.wheel1.gotoAndStop(4)
 						displayKart.wheel2.gotoAndStop(4)
 					}
@@ -357,21 +357,21 @@
 				{
 					if (myItems[2].currentFrame==3)
 					{
-						trace("Clicked wheel 3")
+						//trace("Clicked wheel 3")
 						displayKart.wheel1.gotoAndStop(3)
 						displayKart.wheel2.gotoAndStop(3)
 					}
 					
 					if (myItems[2].currentFrame==4)
 					{
-						trace("Clicked wheel 4")
+						//trace("Clicked wheel 4")
 						displayKart.wheel1.gotoAndStop(4)
 						displayKart.wheel2.gotoAndStop(4)
 					}
 					
 					if (myItems[2].currentFrame==5)
 					{
-						trace("Clicked wheel 5")
+						//trace("Clicked wheel 5")
 						displayKart.wheel1.gotoAndStop(5)
 						displayKart.wheel2.gotoAndStop(5)
 					}
@@ -386,21 +386,21 @@
 				{
 					if (myItems[0].currentFrame==1)
 					{
-						trace("Clicked body 1")
+						//trace("Clicked body 1")
 						displayKart.Body.gotoAndStop(1)
 						
 					}
 					
 					if (myItems[0].currentFrame==2)
 					{
-						trace("Clicked body 2")
+						//trace("Clicked body 2")
 						displayKart.Body.gotoAndStop(2)
 						
 					}
 					
 					if (myItems[0].currentFrame==3)
 					{
-						trace("Clicked body 3")
+						//trace("Clicked body 3")
 						displayKart.Body.gotoAndStop(3)
 						
 					}
@@ -410,21 +410,21 @@
 				{
 					if (myItems[1].currentFrame==2)
 					{
-						trace("Clicked body 2")
+						//trace("Clicked body 2")
 						displayKart.Body.gotoAndStop(2)
 						
 					}
 					
 					if (myItems[1].currentFrame==3)
 					{
-						trace("Clicked body 3")
+						//trace("Clicked body 3")
 						displayKart.Body.gotoAndStop(3)
 						
 					}
 					
 					if (myItems[1].currentFrame==4)
 					{
-						trace("Clicked body 4")
+						//trace("Clicked body 4")
 						displayKart.Body.gotoAndStop(4)
 						
 					}
@@ -435,21 +435,21 @@
 				{
 					if (myItems[2].currentFrame==3)
 					{
-						trace("Clicked body 3")
+						//trace("Clicked body 3")
 						displayKart.Body.gotoAndStop(3)
 						
 					}
 					
 					if (myItems[2].currentFrame==4)
 					{
-						trace("Clicked body 4")
+						//trace("Clicked body 4")
 						displayKart.Body.gotoAndStop(4)
 						
 					}
 					
 					if (myItems[2].currentFrame==5)
 					{
-						trace("Clicked body 5")
+						//trace("Clicked body 5")
 						displayKart.Body.gotoAndStop(5)
 						
 					}
@@ -526,7 +526,7 @@
 		
 		public function showMessage()
 		{
-			trace("hello");
+			trace("End of panorama");
 			removeChild(l)
 			clearInterval(panoramaWait)
 		}//end of panorama showmessage
@@ -590,15 +590,15 @@
 			{
 				
 				myItems[k].gotoAndStop(k+1)
-				trace("item is ", myItems[k]) 
 				myItems[k].buttonMode = true;
 				myItems[k].addEventListener(MouseEvent.MOUSE_OVER, this.CustomizeToolTip );
 				myItems[k].addEventListener(MouseEvent.MOUSE_DOWN, this.ClickItem)
+				//trace("Item is ", myItems[k])
 				
 			}//end of for loop to add items to stage
 			
 
-			//trace("Items",myItems.length)
+			
 						
 			
 		}//end of setup items
