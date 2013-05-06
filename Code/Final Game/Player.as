@@ -57,11 +57,7 @@
 			switch (e.keyCode)
 			{
 				case Keyboard.LEFT :
-				
-					if (this.x>100)
-					{
-						speed = -0.05;
-					}
+					speed = -0.05;
 					break;
 
 				case Keyboard.RIGHT :
@@ -177,13 +173,26 @@
 				level.x -= vxPlayer;
 				garage.x -= vxPlayer;
 				level_Visible.x -= vxPlayer;
-				background1.x -= vxPlayer / 2;
+				if(background1.x > stage.stageWidth - background1.width)
+				{
+					background1.x -= vxPlayer / 2;
+				}
+				else 
+				{
+					background1.x = stage.stageWidth - background1.width
+				}
 				background2.x -= vxPlayer / 4;
 				background3.x -= vxPlayer / 8;
 			}
 			else
 			{
-				this.x +=  vxPlayer;
+				if(this.x > 10)
+				{
+					this.x +=  vxPlayer;
+				}else
+				{
+					this.x = 12;
+				}
 			}
 			
 			if((this.y > ((stage.stageHeight / 2) + 100) && vy > 1 && (level.height + level.y) > (stage.stageHeight + 10))||(this.y < ((stage.stageHeight / 2)) && vy < -1))

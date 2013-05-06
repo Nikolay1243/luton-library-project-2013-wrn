@@ -23,6 +23,7 @@
 		private var gameTimer:GameTimer;
 		private var myTotalTime:String
 		private var progressLevel:ProgressLevel;
+		private var gameSound:GameSound;
 		
 		private var level:Level;
 		private var level_Visible:Level_Visible;
@@ -130,8 +131,30 @@
 			Player.background2 = background2;
 			Player.background3 = background3;
 
-			panorama(whichLevel);
+			helpScreen(whichLevel);
 			
+		}
+		
+		public function helpScreen(whichLevel)
+		{
+			if(whichLevel == 1)
+			{
+				l.load(new URLRequest("Panoramas/HelpScreen.swf"));
+				addChild(l)
+				panoramaWait=setInterval(wait,3000);
+			}
+			else
+			{
+				panorama(whichLevel)
+			}
+			
+		}
+		
+		public function wait()
+		{
+			removeChild(l)
+			clearInterval(panoramaWait)
+			panorama(1);
 		}
 		
 		public function startTheGame()
@@ -168,10 +191,7 @@
 			player.alpha=0.5
 			kart.alpha = 1;
 			
-			
 
-			
-			
 			myGuiBar=new guiBar()
 			addChild(myGuiBar)
 			myGuiBar.x=0
@@ -190,6 +210,10 @@
 			addChild(progressLevel)
 			progressLevel.x = 120;
 			progressLevel.y = 25;
+
+			GameSound.player = player;
+			gameSound = new GameSound();
+			addChild(gameSound);
 			
 			stage.addEventListener(KeyboardEvent.KEY_DOWN, player.keyboardDown);
 			stage.addEventListener(KeyboardEvent.KEY_UP, player.keyboardUp);
@@ -235,7 +259,7 @@
 				
 				if (numChildren==0)
 				{
-					
+					gameSound.removeEventListener(Event.ENTER_FRAME, gameSound.playLevelSounds)
 					progressLevel.removeEventListener(Event.ENTER_FRAME, progressLevel.statePlayer)
 					player.removeEventListener(Event.ENTER_FRAME, player.updateStage);
 					
