@@ -179,7 +179,7 @@
 				}
 				else 
 				{
-					background1.x = stage.stageWidth - background1.width
+					background1.x = (stage.stageWidth - background1.width) + 5
 				}
 				background2.x -= vxPlayer / 4;
 				background3.x -= vxPlayer / 8;
