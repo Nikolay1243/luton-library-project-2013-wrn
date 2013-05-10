@@ -176,14 +176,7 @@
 				level.x -= vxPlayer;
 				garage.x -= vxPlayer;
 				level_Visible.x -= vxPlayer;
-				if(background1.x > stage.stageWidth - background1.width)
-				{
-					background1.x -= vxPlayer / 2;
-				}
-				else 
-				{
-					background1.x = (stage.stageWidth - background1.width) + 5
-				}
+				background1.x -= vxPlayer / 2;
 				background2.x -= vxPlayer / 4;
 				background3.x -= vxPlayer / 8;
 			}
@@ -212,6 +205,26 @@
 			{
 				this.y +=  vyPlayer;
 			}
+			
+			/*
+			
+			trace(level.x , stage.stageWidth - level.width)
+			
+			
+			if(background1.x > stage.stageWidth - background1.width)
+			{
+				background1.x = stage.stageWidth - background1.width;
+				trace("asdsa")
+			}
+			
+			if(level.x > stage.stageWidth - level.width)
+			{
+				trace("asdsasdf")
+				level.x = stage.stageWidth - level.width;
+				level_Visible.x = stage.stageWidth - level_Visible.width;
+			}
+			
+			*/
 		}
 	}
 }
