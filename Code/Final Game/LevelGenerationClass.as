@@ -131,11 +131,11 @@
 			Player.background2 = background2;
 			Player.background3 = background3;
 
-			helpScreen(whichLevel);
+			panorama(whichLevel);
 			
 		}
 		
-		public function helpScreen(whichLevel)
+		/*public function helpScreen(whichLevel)
 		{
 			if(whichLevel == 1)
 			{
@@ -155,7 +155,7 @@
 			removeChild(l)
 			clearInterval(panoramaWait)
 			panorama(1);
-		}
+		}*/
 		
 		public function startTheGame()
 		{

@@ -12,12 +12,15 @@
 	{
 		public var vx:Number = 0;
 		public var vy:Number = 0;
+		
+		public static var SpeedX:Number = 0.8;
+		public static var SpeedY:Number = 0.8;
+		public static var GRAVITY:Number = 0.75;
 
 		public var ax:Number = 0;
 		public var speed:Number = 0;
 		public var friction:Number = 0.97;
 		
-		public const GRAVITY:Number = 0.75;
 		public const FRICTION_SPEED:Number = 0.92;
 		public const ROTATION_SPEED:Number = 1.8;
 
@@ -161,9 +164,9 @@
 			ax *=  FRICTION_SPEED;
 			vy +=  GRAVITY;
 			
-			//Reduce the speed of the kart by 20%
-			var vxPlayer:Number = vx * 0.8;
-			var vyPlayer:Number = vy * 0.8;
+			//Reduce the speed
+			var vxPlayer:Number = vx * SpeedX;
+			var vyPlayer:Number = vy * SpeedY;
 	
 			var levelSize:int = (-level.x) * 100 / (level.width - stage.stageWidth);
 			

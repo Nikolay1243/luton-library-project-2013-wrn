@@ -315,6 +315,7 @@
 					if (myItems[0].currentFrame==2)
 					{
 						//trace("Clicked wheel 2")
+						
 						displayKart.wheel1.gotoAndStop(2)
 						displayKart.wheel2.gotoAndStop(2)
 					}
@@ -332,7 +333,10 @@
 				{
 					if (myItems[1].currentFrame==2)
 					{
-						//trace("Clicked wheel 2")
+						trace("Clicked wheel 2")
+						Player.SpeedX = 0.4;
+						Player.SpeedY = 0.4;
+						//Player.GRAVITY = 0.2;
 						displayKart.wheel1.gotoAndStop(2)
 						displayKart.wheel2.gotoAndStop(2)
 					}
