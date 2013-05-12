@@ -78,14 +78,14 @@
 			myTextFormat.size=30
 			myTextFormat.color = 0xFFFFFF
 			
-			upgradeButton.move(469.20,255)
-			upgradeButton.setSize(153,51)
+			upgradeButton.move(460,255)
+			upgradeButton.setSize(184,63)
 		
 			upgradeButton.label="Upgrade"
 			upgradeButton.setStyle("embedFonts", true);
 			upgradeButton.setStyle("textFormat", myTextFormat)
 			
-			playButton.move(454.30,324.05)
+			playButton.move(460,324.05)
 			playButton.setSize(184,63)
 			
 			playButton.label="Play!"
