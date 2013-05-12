@@ -50,12 +50,15 @@
 		{
 			background3 = new Background3();
 			addChild(background3);
+			background3.gotoAndStop(whichLevel)
 			
 			background2 = new Background2();
 			addChild(background2);
+			background2.gotoAndStop(whichLevel)
 			
 			background1 = new Background1();
 			addChild(background1);
+			background1.gotoAndStop(whichLevel)
 			
 			level = new Level;
 			level.gotoAndStop(whichLevel)
@@ -277,7 +280,7 @@
 					stage.removeEventListener(Event.ENTER_FRAME, player.updateStage)
 					
 					
-					if (MovieClip(root).currentLevel>0 && MovieClip(root).currentLevel<3)
+					if (MovieClip(root).currentLevel>0 && MovieClip(root).currentLevel<4)
 						{
 							//trace("curentLevel: "MovieClip(root).currentLevel)
 							MovieClip(root).gotoAndStop(4)
