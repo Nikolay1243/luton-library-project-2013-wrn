@@ -40,7 +40,7 @@
 		// It is just a emply container for the MovieClip 'kart'
 		public static var container:MovieClip = new MovieClip();
 		public static var kart:MovieClip = new MovieClip();
-
+		public static var whichLevel:int = 0;
 		//Create our collision list, which is going to have player and the level(collision object)
 		public var collisionList:CollisionList;
 
@@ -204,6 +204,12 @@
 			else
 			{
 				this.y +=  vyPlayer;
+			}
+			
+			
+			if(whichLevel == 4)
+			{
+				//background1.x = level.x;
 			}
 			
 			/*

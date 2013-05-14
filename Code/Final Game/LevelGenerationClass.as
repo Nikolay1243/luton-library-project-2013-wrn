@@ -93,19 +93,24 @@
 				background1.y = level_Visible.y+270;
 			}
 			
-			if (whichLevel>=3)
+			if (whichLevel==3)
 			{
 				background2.y=level_Visible.y+360
 				background1.y = level_Visible.y+300;
 			}
 			
-			
-			
+			if (whichLevel==4)
+			{
+				background3.y = 0
+				background2.y = 50
+				background1.y = 25;
+				//level_Visible.scaleX = 0.6;
+				//level.scaleX = 0.6;
+			}
 			
 			level.y = 50;
 			level.scaleX = 0.8;
 			level.scaleY = 0.5;
-			
 			
 			level_Visible.y = 50;
 			level_Visible.scaleX = 0.8;
@@ -125,6 +130,7 @@
 			kart.scaleY = 0.5;
 			kart.alpha = 1;
 
+			Player.whichLevel = whichLevel;
 			Player.kart = kart;
 			Player.container = container;
 			Player.level = level;
