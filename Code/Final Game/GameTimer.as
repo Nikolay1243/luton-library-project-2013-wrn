@@ -11,7 +11,6 @@
 	public class GameTimer extends MovieClip
 	{
 		
-		public static var myTotalTime:Date;
 		public var textTime:TextField;
 		public var timer:Timer;
 		public var time:Date;
@@ -48,9 +47,7 @@
 		public function getTime()
 		{
 			min += time.minutes;
-			sec += time.seconds;
-			
-			myTotalTime = new Date(0,0,0,0, min, sec, 0);
+			sec += (time.seconds + 1);
 			
 		}
 		
