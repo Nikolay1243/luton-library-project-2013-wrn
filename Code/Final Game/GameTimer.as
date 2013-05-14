@@ -8,14 +8,22 @@
 	import flash.text.TextFormat;
 	import flash.text.Font;
 	
-	public class GameTimer extends MovieClip{
-
-		public var time:Date;
-		public var timer:Timer;
-		public var textTime:TextField;
+	public class GameTimer extends MovieClip
+	{
 		
-		public function GameTimer(){
+		public static var myTotalTime:Date;
+		public var textTime:TextField;
+		public var timer:Timer;
+		public var time:Date;
+		
+		public static var min = 0;
+		public static var sec = 0;
+		public static var mil = 0;
+		
+		public function GameTimer()
+		{
 			// constructor code
+			myTotalTime = new Date(0,0,0,0, min, sec, 0);
 			
 			time = new Date(0,0,0,0,0,0,0);
 			timer = new Timer(100);
@@ -35,6 +43,12 @@
 			timer.start();
 			
 			addEventListener(Event.ENTER_FRAME, update)
+		}
+		
+		public function getTime()
+		{
+			min += time.minutes;
+			sec += time.seconds;
 		}
 		
 		function update(e:Event):void
