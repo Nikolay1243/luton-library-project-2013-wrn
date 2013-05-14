@@ -53,6 +53,7 @@
 			trace("GarageClass Constructor")
 			currentLevel1=currentLevel
 			
+			displayKart = LevelGenerationClass.kart;
 			
 			
 			CreateToolTip()
