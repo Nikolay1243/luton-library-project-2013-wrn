@@ -12,23 +12,23 @@
 	
 	public class Player extends MovieClip
 	{
-		public var vx:Number = 0;
-		public var vy:Number = 0;
+		private var vx:Number = 0;
+		private var vy:Number = 0;
 		
-		public static var SpeedX:Number = 0.8;
-		public static var SpeedY:Number = 0.8;
-		public static var GRAVITY:Number = 0.75;
+		private static var SpeedX:Number = 0.8;
+		private static var SpeedY:Number = 0.8;
+		private static var GRAVITY:Number = 0.75;
 
-		public var ax:Number = 0;
-		public var speed:Number = 0;
-		public var friction:Number = 0.97;
+		private var ax:Number = 0;
+		private var speed:Number = 0;
+		private var friction:Number = 0.97;
 		
-		public var FRICTION_SPEED:Number = 0.92;
-		public const ROTATION_SPEED:Number = 1.8;
+		private var FRICTION_SPEED:Number = 0.92;
+		private const ROTATION_SPEED:Number = 1.8;
 
 		//set the mass of the object
-		public const IMMOVABLE:Number = 10000;
-		public const MASS:Number = IMMOVABLE * 2;
+		private const IMMOVABLE:Number = 10000;
+		private const MASS:Number = IMMOVABLE * 2;
 
 		//Movieclips of the level
 		public static var level:MovieClip = new MovieClip();
@@ -43,11 +43,11 @@
 		public static var container:MovieClip = new MovieClip();
 		public static var kart:MovieClip = new MovieClip();
 		
-		public var timer:Timer = new Timer(15000);
+		private var timer:Timer = new Timer(15000);
 
 		//Create our collision list, which is going to have player and the level(collision object)
-		public var collisionList:CollisionList;
-		public var carStop:Boolean = false;
+		private var collisionList:CollisionList;
+		public static var carStop:Boolean = false;
 
 		public function Player()
 		{
@@ -64,9 +64,11 @@
 			
 		}
 
-		public function timerEvent(e:TimerEvent)
+		private function timerEvent(e:TimerEvent)
 		{
 			carStop = true;
+			timer.stop();
+			timer.removeEventListener(TimerEvent.TIMER, timerEvent);
 		}
 		
 		public function FinishTutLevel()
@@ -79,43 +81,8 @@
 			carStop = false;
 			timer.stop();
 		}
-		public function keyboardDown(e:KeyboardEvent)
-		{
-			switch (e.keyCode)
-			{
-				case Keyboard.LEFT :
-					speed = -0.05;
-					break;
-
-				case Keyboard.RIGHT :
-					speed = 0.05;
-					break;
-
-				case Keyboard.SPACE :
-					friction = 0.90;
-					break;
-			}
-		}
-
-		public function keyboardUp(e:KeyboardEvent)
-		{
-			switch (e.keyCode)
-			{
-				case Keyboard.LEFT :
-					speed = 0;
-					break;
-
-				case Keyboard.RIGHT :
-					speed = 0;
-					break;
-
-				case Keyboard.SPACE :
-					friction = 0.97;
-					break;
-			}
-		}
 		
-		public function moveKart()
+		private function moveKart()
 		{
 			
 			

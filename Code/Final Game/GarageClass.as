@@ -55,7 +55,6 @@
 			
 			displayKart = LevelGenerationClass.kart;
 			
-			
 			CreateToolTip()
 			MakeButtons()
 			
