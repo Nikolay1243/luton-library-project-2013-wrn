@@ -170,7 +170,8 @@
 		{
 			removeChild(l)
 			clearInterval(panoramaWait)
-
+			
+			l.unload();
 			player = new Player();
 			addChild(player)
 				

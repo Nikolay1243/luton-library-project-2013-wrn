@@ -11,42 +11,42 @@
 	public class TutLevel extends MovieClip {
 		
 		
-		private var background1:Background1;
-		private var background2:Background2;
-		private var background3:Background3;
+		private var background1:Background1X;
+		private var background2:Background2X;
+		private var background3:Background3X;
 		
-		private var level:Level;
-		private var level_Visible:Level_Visible;
-		private var player:Player;
-		static var kart:Karts;
+		private var level:LevelX;
+		private var level_Visible:Level_VisibleX;
+		private var player:PlayerX;
+		static var kart:KartsX;
 		
-		public var container:MovieClip;
-		public var garage:GarageMovieclip = new GarageMovieclip();
+		private var container:MovieClip;
+		private var garage:GarageMovieclipX = new GarageMovieclipX();
 		
 		public var whichLevel:int = 1;
 		
-		public var question:UpgradeQuestion = new UpgradeQuestion();
+		private var question:UpgradeQuestionX = new UpgradeQuestionX();
 		
 		public function TutLevel() {
 			// constructor code
 			
-			background3 = new Background3();
+			background3 = new Background3X();
 			addChild(background3);
 			background3.gotoAndStop(whichLevel)
 			
-			background2 = new Background2();
+			background2 = new Background2X();
 			addChild(background2);
 			background2.gotoAndStop(whichLevel)
 			
-			background1 = new Background1();
+			background1 = new Background1X();
 			addChild(background1);
 			background1.gotoAndStop(whichLevel)
 			
-			level = new Level;
+			level = new LevelX;
 			level.gotoAndStop(whichLevel)
 			addChild(level);
 			
-			level_Visible = new Level_Visible;
+			level_Visible = new Level_VisibleX;
 			level_Visible.gotoAndStop(whichLevel)
 			addChild(level_Visible);
 			
@@ -79,7 +79,7 @@
 			
 			if(whichLevel == 1)
 			{
-				kart = new Karts();
+				kart = new KartsX();
 				
 			}
 			
@@ -87,17 +87,17 @@
 			kart.scaleY = 0.5;
 			kart.alpha = 1;
 
-			Player.kart = kart;
-			Player.container = container;
-			Player.level = level;
-			Player.garage = garage;
-			Player.level_Visible = level_Visible;
-			Player.background1 = background1;
-			Player.background2 = background2;
-			Player.background3 = background3;
+			PlayerX.kart = kart;
+			PlayerX.container = container;
+			PlayerX.level = level;
+			PlayerX.garage = garage;
+			PlayerX.level_Visible = level_Visible;
+			PlayerX.background1 = background1;
+			PlayerX.background2 = background2;
+			PlayerX.background3 = background3;
 			
 			
-			player = new Player();
+			player = new PlayerX();
 			addChild(player)
 				
 			addChild(container);
@@ -124,16 +124,23 @@
 			player.alpha=0.01;
 			kart.alpha = 1;
 			
-			//stage.addEventListener(KeyboardEvent.KEY_DOWN, player.keyboardDown);
-			//stage.addEventListener(KeyboardEvent.KEY_UP, player.keyboardUp);
-			
 			addEventListener(Event.ENTER_FRAME, updateStage);
+			addEventListener(Event.ENTER_FRAME, movieClipComplete)
 		}
 		
-		
-		public function updateStage(e:Event)
+		private function movieClipComplete(e:Event)
 		{
-			if(player.carStop == true)
+			if(player.hitTestObject(level_Visible.endLevel))
+			{
+				player.removeEventListener(Event.ENTER_FRAME, player.updateStage);
+				MovieClip(root).completeMovieClip = true;
+				this.removeEventListener(Event.ENTER_FRAME, movieClipComplete);
+			}
+		}
+		
+		private function updateStage(e:Event)
+		{
+			if(PlayerX.carStop == true)
 			{
 				addChild(question)
 				question.visible = true;
@@ -145,11 +152,12 @@
 			
 		}
 		
-		public function doSomething(e:MouseEvent)
+		private function doSomething(e:MouseEvent)
 		{
 			player.FinishTutLevel();
 			question.visible = false;
 			this.removeEventListener(Event.ENTER_FRAME, updateStage);
+			question.CheckCorrect.removeEventListener(MouseEvent.MOUSE_DOWN, doSomething);
 		}
 	}
 	
