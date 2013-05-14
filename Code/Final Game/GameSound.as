@@ -15,19 +15,19 @@
 		
 		
 		public var engineSound:Sound = new ClickSound();
-		public var forwardSound:Sound = new ClickSound1();
-		public var backwardSound:Sound = new Whoosh1();
+		//public var forwardSound:Sound = new ClickSound1();
+		//public var backwardSound:Sound = new Whoosh1();
 		
 		public var channel:SoundChannel;
 		public var engineChannel:SoundChannel;
 		
 
-		public function GameSound() {
+/*		public function GameSound() {
 			// constructor code
 			addEventListener(Event.ENTER_FRAME, playLevelSounds)
-		}
+		}*/
 		
-		public function playLevelSounds(e:Event)
+	/*	public function playLevelSounds(e:Event)
 		{
 			//Engine sound
 			if(!engineSoundPlaying)
@@ -70,7 +70,7 @@
 				engineChannel.soundTransform = volumeSound;
 			}
 
-		}
+		}*/
 		
 		public function handleEngineSound(e:Event)
 		{

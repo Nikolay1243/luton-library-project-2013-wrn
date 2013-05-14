@@ -244,7 +244,7 @@
 		public function ClickItem(event:MouseEvent)
 		{
 			//trace (event.target)
-			//MovieClip(root).clickSound.play()
+			MovieClip(root).clickSound.play()
 			if (event.target==playButton)
 			{	
 				displayKart.Grace.visible=true
@@ -255,9 +255,7 @@
 			if (event.target==upgradeButton)
 			{	
 				while (numChildren > 0) {removeChildAt(0)}
-				
 				if (numChildren==0){MovieClip(root).gotoAndStop(8)}
-				
 			}
 			
 			if (event.target==leftArrow)
@@ -274,10 +272,7 @@
 					if (myItems[0].currentFrame>1){myItems[0].gotoAndStop(myItems[0].currentFrame-1)}
 					if (myItems[1].currentFrame>2){myItems[1].gotoAndStop(myItems[1].currentFrame-1)}
 					if (myItems[2].currentFrame>3){myItems[2].gotoAndStop(myItems[2].currentFrame-1)}
-					
 				}
-				
-				
 			}
 			
 			if (event.target==rightArrow)
@@ -287,9 +282,7 @@
 					if (myItems[0].currentFrame<3){myItems[0].gotoAndStop(myItems[0].currentFrame+1)} 
 					if (myItems[1].currentFrame<4){myItems[1].gotoAndStop(myItems[1].currentFrame+1)}
 					if (myItems[2].currentFrame<5){myItems[2].gotoAndStop(myItems[2].currentFrame+1)}
-				}
-				
-				
+				}			
 				if (myItems[0] is KartBody && myItems.length>2)
 				{
 					
@@ -297,7 +290,6 @@
 					if (myItems[1].currentFrame<3){myItems[1].gotoAndStop(myItems[1].currentFrame+1)}
 					if (myItems[2].currentFrame<4){myItems[2].gotoAndStop(myItems[2].currentFrame+1)}
 				}
-				
 			}
 			
 			//if Kartwheel
@@ -326,7 +318,6 @@
 						displayKart.wheel1.gotoAndStop(3)
 						displayKart.wheel2.gotoAndStop(3)
 					}
-					
 				}//end of if target is item [0]
 				
 				if (event.target ==myItems[1])
@@ -354,7 +345,6 @@
 						displayKart.wheel1.gotoAndStop(4)
 						displayKart.wheel2.gotoAndStop(4)
 					}
-					
 				}//end of if target is item [1]
 				
 				if (event.target ==myItems[2])
@@ -460,8 +450,6 @@
 					
 				}//end of if target is item [2] 
 				
-				
-				
 			}//end of if kartbody
 			
 			
@@ -479,6 +467,7 @@
 					myItems.length=0
 					
 				}catch (error:Error){trace("Whoops")}
+				
 				if (event.target==mySelectors[0])
 				{
 					SetupItems("Wheels")
@@ -535,8 +524,6 @@
 			clearInterval(panoramaWait)
 		}//end of panorama showmessage
 		
-		
-		
 		public function SetupKart()
 		{
 			
@@ -545,7 +532,6 @@
 			displayKart.scaleY=1.5
 			displayKart.x=215
 			displayKart.y=230
-		
 			displayKart.Grace.visible=false
 			
 		}//end of setup kart
@@ -563,13 +549,10 @@
 				
 					addChild(myItems[i])
 					
-					
 					myItems[i].x=(i+1)*110
 					myItems[i].y=340
 					
-					
 				}//end of for loop to add items to stage
-				
 				
 			}
 			if (itemType=="Bodies")
@@ -577,15 +560,15 @@
 				myItems=[new KartBody(),new KartBody(),new KartBody()]
 				
 				for (var j:int=0 ;j<(myItems.length);j++)
-				{
 				
+				{
 					addChild(myItems[j])
 						
-						
-						myItems[j].x=(j+1)*110
-						myItems[j].y=365
-						myItems[j].scaleX=0.5
-						myItems[j].scaleY=0.5
+					myItems[j].x=(j+1)*110
+					myItems[j].y=365
+					myItems[j].scaleX=0.5
+					myItems[j].scaleY=0.5
+					
 				}
 				
 			}
@@ -597,13 +580,8 @@
 				myItems[k].buttonMode = true;
 				myItems[k].addEventListener(MouseEvent.MOUSE_OVER, this.CustomizeToolTip );
 				myItems[k].addEventListener(MouseEvent.MOUSE_DOWN, this.ClickItem)
-				//trace("Item is ", myItems[k])
 				
 			}//end of for loop to add items to stage
-			
-
-			
-						
 			
 		}//end of setup items
 		
@@ -613,22 +591,17 @@
 			
 			for (var j:int=0 ;j<(mySelectors.length);j++)
 			{
-				
 				addChild(mySelectors[j])
 				mySelectors[j].gotoAndStop(j+1)
-				
-				
 				mySelectors[j].y=282.05
-				
-				
 				mySelectors[j].buttonMode = true;
 				mySelectors[j].addEventListener(MouseEvent.MOUSE_OVER, this.CustomizeToolTip );
 				mySelectors[j].addEventListener(MouseEvent.MOUSE_DOWN, this.ClickItem)
 				
 			}//end of for loop to add items to stage
+			
 			mySelectors[0].x=13
 			mySelectors[1].x=13+36
-			
 			
 		}//end of setup selectors
 		

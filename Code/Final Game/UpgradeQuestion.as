@@ -62,23 +62,26 @@
 				addChild(buttonArray[i])
 				buttonArray[i].setStyle("embedFonts", true);
 				buttonArray[i].setStyle("textFormat", myTextFormat)
-				buttonArray[i].setSize(AnsA.width,AnsA.height)
+				
 				if (i==0)
 				{
 					buttonArray[i].label="A"
 					buttonArray[i].move(AnsA.x,AnsA.y)
+					buttonArray[i].setSize(AnsA.width,AnsA.height)
 				}
 				
 				if (i==1)
 				{
 					buttonArray[i].label="B"
 					buttonArray[i].move(AnsB.x,AnsB.y)
+					buttonArray[i].setSize(AnsB.width,AnsB.height)
 				}
 				
 				if (i==2)
 				{
 					buttonArray[i].label="C"
 					buttonArray[i].move(AnsC.x,AnsC.y)
+					buttonArray[i].setSize(AnsC.width,AnsC.height)
 				}
 				
 				
