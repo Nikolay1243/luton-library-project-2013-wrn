@@ -257,9 +257,6 @@
 			
 			if (player.hitTestObject(level_Visible.endLevel))
 			{
-				gameTimer.getTime();
-				trace("Total Time:   " + GameTimer.myTotalTime.seconds + " : " +GameTimer.myTotalTime.seconds)
-				
 				while (numChildren > 0) {removeChildAt(0)}
 				
 				if (numChildren==0)
@@ -267,6 +264,7 @@
 					//gameSound.removeEventListener(Event.ENTER_FRAME, gameSound.playLevelSounds)
 					progressLevel.removeEventListener(Event.ENTER_FRAME, progressLevel.statePlayer)
 					player.removeEventListener(Event.ENTER_FRAME, player.updateStage);
+					gameTimer.getTime();
 					//trace("currentLevel: "MovieClip(root).currentLevel)
 					
 					

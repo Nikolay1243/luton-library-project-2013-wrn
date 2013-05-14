@@ -24,7 +24,6 @@
 		public function GameTimer()
 		{
 			// constructor code
-			myTotalTime = new Date(0,0,0,0, min, sec, 0);
 			
 			time = new Date(0,0,0,0,0,0,0);
 			timer = new Timer(100);
@@ -50,6 +49,9 @@
 		{
 			min += time.minutes;
 			sec += time.seconds;
+			
+			myTotalTime = new Date(0,0,0,0, min, sec, 0);
+			
 		}
 		
 		function update(e:Event):void
