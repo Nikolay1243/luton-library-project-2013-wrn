@@ -265,6 +265,7 @@
 					//gameSound.removeEventListener(Event.ENTER_FRAME, gameSound.playLevelSounds)
 					progressLevel.removeEventListener(Event.ENTER_FRAME, progressLevel.statePlayer)
 					player.removeEventListener(Event.ENTER_FRAME, player.updateStage);
+					gameTimer.getTime();
 					
 					//trace("currentLevel: "MovieClip(root).currentLevel)
 					
