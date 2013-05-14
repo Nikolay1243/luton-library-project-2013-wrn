@@ -25,6 +25,8 @@
 		
 		public var whichLevel:int = 1;
 		
+		public var question:UpgradeQuestion = new UpgradeQuestion();
+		
 		public function TutLevel() {
 			// constructor code
 			
@@ -119,13 +121,35 @@
 				
 			player.scaleX = 0.5;
 			player.scaleY = 0.5;
-			player.alpha=0.1
+			player.alpha=0.01;
 			kart.alpha = 1;
 			
 			//stage.addEventListener(KeyboardEvent.KEY_DOWN, player.keyboardDown);
 			//stage.addEventListener(KeyboardEvent.KEY_UP, player.keyboardUp);
 			
+			addEventListener(Event.ENTER_FRAME, updateStage);
+		}
+		
+		
+		public function updateStage(e:Event)
+		{
+			if(player.carStop == true)
+			{
+				addChild(question)
+				question.visible = true;
+				question.alpha = 0.8;
+				question.x = stage.stageWidth / 2;
+				question.y = 10;
+				question.CheckCorrect.addEventListener(MouseEvent.MOUSE_DOWN, doSomething);
+			}
 			
+		}
+		
+		public function doSomething(e:MouseEvent)
+		{
+			player.FinishTutLevel();
+			question.visible = false;
+			this.removeEventListener(Event.ENTER_FRAME, updateStage);
 		}
 	}
 	

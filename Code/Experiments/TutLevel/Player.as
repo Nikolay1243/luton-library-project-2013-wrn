@@ -55,6 +55,7 @@
 			collisionList = new CollisionList(level);
 			collisionList.addItem(this);
 			kart.GracePush.alpha = 0;
+			kart.Body.gotoAndStop(2);
 			
 			//Start all the events
 			addEventListener(Event.ENTER_FRAME, updateStage);
@@ -65,20 +66,18 @@
 
 		public function timerEvent(e:TimerEvent)
 		{
-			if(carStop == true)
-			{
-				friction = 0.97;
-				speed = 0.03;
-				kart.GracePush.alpha = 1;
-				kart.GracePush.gotoAndPlay(1);
-				carStop = false;
-				timer.stop();
-				
-			}
-			else
-			{
-				carStop = true;
-			}
+			carStop = true;
+		}
+		
+		public function FinishTutLevel()
+		{
+			friction = 0.97;
+			speed = 0.03;
+			kart.Body.gotoAndStop(1);
+			kart.GracePush.alpha = 1;
+			kart.GracePush.gotoAndPlay(1);
+			carStop = false;
+			timer.stop();
 		}
 		public function keyboardDown(e:KeyboardEvent)
 		{
@@ -120,7 +119,7 @@
 		{
 			
 			
-			friction -= 0.00017;
+			friction -= 0.00023;
 			
 			
 			if(carStop == false)
