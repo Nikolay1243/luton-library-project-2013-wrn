@@ -16,6 +16,7 @@
 		public var timer:Timer;
 		public var time:Date;
 		
+		
 		public static var min = 0;
 		public static var sec = 0;
 		public static var mil = 0;
