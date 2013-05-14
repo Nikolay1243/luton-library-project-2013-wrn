@@ -35,7 +35,7 @@
 			var textFormat:TextFormat = new TextFormat();
 			textFormat.font = project_Font.fontName;
 			textFormat.size = 20;
-			textFormat.color = 0xFFFFFF
+			textFormat.color = 0x000000
 			textTime.defaultTextFormat = textFormat;
 			
 			timer.addEventListener(TimerEvent.TIMER, startTimer);

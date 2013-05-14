@@ -107,6 +107,17 @@
 				//level_Visible.scaleX = 0.6;
 				//level.scaleX = 0.6;
 			}
+			if (whichLevel==5)
+			{
+				/*background3.y = 0
+				background2.y = 50
+				background1.y = 25;*/
+				
+				
+				level_Visible.y +=30
+				level.y+=30
+				//level.scaleX = 0.6;
+			}
 			
 			level.y = 50;
 			level.scaleX = 0.8;
@@ -257,6 +268,12 @@
 				addChild(l)
 				panoramaWait=setInterval(startTheGame,2500);
 			}
+			if (whichLevel==5)
+			{
+				l.load(new URLRequest("Panoramas/TweenCamera_Lv5.swf"));
+				addChild(l)
+				panoramaWait=setInterval(startTheGame,2500);
+			}
 		}
 		
 		public function MoveToNextLevel(e:Event)
@@ -286,7 +303,7 @@
 					stage.removeEventListener(Event.ENTER_FRAME, player.updateStage)
 					
 					
-					if (MovieClip(root).currentLevel>0 && MovieClip(root).currentLevel<4)
+					if (MovieClip(root).currentLevel>0 && MovieClip(root).currentLevel<5)
 						{
 							//trace("curentLevel: "MovieClip(root).currentLevel)
 							MovieClip(root).gotoAndStop(4)
