@@ -49,6 +49,12 @@
 			min += time.minutes;
 			sec += (time.seconds + 1);
 			
+			while(sec >= 60)
+			{
+				min += 1;
+				sec -= 60;
+			}
+			
 		}
 		
 		function update(e:Event):void
