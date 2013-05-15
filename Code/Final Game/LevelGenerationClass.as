@@ -99,25 +99,6 @@
 				background1.y = level_Visible.y+300;
 			}
 			
-			if (whichLevel==4)
-			{
-				background3.y = 0
-				background2.y = 50
-				background1.y = 25;
-				//level_Visible.scaleX = 0.6;
-				//level.scaleX = 0.6;
-			}
-			if (whichLevel==5)
-			{
-				/*background3.y = 0
-				background2.y = 50
-				background1.y = 25;*/
-				
-				
-				level_Visible.y +=30
-				level.y+=30
-				//level.scaleX = 0.6;
-			}
 			
 			level.y = 50;
 			level.scaleX = 0.8;
@@ -126,6 +107,29 @@
 			level_Visible.y = 50;
 			level_Visible.scaleX = 0.8;
 			level_Visible.scaleY = 0.5;
+			
+			if (whichLevel==4)
+			{
+				background3.y = 0
+				background2.y = 50
+				background1.y = 25;
+				level_Visible.y = 65;
+				//level.scaleX = 0.6;
+			}
+			if (whichLevel==5)
+			{
+				/*background3.y = 0
+				background2.y = 50
+				background1.y = 25;*/
+				
+				background3.y = 0
+				background2.y -= 150
+				background1.y -= 50;
+				
+				level_Visible.y += 15;
+				level.y+=25
+				//level.scaleX = 0.6;
+			}
 			
 			container = new MovieClip();
 			
