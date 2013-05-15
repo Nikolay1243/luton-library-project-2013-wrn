@@ -13,8 +13,8 @@
 		public var vx:Number = 0;
 		public var vy:Number = 0;
 		
-		public static var SpeedX:Number = 0.8;
-		public static var SpeedY:Number = 0.8;
+		public static var SpeedX:Number = 0.4;
+		public static var SpeedY:Number = 0.4;
 		public static var GRAVITY:Number = 0.75;
 
 		public var ax:Number = 0;
@@ -43,7 +43,8 @@
 		public static var whichLevel:int = 0;
 		//Create our collision list, which is going to have player and the level(collision object)
 		public var collisionList:CollisionList;
-
+		
+		
 		public function Player()
 		{
 			//Add level and this(player) to the collision list
@@ -54,7 +55,8 @@
 			//Start all the events
 			addEventListener(Event.ENTER_FRAME, updateStage);
 		}
-
+		
+		//This function is called when a keyboard button is pressed
 		public function keyboardDown(e:KeyboardEvent)
 		{
 			switch (e.keyCode)
@@ -72,7 +74,7 @@
 					break;
 			}
 		}
-
+		//this function is called when the keyboard button is up
 		public function keyboardUp(e:KeyboardEvent)
 		{
 			switch (e.keyCode)
@@ -91,6 +93,7 @@
 			}
 		}
 		
+		//this function moves the kart along the level
 		public function moveKart()
 		{
 			var speed:Number = this.vx;
@@ -115,6 +118,7 @@
 			}
 		}
 		
+		//this function updates the level by looking at the collisions
 		public function updateStage(e:Event)
 		{
 			var collisions:Array = collisionList.checkCollisions();
@@ -212,25 +216,7 @@
 				//background1.x = level.x;
 			}
 			
-			/*
 			
-			trace(level.x , stage.stageWidth - level.width)
-			
-			
-			if(background1.x > stage.stageWidth - background1.width)
-			{
-				background1.x = stage.stageWidth - background1.width;
-				trace("asdsa")
-			}
-			
-			if(level.x > stage.stageWidth - level.width)
-			{
-				trace("asdsasdf")
-				level.x = stage.stageWidth - level.width;
-				level_Visible.x = stage.stageWidth - level_Visible.width;
-			}
-			
-			*/
 		}
 	}
 }

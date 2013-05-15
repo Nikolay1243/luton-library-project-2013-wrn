@@ -21,38 +21,43 @@
 	
 	public class GarageClass extends MovieClip {
 		
+		
+		//these variables are reuseable
 		private var _tf:TextField;
 		private var _timer:Timer;
 		private var _reusableTip:ToolTip;
 			
-			
+		//these variables set up the buttons in the garage
 		private var playButton=new Button()
 		private var upgradeButton=new Button()
-		
 		private var leftArrow=new MyArrow()
 		private var rightArrow=new MyArrow()
 		
+		//these variables make sure the formatting in the garage window is the same as the rest of the program
 		private var myTextFormat=new TextFormat()
 		private var project_Font:Font=new Project_Font()
 		
+		//these variables set up the currentLevel1 counter and a new grace instance 
 		private var currentLevel1:int
 		private var myGrace=new MyGrace
 		private var l=new Loader
 		private var panoramaWait
 		
-		//private var displayKart=LevelGenerationClass.kart
+		//this kart is matched to the current configuration of kart
 		private var displayKart=new Karts()
 		
+		
+		//these variables hold images inside them and are used for customizing the karts
 		private var myItems:Array
 		private var mySelectors:Array
 		
 		
-		
+		//this function sets up the contrsuct
 		public function GarageClass(currentLevel) 
 		{
 			trace("GarageClass Constructor")
-			currentLevel1=currentLevel
 			
+			currentLevel1=currentLevel
 			displayKart = LevelGenerationClass.kart;
 			
 			CreateToolTip()
@@ -64,13 +69,8 @@
 			
 			//addEventListener(Event.ENTER_FRAME,getMouseCo)
 		}
-		
-		public function getMouseCo(e:Event)
-		{
-			trace (stage.mouseX)
-			trace (stage.mouseY)
-		}//get mouse coord
-		
+
+		//this function sets up the buttons for the garage window
 		public function MakeButtons()
 		{
 						
@@ -118,6 +118,7 @@
 			}
 		}//end of make buttons
 		
+		//This function makes a new tooltip
 		public function CreateToolTip()
 		{
 			var tf:TextFormat = new TextFormat();
@@ -150,6 +151,7 @@
 			_reusableTip.borderSize = 2;
 		}//end of setup tooltip
 		
+		//This function customizes the tooltips depending on which item the mouse is hovering over
 		public function CustomizeToolTip(event:MouseEvent )
 		{
 			//Button tooltips
@@ -241,10 +243,10 @@
 			
 		}//end of customize tooltip
 		
+		//this function is called when a clickable item on the screen is clicked
 		public function ClickItem(event:MouseEvent)
 		{
-			//trace (event.target)
-			MovieClip(root).clickSound.play()
+			
 			if (event.target==playButton)
 			{	
 				displayKart.Grace.visible=true
@@ -258,6 +260,7 @@
 				if (numChildren==0){MovieClip(root).gotoAndStop(8)}
 			}
 			
+			//if left arrow is pressed, move to the frame for that item
 			if (event.target==leftArrow)
 			{
 				if (myItems[0] is KartWheel&& myItems.length>2)
@@ -275,6 +278,7 @@
 				}
 			}
 			
+			//if right arrow is pressed, move to the frame for that item
 			if (event.target==rightArrow)
 			{
 				if (myItems[0] is KartWheel && myItems.length>2)
@@ -299,14 +303,18 @@
 				{
 					if (myItems[0].currentFrame==1)
 					{
-						//trace("Clicked wheel 1")
+						//increase speed with each wheel
+						Player.SpeedX = 0.5;
+						Player.SpeedY = Player.SpeedX
 						displayKart.wheel1.gotoAndStop(1)
 						displayKart.wheel2.gotoAndStop(1)
 					}
 					
 					if (myItems[0].currentFrame==2)
 					{
-						//trace("Clicked wheel 2")
+						Player.SpeedX = 0.6;
+						Player.SpeedY = Player.SpeedX
+						
 						
 						displayKart.wheel1.gotoAndStop(2)
 						displayKart.wheel2.gotoAndStop(2)
@@ -314,7 +322,8 @@
 					
 					if (myItems[0].currentFrame==3)
 					{
-						//trace("Clicked wheel 3")
+						Player.SpeedX = 0.7
+						Player.SpeedY = Player.SpeedX
 						displayKart.wheel1.gotoAndStop(3)
 						displayKart.wheel2.gotoAndStop(3)
 					}
@@ -325,23 +334,24 @@
 					if (myItems[1].currentFrame==2)
 					{
 						trace("Clicked wheel 2")
-						Player.SpeedX = 0.4;
-						Player.SpeedY = 0.4;
-						//Player.GRAVITY = 0.2;
+						Player.SpeedX = 0.6;
+						Player.SpeedY = Player.SpeedX
 						displayKart.wheel1.gotoAndStop(2)
 						displayKart.wheel2.gotoAndStop(2)
 					}
 					
 					if (myItems[1].currentFrame==3)
 					{
-						//trace("Clicked wheel 3")
+						Player.SpeedX = 0.7;
+						Player.SpeedY = Player.SpeedX
 						displayKart.wheel1.gotoAndStop(3)
 						displayKart.wheel2.gotoAndStop(3)
 					}
 					
 					if (myItems[1].currentFrame==4)
 					{
-						//trace("Clicked wheel 4")
+						Player.SpeedX = 0.8;
+						Player.SpeedY = Player.SpeedX
 						displayKart.wheel1.gotoAndStop(4)
 						displayKart.wheel2.gotoAndStop(4)
 					}
@@ -351,13 +361,16 @@
 				{
 					if (myItems[2].currentFrame==3)
 					{
-						//trace("Clicked wheel 3")
+						Player.SpeedX = 0.7;
+						Player.SpeedY = Player.SpeedX
 						displayKart.wheel1.gotoAndStop(3)
 						displayKart.wheel2.gotoAndStop(3)
 					}
 					
 					if (myItems[2].currentFrame==4)
 					{
+						Player.SpeedX = 0.8;
+						Player.SpeedY = Player.SpeedX
 						//trace("Clicked wheel 4")
 						displayKart.wheel1.gotoAndStop(4)
 						displayKart.wheel2.gotoAndStop(4)
@@ -365,6 +378,8 @@
 					
 					if (myItems[2].currentFrame==5)
 					{
+						Player.SpeedX = 0.9;
+						Player.SpeedY = Player.SpeedX
 						//trace("Clicked wheel 5")
 						displayKart.wheel1.gotoAndStop(5)
 						displayKart.wheel2.gotoAndStop(5)
@@ -429,30 +444,24 @@
 				{
 					if (myItems[2].currentFrame==3)
 					{
-						//trace("Clicked body 3")
 						displayKart.Body.gotoAndStop(3)
-						
 					}
 					
 					if (myItems[2].currentFrame==4)
 					{
-						//trace("Clicked body 4")
 						displayKart.Body.gotoAndStop(4)
-						
 					}
 					
 					if (myItems[2].currentFrame==5)
 					{
-						//trace("Clicked body 5")
 						displayKart.Body.gotoAndStop(5)
-						
 					}
 					
 				}//end of if target is item [2] 
 				
 			}//end of if kartbody
 			
-			
+			//sets up the wheels or bodies depending on which selector is pressed
 			if (event.target==mySelectors[0]||event.target==mySelectors[1])
 			{
 				
@@ -480,11 +489,9 @@
 				
 			}//end of if selectors[0]||[1]
 			
-			
+			//if grace is clicked play the panorama for the next level
 			if (event.target==myGrace)
-			{	
-				trace("Play Preview")
-				
+			{					
 				if (currentLevel1==0)
 				{
 					l.load(new URLRequest("Panoramas/TweenCamera_Lv1.swf"));
@@ -523,6 +530,7 @@
 			
 		}//click item event
 		
+		//end the panorama
 		public function showMessage()
 		{
 			trace("End of panorama");
@@ -530,6 +538,8 @@
 			clearInterval(panoramaWait)
 		}//end of panorama showmessage
 		
+		
+		//set up the kart on the screen
 		public function SetupKart()
 		{
 			
@@ -542,6 +552,7 @@
 			
 		}//end of setup kart
 		
+		//setup the items on the screen
 		public function SetupItems(itemType)
 		{
 			
@@ -561,6 +572,7 @@
 				}//end of for loop to add items to stage
 				
 			}
+			
 			if (itemType=="Bodies")
 			{
 				myItems=[new KartBody(),new KartBody(),new KartBody()]
@@ -591,6 +603,7 @@
 			
 		}//end of setup items
 		
+		//setup selectors on the screen
 		public function SetupSelectors()
 		{	
 			mySelectors=[new partSelector,new partSelector]
