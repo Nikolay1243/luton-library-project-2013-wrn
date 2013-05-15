@@ -286,9 +286,9 @@
 				if (myItems[0] is KartBody && myItems.length>2)
 				{
 					
-					if (myItems[0].currentFrame<2){myItems[0].gotoAndStop(myItems[0].currentFrame+1)} 
-					if (myItems[1].currentFrame<3){myItems[1].gotoAndStop(myItems[1].currentFrame+1)}
-					if (myItems[2].currentFrame<4){myItems[2].gotoAndStop(myItems[2].currentFrame+1)}
+					if (myItems[0].currentFrame<3){myItems[0].gotoAndStop(myItems[0].currentFrame+1)} 
+					if (myItems[1].currentFrame<4){myItems[1].gotoAndStop(myItems[1].currentFrame+1)}
+					if (myItems[2].currentFrame<5){myItems[2].gotoAndStop(myItems[2].currentFrame+1)}
 				}
 			}
 			
@@ -501,16 +501,22 @@
 				
 				if (currentLevel1==2)
 				{
-					//l.load(new URLRequest("Panoramas/TweenCamera_Lv3.swf"));
-  					//addChild(l)
-  					//panoramaWait=setInterval(showMessage,3000);
+					l.load(new URLRequest("Panoramas/TweenCamera_Lv3.swf"));
+  					addChild(l)
+  					panoramaWait=setInterval(showMessage,3000);
 				}
 				
 				if (currentLevel1==3)
 				{
-					//l.load(new URLRequest("Panoramas/TweenCamera_Lv4.swf"));
-					//addChild(l)
-					//panoramaWait=setInterval(showMessage,3000);
+					l.load(new URLRequest("Panoramas/TweenCamera_Lv4.swf"));
+					addChild(l)
+					panoramaWait=setInterval(showMessage,3000);
+				}
+				if (currentLevel1==4)
+				{
+					l.load(new URLRequest("Panoramas/TweenCamera_Lv5.swf"));
+					addChild(l)
+					panoramaWait=setInterval(showMessage,3000);
 				}
 				
 			}//end of show preview
