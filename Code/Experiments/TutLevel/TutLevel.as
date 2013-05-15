@@ -7,6 +7,8 @@
 	
 	import fl.transitions.Tween;
 	import fl.transitions.easing.*
+	import flash.utils.Timer;
+	import flash.events.TimerEvent;
 	
 	public class TutLevel extends MovieClip {
 		
@@ -26,6 +28,8 @@
 		public var whichLevel:int = 1;
 		
 		private var question:UpgradeQuestionX = new UpgradeQuestionX();
+		
+		private var timer:Timer = new Timer(3000);
 		
 		public function TutLevel() {
 			// constructor code
@@ -147,18 +151,105 @@
 				question.alpha = 0.8;
 				question.x = stage.stageWidth / 2;
 				question.y = 10;
+				
+				question.AnsAText.selectable = false;
+				question.AnsBText.selectable = false;
+				question.AnsCText.selectable = false;
+				
+				question.AnsA.selectable = false;
+				question.AnsB.selectable = false;
+				question.AnsC.selectable = false;
+				
+				question.QuestionBox.selectable = false;
+				question.CheckCorrect.selectable = false;
+				
+				question.AnsAText.addEventListener(MouseEvent.MOUSE_DOWN, doSomethingA);
+				question.AnsBText.addEventListener(MouseEvent.MOUSE_DOWN, doSomethingB);
+				question.AnsCText.addEventListener(MouseEvent.MOUSE_DOWN, doSomethingC);
+				
+				question.AnsB.addEventListener(MouseEvent.MOUSE_DOWN, doSomethingA);
+				question.AnsB.addEventListener(MouseEvent.MOUSE_DOWN, doSomethingB);
+				question.AnsC.addEventListener(MouseEvent.MOUSE_DOWN, doSomethingC);
+				
 				question.CheckCorrect.addEventListener(MouseEvent.MOUSE_DOWN, doSomething);
 			}
 			
 		}
 		
-		private function doSomething(e:MouseEvent)
+		private function startTimer(e:TimerEvent)
 		{
+			
 			player.FinishTutLevel();
 			question.visible = false;
+			timer.stop();
+			timer.removeEventListener(TimerEvent.TIMER, startTimer);
+		}
+		
+		private function doSomething(e:MouseEvent)
+		{
+			timer.addEventListener(TimerEvent.TIMER, startTimer);
+			timer.start();
+			
+			question.AnsAText.alpha = 0.3;
+			question.AnsBText.alpha = 1;
+			question.AnsCText.alpha = 0.3;
+			
+			question.AnsA.alpha = 0.3;
+			question.AnsB.alpha = 1;
+			question.AnsC.alpha = 0.3;
+			
+			question.AnsAText.removeEventListener(MouseEvent.MOUSE_DOWN, doSomethingA);
+			question.AnsBText.removeEventListener(MouseEvent.MOUSE_DOWN, doSomethingB);
+			question.AnsCText.removeEventListener(MouseEvent.MOUSE_DOWN, doSomethingC);
+				
+			question.AnsB.removeEventListener(MouseEvent.MOUSE_DOWN, doSomethingA);
+			question.AnsB.removeEventListener(MouseEvent.MOUSE_DOWN, doSomethingB);
+			question.AnsC.removeEventListener(MouseEvent.MOUSE_DOWN, doSomethingC);
+			
 			this.removeEventListener(Event.ENTER_FRAME, updateStage);
 			question.CheckCorrect.removeEventListener(MouseEvent.MOUSE_DOWN, doSomething);
 		}
+		
+		
+		private function doSomethingA(e:MouseEvent)
+		{
+			question.AnsAText.alpha = 1;
+			question.AnsBText.alpha = 0.7;
+			question.AnsCText.alpha = 0.7;
+			
+			question.AnsA.alpha = 1;
+			question.AnsB.alpha = 0.7;
+			question.AnsC.alpha = 0.7;
+		}
+		private function doSomethingB(e:MouseEvent)
+		{
+			question.AnsAText.alpha = 0.7;
+			question.AnsBText.alpha = 1;
+			question.AnsCText.alpha = 0.7;
+			
+			question.AnsA.alpha = 0.7;
+			question.AnsB.alpha = 1;
+			question.AnsC.alpha = 0.7;
+		}
+		private function doSomethingC(e:MouseEvent)
+		{
+			question.AnsAText.alpha = 0.7;
+			question.AnsBText.alpha = 0.7;
+			question.AnsCText.alpha = 1;
+			
+			question.AnsA.alpha = 0.7;
+			question.AnsB.alpha = 0.7;
+			question.AnsC.alpha = 1;
+		}
+		
+		
+
+		
 	}
+	
+	
+	
+	
+	
 	
 }
