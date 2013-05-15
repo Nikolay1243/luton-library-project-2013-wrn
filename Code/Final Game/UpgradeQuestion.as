@@ -46,6 +46,7 @@
 						   
 		}
 		
+		//this function sets up the answer buttons
 		public function SetupAnswerButtons()
 		{
 			trace("SetupAnswerButtons")
@@ -95,7 +96,7 @@
 				
 			}
 		}
-		
+		//this function determines which answer is correct for which question
 		public function ClickItem(event:MouseEvent)
 		{
 			if (event.target==buttonArray[0])
@@ -138,16 +139,12 @@
 			}
 		}
 		
+		//this function sets up the actual text to the answer
 		public function SetupAnswers(CurrentQuestion)
 		{
 			trace("SetupAnswers")
 			
-			
-			
-			
-			
-			
-			//answersArray=[]
+			answersArray=[]
 			answersArray.length=0
 			if (CurrentQuestion==0)
 			{
@@ -186,12 +183,14 @@
 			
 			
 		}
+		
 		public function ChangeQuestion()
 		{
 			trace("ChangeQuestion")
 			//this.QuestionBox.text="ChangeQuestion code"
 		}
 		
+		//this function returns a random number to randomize the appearance of the questions
 		public function randomRange(minNum:Number, maxNum:Number):Number   
 		{  
     		return (Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum);  

@@ -213,7 +213,7 @@
 				
 			player.scaleX = 0.5;
 			player.scaleY = 0.5;
-			player.alpha=0.5
+			player.alpha=0.01
 			kart.alpha = 1;
 			
 
@@ -228,6 +228,13 @@
 			addChild(gameTimer)
 			gameTimer.x=15;
 			gameTimer.y=10
+			
+			addChild(MovieClip(root).mainMenuButton)
+			MovieClip(root).mainMenuButton.move(500,5)
+			MovieClip(root).mainMenuButton.setSize(144,38)
+			
+			MovieClip(root).mainMenuButton.addEventListener(MouseEvent.CLICK,goToMainMenu);
+			
 			
 			ProgressLevel.level = level_Visible;
 			ProgressLevel.player = player;
@@ -252,37 +259,72 @@
 			{
 				l.load(new URLRequest("Panoramas/TweenCamera_Lv1.swf"));
 				addChild(l)
-				panoramaWait=setInterval(startTheGame,2500);
+				panoramaWait=setInterval(startTheGame,3000);
 			}
 			if (whichLevel==2)
 			{
 				l.load(new URLRequest("Panoramas/TweenCamera_Lv2.swf"));
 				addChild(l)
-				panoramaWait=setInterval(startTheGame,2500);
+				panoramaWait=setInterval(startTheGame,3000);
 			}
 			if (whichLevel==3)
 			{
 				l.load(new URLRequest("Panoramas/TweenCamera_Lv3.swf"));
 				addChild(l)
-				panoramaWait=setInterval(startTheGame,2500);
+				panoramaWait=setInterval(startTheGame,3000);
 			}
 			if (whichLevel==4)
 			{
 				l.load(new URLRequest("Panoramas/TweenCamera_Lv4.swf"));
 				addChild(l)
-				panoramaWait=setInterval(startTheGame,2500);
+				panoramaWait=setInterval(startTheGame,3000);
 			}
 			if (whichLevel==5)
 			{
 				l.load(new URLRequest("Panoramas/TweenCamera_Lv5.swf"));
+				//l.load(Null);
 				addChild(l)
-				panoramaWait=setInterval(startTheGame,2500);
+				panoramaWait=setInterval(startTheGame,3000);
 			}
+		}
+		public function goToMainMenu(e:Event)
+		{
+			
+			while (numChildren > 0) {removeChildAt(0)}
+			
+			if (numChildren==0)
+			{
+				//gameSound.removeEventListener(Event.ENTER_FRAME, gameSound.playLevelSounds)
+				progressLevel.removeEventListener(Event.ENTER_FRAME, progressLevel.statePlayer)
+				player.removeEventListener(Event.ENTER_FRAME, player.updateStage);
+				gameTimer.getTime();
+				//trace("currentLevel: "MovieClip(root).currentLevel)
+				
+				
+				//trace(myTotalTime)
+				//myTotalTime=gameTimer.textTime.text
+				//trace(myTotalTime)
+				
+				
+				removeEventListener(Event.ENTER_FRAME ,MoveToNextLevel)
+				stage.removeEventListener(KeyboardEvent.KEY_DOWN, player.keyboardDown);
+				stage.removeEventListener(KeyboardEvent.KEY_UP, player.keyboardUp);
+				stage.removeEventListener(Event.ENTER_FRAME, player.updateStage)
+				
+				
+				MovieClip(root).gotoAndStop(1)
+				MovieClip(root).currentLevel=0
+					
+				 
+			}
+		
 		}
 		
 		public function MoveToNextLevel(e:Event)
 		{
 			
+			
+
 			if (player.hitTestObject(level_Visible.endLevel))
 			{
 				while (numChildren > 0) {removeChildAt(0)}
