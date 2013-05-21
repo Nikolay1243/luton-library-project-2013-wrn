@@ -23,7 +23,7 @@
 		private var gameTimer:GameTimer;
 		private var myTotalTime:String
 		private var progressLevel:ProgressLevel;
-		private var gameSound:GameSound;
+		//private var gameSound:GameSound;
 		
 		private var level:Level;
 		private var level_Visible:Level_Visible;
@@ -48,6 +48,9 @@
 		
 		public function SetUpLevel(whichLevel)
 		{
+			
+			
+			
 			background3 = new Background3();
 			addChild(background3);
 			background3.gotoAndStop(whichLevel)
@@ -183,6 +186,20 @@
 		
 		public function startTheGame()
 		{
+			try {
+			//MovieClip(root).removeChild(MovieClip(root).myGarage)
+			
+			MovieClip(root).myGarage.visible = false;
+			trace("I did it!")
+			//dispatchEvent(new MouseEvent(MouseEvent.CLICK))
+			}catch(error:Error){trace ("Could not remove garage")}
+			
+			try {
+			
+			
+			trace("Im trying!")
+			}catch(error:Error){trace ("Could not trace")}
+			
 			removeChild(l)
 			clearInterval(panoramaWait)
 			
@@ -233,7 +250,7 @@
 			MovieClip(root).mainMenuButton.move(500,5)
 			MovieClip(root).mainMenuButton.setSize(144,38)
 			
-			MovieClip(root).mainMenuButton.addEventListener(MouseEvent.CLICK,goToMainMenu);
+			//MovieClip(root).mainMenuButton.addEventListener(MouseEvent.CLICK,goToMainMenu);
 			
 			
 			ProgressLevel.level = level_Visible;
@@ -243,9 +260,9 @@
 			progressLevel.x = 120;
 			progressLevel.y = 25;
 
-			GameSound.player = player;
-			gameSound = new GameSound();
-			addChild(gameSound);
+			//GameSound.player = player;
+			//gameSound = new GameSound();
+			//addChild(gameSound);
 			
 			stage.addEventListener(KeyboardEvent.KEY_DOWN, player.keyboardDown);
 			stage.addEventListener(KeyboardEvent.KEY_UP, player.keyboardUp);
@@ -312,7 +329,7 @@
 				stage.removeEventListener(Event.ENTER_FRAME, player.updateStage)
 				
 				
-				MovieClip(root).gotoAndStop(1)
+				MovieClip(root).gotoAndStop(2)
 				MovieClip(root).currentLevel=0
 					
 				 
@@ -323,6 +340,7 @@
 		public function MoveToNextLevel(e:Event)
 		{
 			
+
 			
 
 			if (player.hitTestObject(level_Visible.endLevel))

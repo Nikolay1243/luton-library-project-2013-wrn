@@ -16,7 +16,7 @@
 		private var vy:Number = 0;
 		
 		private static var SpeedX:Number = 0.8;
-		private static var SpeedY:Number = 0.8;
+		private static var SpeedY:Number = 0.2;
 		private static var GRAVITY:Number = 0.75;
 
 		private var ax:Number = 0;

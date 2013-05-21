@@ -56,7 +56,6 @@
 		public function GarageClass(currentLevel) 
 		{
 			trace("GarageClass Constructor")
-			
 			currentLevel1=currentLevel
 			displayKart = LevelGenerationClass.kart;
 			
@@ -251,7 +250,9 @@
 			{	
 				displayKart.Grace.visible=true
 				LevelGenerationClass.kart=displayKart
+				
 				MovieClip(root).gotoAndStop(3)
+				
 			}
 			
 			if (event.target==upgradeButton)

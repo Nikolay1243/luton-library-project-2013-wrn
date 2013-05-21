@@ -43,7 +43,7 @@
 		public static var container:MovieClip = new MovieClip();
 		public static var kart:MovieClip = new MovieClip();
 		
-		private var timer:Timer = new Timer(15000);
+		private var timer:Timer = new Timer(8000);
 
 		//Create our collision list, which is going to have player and the level(collision object)
 		private var collisionList:CollisionList;
