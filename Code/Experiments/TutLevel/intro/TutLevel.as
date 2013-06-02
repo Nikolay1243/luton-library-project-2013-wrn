@@ -58,26 +58,29 @@
 			background3.scaleX = 0.5;
 			background3.scaleY = 0.5;
 			
+			
+			
 			background2.scaleX = 0.5;
 			background2.scaleY = 0.5;
 			
-			background1.scaleX = 0.5;
-			background1.scaleY = 0.5;
+			
+			background1.scaleX = 0.8;
+			background1.scaleY = 0.8;
 			
 			if (whichLevel==1)
 			{
-				background2.y=level_Visible.y+250
-				background1.y = level_Visible.y+180;
+				background2.y=level_Visible.y+350
+				background1.y = level_Visible.y+380;
 			}
 			
 			level.y = 50;
-			level.scaleX = 0.8;
-			level.scaleY = 0.5;
+			level.scaleX = 1.2;
+			level.scaleY = 0.8;
 			
 			
 			level_Visible.y = 50;
-			level_Visible.scaleX = 0.8;
-			level_Visible.scaleY = 0.5;
+			level_Visible.scaleX = 1.2;
+			level_Visible.scaleY = 0.8;
 			
 			container = new MovieClip();
 			
@@ -87,8 +90,8 @@
 				
 			}
 			
-			kart.scaleX = 0.5;
-			kart.scaleY = 0.5;
+			kart.scaleX = 0.8;
+			kart.scaleY = 0.8;
 			kart.alpha = 1;
 
 			PlayerX.kart = kart;
@@ -97,6 +100,7 @@
 			PlayerX.garage = garage;
 			PlayerX.level_Visible = level_Visible;
 			PlayerX.background1 = background1;
+			
 			PlayerX.background2 = background2;
 			PlayerX.background3 = background3;
 			
@@ -108,11 +112,11 @@
 			container.addChild(kart);
 			
 			addChild(garage)
-			garage.scaleX *= 0.8;
-			garage.scaleY *= 0.5;
+			garage.scaleX *= 1.3;
+			garage.scaleY *= 0.9;
 			level_Visible.garage.alpha=-0.5
-			garage.x = level_Visible.garage.x * 0.8 + level_Visible.x;
-			garage.y = level_Visible.garage.y * 0.5 + level_Visible.y;
+			garage.x = level_Visible.garage.x * 0.8 + level_Visible.x+930;
+			garage.y = level_Visible.garage.y * 0.5 + level_Visible.y+80;
 			
 			container.x=30
 			container.y=140
