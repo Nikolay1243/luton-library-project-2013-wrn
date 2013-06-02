@@ -123,7 +123,7 @@
 			var tf:TextFormat = new TextFormat();
 			
 			tf.font =project_Font.fontName 
-			tf.size = 25;
+			tf.size = 20;
 			tf.color = 0x000000;
 			
 			var tf1:TextFormat = new TextFormat();
@@ -180,16 +180,16 @@
 			{
 				if (myItems[0] is KartWheel)
 				{
-				if (myItems[0].currentFrame==1){_reusableTip.show(myItems[0], "wheel 1","")}
+				if (myItems[0].currentFrame==1){_reusableTip.show(myItems[0], "Stock Wheel","")}
 				if (myItems[0].currentFrame==2){_reusableTip.show(myItems[0], "wheel 2","")}
-				if (myItems[0].currentFrame==3){_reusableTip.show(myItems[0], "wheel 3","")}
+				if (myItems[0].currentFrame==3){_reusableTip.show(myItems[0], "Grippy Wheel","")}
 				}
 				
 				if (myItems[0] is KartBody)
 				{
-				if (myItems[0].currentFrame==1){_reusableTip.show(myItems[0], "body 1","")}
-				if (myItems[0].currentFrame==2){_reusableTip.show(myItems[0], "body 2","")}
-				if (myItems[0].currentFrame==3){_reusableTip.show(myItems[0], "body 3","")}
+				if (myItems[0].currentFrame==1){_reusableTip.show(myItems[0], "Stock Kart","")}
+				if (myItems[0].currentFrame==2){_reusableTip.show(myItems[0], "Yellow Kart","")}
+				if (myItems[0].currentFrame==3){_reusableTip.show(myItems[0], "Blue Kart","")}
 				}
 			}
 			
@@ -198,29 +198,29 @@
 				if (myItems[0] is KartWheel)
 				{
 				if (myItems[1].currentFrame==2){_reusableTip.show(myItems[1], "wheel 2","")}
-				if (myItems[1].currentFrame==3){_reusableTip.show(myItems[1], "wheel 3","")}
-				if (myItems[1].currentFrame==4){_reusableTip.show(myItems[1], "wheel 4","")}
+				if (myItems[1].currentFrame==3){_reusableTip.show(myItems[1], "Grippy Wheel","")}
+				if (myItems[1].currentFrame==4){_reusableTip.show(myItems[1], "Heavy Wheel","")}
 				}
 				if (myItems[0] is KartBody)
 				{
-				if (myItems[1].currentFrame==2){_reusableTip.show(myItems[1], "body 2","")}
-				if (myItems[1].currentFrame==3){_reusableTip.show(myItems[1], "body 3","")}
-				if (myItems[1].currentFrame==4){_reusableTip.show(myItems[1], "body 4","")}
+				if (myItems[1].currentFrame==2){_reusableTip.show(myItems[1], "Yellow Kart","")}
+				if (myItems[1].currentFrame==3){_reusableTip.show(myItems[1], "Blue Kart","")}
+				if (myItems[1].currentFrame==4){_reusableTip.show(myItems[1], "Red Kart","")}
 				}
 			}
 			if (event.target ==myItems[2])
 			{
 				if (myItems[0] is KartWheel)
 				{
-				if (myItems[2].currentFrame==3){_reusableTip.show(myItems[2], "wheel 3","")}
-				if (myItems[2].currentFrame==4){_reusableTip.show(myItems[2], "wheel 4","")}
-				if (myItems[2].currentFrame==5){_reusableTip.show(myItems[2], "wheel 5","")}
+				if (myItems[2].currentFrame==3){_reusableTip.show(myItems[2], "Grippy Wheel","")}
+				if (myItems[2].currentFrame==4){_reusableTip.show(myItems[2], "Heavy Wheel","")}
+				if (myItems[2].currentFrame==5){_reusableTip.show(myItems[2], "Dirtbike Wheel","")}
 				}
 				if (myItems[0] is KartBody)
 				{
-				if (myItems[2].currentFrame==3){_reusableTip.show(myItems[2], "body 3","")}
-				if (myItems[2].currentFrame==4){_reusableTip.show(myItems[2], "body 4","")}
-				if (myItems[2].currentFrame==5){_reusableTip.show(myItems[2], "body 5","")}
+				if (myItems[2].currentFrame==3){_reusableTip.show(myItems[2], "Blue Kart","")}
+				if (myItems[2].currentFrame==4){_reusableTip.show(myItems[2], "Red Kart","")}
+				if (myItems[2].currentFrame==5){_reusableTip.show(myItems[2], "Horse Kart","")}
 				}
 			}
 			
